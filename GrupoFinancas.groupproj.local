@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2019/10/09 17:02:10.575,C:\Users\zoete\source\repos\Financeiro\ProjectGroup1.groupproj=C:\Projetos\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2019/10/09 17:02:28.716,C:\Users\zoete\source\repos\Financeiro\GrupoFinancas.groupproj=C:\Users\zoete\source\repos\Financeiro\ProjectGroup1.groupproj</Transaction>
+  </Transactions>
+  <Default.Personality>
+    <Projects ActiveProject="C:\Users\zoete\source\repos\Financeiro\Financas.dproj"/>
+  </Default.Personality>
+</BorlandProject>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/10/09 10:59:10.000.804,=C:\Projetos\Unit1.pas</Transaction>
+    <Transaction>2019/10/09 11:01:37.000.797,C:\Projetos\Unit1.pas=C:\Users\zoete\source\repos\Financeiro\untPrincipal.pas</Transaction>
+    <Transaction>2019/10/09 11:01:37.000.797,C:\Projetos\Unit1.dfm=C:\Users\zoete\source\repos\Financeiro\untPrincipal.dfm</Transaction>
+    <Transaction>2019/10/09 11:01:48.000.448,C:\Projetos\Project1.dproj=C:\Users\zoete\source\repos\Financeiro\Financas.dproj</Transaction>
+    <Transaction>2019/10/10 15:24:56.000.795,=C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.Contrato.pas</Transaction>
+    <Transaction>2019/10/10 15:24:56.000.732,=C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.Cliente.pas</Transaction>
+    <Transaction>2019/10/10 15:24:56.000.826,=C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.ContratoParcela.pas</Transaction>
+    <Transaction>2019/10/10 15:25:52.000.966,C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.Cliente.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Dinancas.Model.Cliente.pas</Transaction>
+    <Transaction>2019/10/10 15:25:58.000.778,C:\Users\zoete\source\repos\Financeiro\Entidades\Dinancas.Model.Cliente.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Financas.Model.Cliente.pas</Transaction>
+    <Transaction>2019/10/10 15:26:08.000.528,C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.Contrato.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Minancas.Model.Contrato.pas</Transaction>
+    <Transaction>2019/10/10 15:26:13.000.544,C:\Users\zoete\source\repos\Financeiro\Entidades\Minancas.Model.Contrato.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Financas.Model.Contrato.pas</Transaction>
+    <Transaction>2019/10/10 15:26:23.000.497,C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.ContratoParcela.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\FFinancas.Model.ContratoParcela.pas</Transaction>
+    <Transaction>2019/10/10 15:26:27.000.982,C:\Users\zoete\source\repos\Financeiro\Entidades\FFinancas.Model.ContratoParcela.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Financas.Model.ContratoParcela.pas</Transaction>
+    <Transaction>2019/10/10 15:43:04.000.643,C:\Users\zoete\source\repos\Financeiro\Entidades\xfinancas.model.Cliente.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Financas.Model.Cliente.pas</Transaction>
+    <Transaction>2019/10/10 15:43:32.000.815,C:\Users\zoete\source\repos\Financeiro\Entidades\xfinancas.model.contrato.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Financas.Model.Contrato.pas</Transaction>
+    <Transaction>2019/10/10 15:43:38.000.363,C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.cliente.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\xfinancas.model.Cliente.pas</Transaction>
+    <Transaction>2019/10/10 15:43:42.000.986,C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.contrato.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\xfinancas.model.contrato.pas</Transaction>
+    <Transaction>2019/10/10 15:43:57.000.081,C:\Users\zoete\source\repos\Financeiro\Entidades\xfinancas.model.contratoparcela.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\Financas.Model.ContratoParcela.pas</Transaction>
+    <Transaction>2019/10/10 15:44:01.000.580,C:\Users\zoete\source\repos\Financeiro\Entidades\financas.model.contratoparcela.pas=C:\Users\zoete\source\repos\Financeiro\Entidades\xfinancas.model.contratoparcela.pas</Transaction>
+  </Transactions>
+</BorlandProject>

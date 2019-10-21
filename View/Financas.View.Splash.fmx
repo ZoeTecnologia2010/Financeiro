@@ -1,0 +1,87 @@
+object ViewSplash: TViewSplash
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = None
+  ClientHeight = 240
+  ClientWidth = 420
+  Position = ScreenCenter
+  FormStyle = StayOnTop
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object LayoutMain: TLayout
+    Align = Client
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 220.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object RectangleBlack: TRectangle
+      Align = Client
+      Fill.Color = claChocolate
+      Size.Width = 400.000000000000000000
+      Size.Height = 220.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+    end
+    object LabelSystem: TLabel
+      StyledSettings = [Family, Style]
+      Position.X = 8.000000000000000000
+      Position.Y = 136.000000000000000000
+      Size.Width = 385.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 30.000000000000000000
+      TextSettings.FontColor = claWhite
+      Text = 'Sistema Exemplo'
+      TabOrder = 3
+    end
+    object LabelVersion: TLabel
+      StyledSettings = [Family, Style]
+      Position.X = 312.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Vers'#227'o 1.0.0.0'
+      TabOrder = 1
+    end
+    object LabelCompany: TLabel
+      StyledSettings = [Family, Style]
+      Position.X = 8.000000000000000000
+      Position.Y = 192.000000000000000000
+      Size.Width = 385.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claWhite
+      Text = 
+        'Sistema desenvolvido pela Zoe Tecnologia, todos os direitos rese' +
+        'rvados.'
+      TabOrder = 2
+    end
+    object ShadowEffect: TShadowEffect
+      Distance = 3.000000000000000000
+      Direction = 45.000000000000000000
+      Softness = 0.300000011920929000
+      Opacity = 0.600000023841857900
+      ShadowColor = claBlack
+    end
+  end
+  object TimerSplash: TTimer
+    Enabled = False
+    Interval = 5000
+    OnTimer = TimerSplashTimer
+    Left = 8
+    Top = 8
+  end
+end

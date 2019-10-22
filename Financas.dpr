@@ -11,7 +11,8 @@ uses
   Financas.Controller.Listbox.Factory in 'Controller\Financas.Controller.Listbox.Factory.pas',
   Financas.Controller.Listbox.Itens.Default in 'Controller\Financas.Controller.Listbox.Itens.Default.pas',
   Financas.Controller.Listbox.Default in 'Controller\Financas.Controller.Listbox.Default.pas',
-  Financas.Controller.ApplicationInfo in 'Controller\Financas.Controller.ApplicationInfo.pas';
+  Financas.Controller.ApplicationInfo.Factory in 'Controller\Financas.Controller.ApplicationInfo.Factory.pas',
+  Financas.Model.ApplicationInfo in 'Model\Financas.Model.ApplicationInfo.pas';
 
 {$R *.res}
 

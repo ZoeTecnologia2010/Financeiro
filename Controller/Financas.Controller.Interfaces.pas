@@ -14,6 +14,10 @@ type
           ['{BD946BB0-3AA0-4F62-8323-3D9995592331}']
      end;
 
+     iControllerApplicationInfoFactory = interface
+          ['{CAAF492F-F49F-4E81-96A6-5BAEE1974DC9}']
+     end;
+
      iControllerListboxItensDefault = interface
           ['{6D81B601-2E7B-4E92-BF5F-723EBAB09EB5}']
           function Name(Value: String): iControllerListboxItensDefault;

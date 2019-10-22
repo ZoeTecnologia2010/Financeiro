@@ -260,7 +260,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Zoe Tecnologia;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.1;InternalName=Sistema Financeiro;LegalCopyright=Todos os direitos reservados a Zoe Tecnologia.;LegalTrademarks=Powered By Zoe Tecnologia;OriginalFilename=Sistema Financeiro;ProgramID=br.com.zoetecnologia.$(MSBuildProjectName);ProductName=Sistema Financeiro;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Zoe Tecnologia;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.1;InternalName=Sistema Financeiro;LegalCopyright=Sistema desenvolvido pela Zoe Tecnologia;LegalTrademarks=Todos os direitos reservados;OriginalFilename=Sistema Financeiro;ProgramID=br.com.zoetecnologia.$(MSBuildProjectName);ProductName=Sistema Financeiro;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>Image\Financas_44x44.png</UWP_DelphiLogo44>
@@ -276,7 +276,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Zoe Tecnologia;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.1;InternalName=Sistema Financeiro;LegalCopyright=Todos os direitos reservados a Zoe Tecnologia.;LegalTrademarks=Powered By Zoe Tecnologia;OriginalFilename=Sistema Financeiro;ProgramID=br.com.zoetecnologia.$(MSBuildProjectName);ProductName=Sistema Financeiro;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Zoe Tecnologia;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.1;InternalName=Sistema Financeiro;LegalCopyright=Sistema desenvolvido pela Zoe Tecnologia;LegalTrademarks=Todos os direitos reservados;OriginalFilename=Sistema Financeiro;ProgramID=br.com.zoetecnologia.$(MSBuildProjectName);ProductName=Sistema Financeiro;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <UWP_DelphiLogo44>Image\Financas_44x44.png</UWP_DelphiLogo44>
@@ -358,7 +358,8 @@
         <DCCReference Include="Controller\Financas.Controller.Listbox.Factory.pas"/>
         <DCCReference Include="Controller\Financas.Controller.Listbox.Itens.Default.pas"/>
         <DCCReference Include="Controller\Financas.Controller.Listbox.Default.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.ApplicationInfo.pas"/>
+        <DCCReference Include="Controller\Financas.Controller.ApplicationInfo.Factory.pas"/>
+        <DCCReference Include="Model\Financas.Model.ApplicationInfo.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

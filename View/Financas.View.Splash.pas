@@ -35,7 +35,7 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.ApplicationInfo;
+uses Financas.Controller.ApplicationInfo.Factory;
 
 procedure TViewSplash.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -57,10 +57,14 @@ begin
 end;
 
 procedure TViewSplash.ReadVersionInfo;
+var
+     ControllerApplicationInfoFactory: TControllerApplicationInfoFactory;
 begin
-     FCompanyName := LegalCopyright;
-     FSystemName := ProductName;
-     FVersion := 'Versão ' + FileVersion;
+     ControllerApplicationInfoFactory := TControllerApplicationInfoFactory.Create;
+     //
+     FCompanyName := ControllerApplicationInfoFactory.ApplicationInfo.LegalCopyRight + ', ' + ControllerApplicationInfoFactory.ApplicationInfo.LegalTradeMarks + '.';
+     FSystemName := ControllerApplicationInfoFactory.ApplicationInfo.ProductName;
+     FVersion := 'Versão ' + ControllerApplicationInfoFactory.ApplicationInfo.FileVersion;
 end;
 
 procedure TViewSplash.TimerSplashTimer(Sender: TObject);

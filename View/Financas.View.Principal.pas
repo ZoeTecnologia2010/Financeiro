@@ -9,6 +9,7 @@ type
      TViewPrincipal = class(TForm)
           Layout1: TLayout;
           procedure FormCreate(Sender: TObject);
+          procedure FormClose(Sender: TObject; var Action: TCloseAction);
      private
           { Private declarations }
           FCompanyName: String;
@@ -26,13 +27,25 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.ApplicationInfo;
+uses Financas.Controller.ApplicationInfo.Factory;
 
 procedure TViewPrincipal.ReadVersionInfo;
+var
+     ControllerApplicationInfoFactory: TControllerApplicationInfoFactory;
 begin
-     FCompanyName := LegalCopyright;
-     FSystemName := ProductName;
-     FVersion := 'Versão ' + FileVersion;
+     ControllerApplicationInfoFactory := TControllerApplicationInfoFactory.Create;
+     //
+     FCompanyName := ControllerApplicationInfoFactory.ApplicationInfo.CompanyName;
+     FSystemName := ControllerApplicationInfoFactory.ApplicationInfo.ProductName;
+     FVersion := 'Versão ' + ControllerApplicationInfoFactory.ApplicationInfo.FileVersion;
+end;
+
+procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+     if MessageDlg('Deseja encerrar o sistema?', TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0, TMsgDlgBtn.mbYes) = mrYes then
+          Action := TCloseAction.caFree
+     else
+          Action := TCloseAction.caNone;
 end;
 
 procedure TViewPrincipal.FormCreate(Sender: TObject);

@@ -7,9 +7,10 @@ uses
 
 type
      TViewPrincipal = class(TForm)
-          Layout1: TLayout;
+          LayoutMain: TLayout;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
+          procedure FormShow(Sender: TObject);
      private
           { Private declarations }
           FCompanyName: String;
@@ -27,17 +28,14 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.ApplicationInfo.Factory;
+uses Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory;
 
 procedure TViewPrincipal.ReadVersionInfo;
-var
-     ControllerApplicationInfoFactory: TControllerApplicationInfoFactory;
+
 begin
-     ControllerApplicationInfoFactory := TControllerApplicationInfoFactory.Create;
-     //
-     FCompanyName := ControllerApplicationInfoFactory.ApplicationInfo.CompanyName;
-     FSystemName := ControllerApplicationInfoFactory.ApplicationInfo.ProductName;
-     FVersion := 'Versão ' + ControllerApplicationInfoFactory.ApplicationInfo.FileVersion;
+     FSystemName := TControllerApplicationInfoFactory.New.ProductName;
+     FCompanyName := TControllerApplicationInfoFactory.New.CompanyName;
+     FVersion := 'Versão ' + TControllerApplicationInfoFactory.New.FileVersion;
 end;
 
 procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -53,6 +51,11 @@ begin
      ReadVersionInfo;
      //
      Caption := FSystemName + ' - ' + FVersion;
+end;
+
+procedure TViewPrincipal.FormShow(Sender: TObject);
+begin
+     // TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
 end;
 
 end.

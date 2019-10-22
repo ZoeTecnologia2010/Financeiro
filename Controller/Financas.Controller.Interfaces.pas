@@ -6,16 +6,32 @@ uses
      System.Classes, FMX.Types;
 
 type
+     iControllerListboxItensDefault = interface;
+     iControllerListboxDefault = interface;
+
+     iControllerListboxItensForm = interface
+          ['{34754E44-2355-460E-811D-DFD01A7CAE45}']
+          function Show: TFMXObject;
+     end;
+
+     iControllerListboxMenu = interface
+          ['{259EE633-DE95-464C-8A8F-218FBBEBA64A}']
+          procedure Exibir;
+     end;
+
      iControllerListboxItensFactory = interface
           ['{C2594544-AD66-4F60-8BEE-FF43F58210B0}']
+          function Default: iControllerListboxItensDefault;
+          function Cliente: iControllerListboxItensForm;
+          function Produto: iControllerListboxItensForm;
      end;
 
      iControllerListboxFactory = interface
           ['{BD946BB0-3AA0-4F62-8323-3D9995592331}']
-     end;
-
-     iControllerApplicationInfoFactory = interface
-          ['{CAAF492F-F49F-4E81-96A6-5BAEE1974DC9}']
+          function Default(Container: TComponent): iControllerListboxDefault;
+          function Principal(Container: TComponent): iControllerListboxMenu;
+          function Produtos(Container: TComponent): iControllerListboxMenu;
+          function Clientes(Container: TComponent): iControllerListboxMenu;
      end;
 
      iControllerListboxItensDefault = interface
@@ -34,6 +50,21 @@ type
           function ItemHeight(Value: Integer): iControllerListboxDefault;
           function AddItem(Value: TFMXobject): iControllerListboxDefault;
           function Lista: TFMXObject;
+          procedure Exibir;
+     end;
+
+     iControllerApplicationInfoFactory = interface
+          ['{CAAF492F-F49F-4E81-96A6-5BAEE1974DC9}']
+          function CompanyName: String;
+          function FileDescription: String;
+          function FileVersion: String;
+          function InternalName: String;
+          function LegalCopyRight: String;
+          function LegalTradeMarks: String;
+          function OriginalFileName: String;
+          function ProductName: String;
+          function ProductVersion: String;
+          function Comments: String;
      end;
 
 implementation

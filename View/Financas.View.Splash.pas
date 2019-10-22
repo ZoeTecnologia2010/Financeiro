@@ -57,14 +57,10 @@ begin
 end;
 
 procedure TViewSplash.ReadVersionInfo;
-var
-     ControllerApplicationInfoFactory: TControllerApplicationInfoFactory;
 begin
-     ControllerApplicationInfoFactory := TControllerApplicationInfoFactory.Create;
-     //
-     FCompanyName := ControllerApplicationInfoFactory.ApplicationInfo.LegalCopyRight + ', ' + ControllerApplicationInfoFactory.ApplicationInfo.LegalTradeMarks + '.';
-     FSystemName := ControllerApplicationInfoFactory.ApplicationInfo.ProductName;
-     FVersion := 'Versão ' + ControllerApplicationInfoFactory.ApplicationInfo.FileVersion;
+     FSystemName := TControllerApplicationInfoFactory.New.ProductName;
+     FCompanyName := TControllerApplicationInfoFactory.New.LegalCopyRight + ', ' + TControllerApplicationInfoFactory.New.LegalTradeMarks + '.';
+     FVersion := 'Versão ' + TControllerApplicationInfoFactory.New.FileVersion;
 end;
 
 procedure TViewSplash.TimerSplashTimer(Sender: TObject);

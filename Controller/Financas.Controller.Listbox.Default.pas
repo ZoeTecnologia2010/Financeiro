@@ -18,14 +18,19 @@ type
           function ItemHeight(Value: Integer): iControllerListboxDefault;
           function AddItem(Value: TFMXobject): iControllerListboxDefault;
           function Lista: TFMXObject;
+          procedure Exibir;
      end;
 
 implementation
 
+uses FMX.Layouts;
+
 { TControllerListboxDefault }
 
-function TControllerListboxDefault.AddItem(Value: TFMXobject): iControllerListboxDefault;
+function TControllerListboxDefault.AddItem(Value: TFMXObject): iControllerListboxDefault;
 begin
+     Result := Self;
+     //
      FListbox.AddObject(Value);
 end;
 
@@ -49,6 +54,11 @@ end;
 destructor TControllerListboxDefault.Destroy;
 begin
      inherited;
+end;
+
+procedure TControllerListboxDefault.Exibir;
+begin
+     TLayout(FContainer).AddObject(FListbox);
 end;
 
 function TControllerListboxDefault.ItemHeight(Value: Integer): iControllerListboxDefault;

@@ -12,7 +12,13 @@ uses
   Financas.Controller.Listbox.Itens.Default in 'Controller\Financas.Controller.Listbox.Itens.Default.pas',
   Financas.Controller.Listbox.Default in 'Controller\Financas.Controller.Listbox.Default.pas',
   Financas.Controller.ApplicationInfo.Factory in 'Controller\Financas.Controller.ApplicationInfo.Factory.pas',
-  Financas.Model.ApplicationInfo in 'Model\Financas.Model.ApplicationInfo.pas';
+  Financas.Model.ApplicationInfo in 'Model\Financas.Model.ApplicationInfo.pas',
+  Financas.Controller.Listbox.Itens.Cliente in 'Controller\Financas.Controller.Listbox.Itens.Cliente.pas',
+  Financas.Controller.Listbox.Principal in 'Controller\Financas.Controller.Listbox.Principal.pas',
+  Financas.Controller.Listbox.Itens.Produto in 'Controller\Financas.Controller.Listbox.Itens.Produto.pas',
+  Financas.Controller.Listbox.Produtos in 'Controller\Financas.Controller.Listbox.Produtos.pas',
+  Financas.Controller.Listbox.Clientes in 'Controller\Financas.Controller.Listbox.Clientes.pas',
+  Financas.Controller.Forms.Default in 'Controller\Financas.Controller.Forms.Default.pas';
 
 {$R *.res}
 

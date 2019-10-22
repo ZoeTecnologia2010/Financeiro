@@ -12,8 +12,9 @@ object ViewPrincipal: TViewPrincipal
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   OnClose = FormClose
+  OnShow = FormShow
   DesignerMasterStyle = 0
-  object Layout1: TLayout
+  object LayoutMain: TLayout
     Align = Left
     Size.Width = 193.000000000000000000
     Size.Height = 480.000000000000000000

@@ -11,11 +11,12 @@ type
           destructor Destroy; override;
           class function New: iControllerListboxItensForm;
           function Show: TFMXObject;
+          procedure OnClick(Sender: TObject);
      end;
 
 implementation
 
-uses Financas.Controller.Listbox.Itens.Factory;
+uses Financas.Controller.Listbox.Itens.Factory, Financas.Controller.Forms.Default;
 
 { TControllerListboxItensProduto }
 
@@ -34,12 +35,18 @@ begin
      Result := Self.Create;
 end;
 
+procedure TControllerListboxItensProduto.OnClick(Sender: TObject);
+begin
+     TControllerFormsDefault.CreateForm('TViewProduto');
+end;
+
 function TControllerListboxItensProduto.Show: TFMXObject;
 begin
      Result := TControllerListboxItensFactory.New
                     .Default
                     .Name('btnProduto')
                     .Text('Produtos')
+                    .OnClick(OnClick)
                     .Item;
 end;
 

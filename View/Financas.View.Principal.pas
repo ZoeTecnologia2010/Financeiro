@@ -55,7 +55,7 @@ end;
 
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
-     // TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
+     TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
 end;
 
 end.

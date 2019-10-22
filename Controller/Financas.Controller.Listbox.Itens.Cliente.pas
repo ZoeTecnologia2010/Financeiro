@@ -5,7 +5,7 @@ interface
 uses Financas.Controller.Interfaces, FMX.Listbox, System.Classes, FMX.Types;
 
 type
-     TControllerListboxItemCliente = class(TInterfacedObject, iControllerListboxItensForm)
+     TControllerListboxItensCliente = class(TInterfacedObject, iControllerListboxItensForm)
      public
           constructor Create;
           destructor Destroy; override;
@@ -19,22 +19,22 @@ uses Financas.Controller.Listbox.Itens.Factory;
 
 { TControllerListboxItensCliente }
 
-constructor TControllerListboxItemCliente.Create;
+constructor TControllerListboxItensCliente.Create;
 begin
 
 end;
 
-destructor TControllerListboxItemCliente.Destroy;
+destructor TControllerListboxItensCliente.Destroy;
 begin
      inherited;
 end;
 
-class function TControllerListboxItemCliente.New: iControllerListboxItensForm;
+class function TControllerListboxItensCliente.New: iControllerListboxItensForm;
 begin
      Result := Self.Create;
 end;
 
-function TControllerListboxItemCliente.Show: TFMXObject;
+function TControllerListboxItensCliente.Show: TFMXObject;
 begin
      Result := TControllerListboxItensFactory.New
                     .Default

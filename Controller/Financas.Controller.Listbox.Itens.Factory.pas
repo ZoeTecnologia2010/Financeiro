@@ -22,7 +22,7 @@ uses Financas.Controller.Listbox.Itens.Default, Financas.Controller.Listbox.Iten
 
 function TControllerListboxItensFactory.Cliente: iControllerListboxItensForm;
 begin
-     Result := TControllerListboxItemCliente.New;
+     Result := TControllerListboxItensCliente.New;
 end;
 
 constructor TControllerListboxItensFactory.Create;
@@ -47,7 +47,7 @@ end;
 
 function TControllerListboxItensFactory.Produto: iControllerListboxItensForm;
 begin
-     Result := TControllerListboxItemProduto.New;
+     Result := TControllerListboxItensProduto.New;
 end;
 
 end.

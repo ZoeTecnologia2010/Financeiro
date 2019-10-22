@@ -21,11 +21,11 @@ type
 
 implementation
 
-{ TControllerListboxItensDefault }
+{ TControllerListBoxItensDefault }
 
 constructor TControllerListboxItensDefault.Create;
 begin
-     FListboxItem := FListboxItem.Create(nil);
+     FListboxItem := TListboxItem.Create(nil);
      FListboxItem.Name := 'btnDefault';
      FListboxItem.Text := 'Default';
      FListboxItem.StyleLookup := 'listboxitemdetaillabel';

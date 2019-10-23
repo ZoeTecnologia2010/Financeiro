@@ -352,28 +352,21 @@
         <DCCReference Include="View\Financas.View.Principal.pas">
             <Form>ViewPrincipal</Form>
         </DCCReference>
-        <DCCReference Include="Controller\Financas.Controller.Interfaces.pas"/>
-        <DCCReference Include="Model\Financas.Model.Interfaces.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Itens.Factory.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Factory.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Itens.Default.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Default.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.ApplicationInfo.Factory.pas"/>
-        <DCCReference Include="Model\Financas.Model.ApplicationInfo.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Itens.Cliente.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Principal.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.ListBox.Itens.Produto.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Produtos.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Listbox.Clientes.pas"/>
-        <DCCReference Include="Controller\Financas.Controller.Forms.Default.pas"/>
         <DCCReference Include="View\Financas.View.Cliente.pas">
             <Form>ViewCliente</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="View\Financas.View.Produto.pas">
             <Form>ViewProduto</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="Controller\Financas.Controller.Interfaces.pas"/>
+        <DCCReference Include="Model\Financas.Model.Interfaces.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Clientes.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Factory.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Interfaces.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Produtos.pas"/>
+        <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Factory.Connection.pas"/>
+        <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Factory.DataSet.pas"/>
+        <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Interfaces.pas"/>
         <DCCReference Include="Model\Connections\Financas.Model.Connections.ConnectionFiredac.pas"/>
         <DCCReference Include="Model\Connections\Financas.Model.Connections.Factory.Connection.pas"/>
         <DCCReference Include="Model\Connections\Financas.Model.Connections.Factory.DataSet.pas"/>
@@ -383,13 +376,19 @@
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Factory.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Interfaces.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Produtos.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Clientes.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Factory.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Interfaces.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Produtos.pas"/>
-        <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Factory.Connection.pas"/>
-        <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Factory.DataSet.pas"/>
-        <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Interfaces.pas"/>
+        <DCCReference Include="Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas"/>
+        <DCCReference Include="Controller\Form\Financas.Controller.Forms.Default.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Clientes.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Default.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Factory.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Itens.Cliente.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Itens.Default.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Itens.Factory.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Itens.Produto.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Principal.pas"/>
+        <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Produtos.pas"/>
+        <DCCReference Include="Model\Ini\Financas.Model.IniFile.pas"/>
+        <DCCReference Include="Model\Application\Financas.Model.ApplicationInfo.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

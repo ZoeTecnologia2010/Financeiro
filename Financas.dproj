@@ -360,10 +360,10 @@
         </DCCReference>
         <DCCReference Include="Controller\Financas.Controller.Interfaces.pas"/>
         <DCCReference Include="Model\Financas.Model.Interfaces.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Clientes.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Cliente.pas"/>
         <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Factory.pas"/>
         <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Interfaces.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Produtos.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Produto.pas"/>
         <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Factory.Connection.pas"/>
         <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Factory.DataSet.pas"/>
         <DCCReference Include="Controller\Connections\Financas.Controller.Connections.Interfaces.pas"/>

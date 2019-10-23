@@ -2,7 +2,7 @@ unit Financas.Controller.Entity.Factory;
 
 interface
 
-uses Financas.Controller.Entity.Interfaces, Financas.Controller.Entity.Produtos;
+uses Financas.Controller.Entity.Interfaces;
 
 Type
      TControllerEntityFactory = class(TInterfacedObject, iControllerEntityFactory)
@@ -19,7 +19,7 @@ implementation
 
 { TControllerEntityFactory }
 
-uses Financas.Controller.Entity.Clientes;
+uses Financas.Controller.Entity.Cliente, Financas.Controller.Entity.Produto;
 
 function TControllerEntityFactory.Cliente: iControllerEntity;
 begin
@@ -33,7 +33,6 @@ end;
 
 destructor TControllerEntityFactory.Destroy;
 begin
-
      inherited;
 end;
 
@@ -44,7 +43,7 @@ end;
 
 function TControllerEntityFactory.Produto: iControllerEntity;
 begin
-     Result := TControllerEntityProdutos.New;
+     Result := TControllerEntityProduto.New;
 end;
 
 end.

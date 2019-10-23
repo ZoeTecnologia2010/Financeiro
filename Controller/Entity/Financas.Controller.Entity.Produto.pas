@@ -1,11 +1,11 @@
-unit Financas.Controller.Entity.Clientes;
+unit Financas.Controller.Entity.Produto;
 
 interface
 
 uses Financas.Controller.Entity.Interfaces, Financas.Model.Connections.Interfaces, Financas.Controller.Connections.Factory.Connection, Financas.Controller.Connections.Factory.DataSet, Financas.Model.Entity.Interfaces, Financas.Model.Entity.Factory, Data.DB;
 
 Type
-     TControllerEntityCliente = class(TInterfacedObject, iControllerEntity)
+     TControllerEntityProduto = class(TInterfacedObject, iControllerEntity)
      private
           FConnection: iModelConnection;
           FDataSet: iModelDataSet;
@@ -19,28 +19,29 @@ Type
 
 implementation
 
-{ TControllerEntityCliente }
+{ TControllerEntityProdutos }
 
-constructor TControllerEntityCliente.Create;
+constructor TControllerEntityProduto.Create;
 begin
      FConnection := TControllerConnectionsFactoryConnection.New.Connection;
      FDataSet := TControllerConnectionsFactoryDataSet.New.DataSet(FConnection);
-     FEntity := TModelEntityFactory.New.Clientes(FDataSet);
+     FEntity := TModelEntityFactory.New.Produtos(FDataSet);
 end;
 
-destructor TControllerEntityCliente.Destroy;
+destructor TControllerEntityProduto.Destroy;
 begin
+
      inherited;
 end;
 
-function TControllerEntityCliente.Lista(aDataSource: TDataSource): iControllerEntity;
+function TControllerEntityProduto.Lista(aDataSource: TDataSource): iControllerEntity;
 begin
      Result := Self;
      //
      aDataSource.DataSet := TDataSet(FEntity.Listar);
 end;
 
-class function TControllerEntityCliente.New: iControllerEntity;
+class function TControllerEntityProduto.New: iControllerEntity;
 begin
      Result := Self.Create;
 end;

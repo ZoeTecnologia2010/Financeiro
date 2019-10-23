@@ -2,7 +2,8 @@ unit Financas.Model.Connections.ConnectionFiredac;
 
 interface
 
-uses Financas.Model.Connections.Interfaces, FireDAC.Comp.Client, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait, FireDAC.Phys.FBDef, FireDAC.Phys.IBBase, FireDAC.Phys.FB, FireDAC.Comp.UI, Data.DB, FireDAC.DApt;
+uses Financas.Model.Connections.Interfaces, FireDAC.Comp.Client, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait, FireDAC.Phys.FBDef, FireDAC.Phys.IBBase, FireDAC.Phys.FB, FireDAC.Comp.UI, Data.DB, FireDAC.DApt,
+     FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite;
 
 Type
      TModelConnectionFiredac = class(TInterfacedObject, iModelConnection, iModelConnectionParams)
@@ -44,7 +45,14 @@ begin
      Result := Self;
      //
      ReadParams;
-     FConnection.Connected := true;
+     //
+     try
+          FConnection.LoginPrompt := False;
+          FConnection.Connected := True;
+     except
+          on E: Exception do
+               raise Exception.Create(E.Message);
+     end;
 end;
 
 constructor TModelConnectionFiredac.Create;

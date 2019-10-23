@@ -18,7 +18,7 @@ Type
 implementation
 
 const
-     FTABLENAME = 'CLIENTES';
+     FTABLENAME = 'CLIENTE';
 
      { TModelEntityCliente }
 

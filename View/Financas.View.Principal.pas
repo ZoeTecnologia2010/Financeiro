@@ -8,11 +8,11 @@ uses
 type
      TViewPrincipal = class(TForm)
           LayoutMain: TLayout;
-    ButtonDatabase: TButton;
+          ButtonDatabase: TButton;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
-    procedure ButtonDatabaseClick(Sender: TObject);
+          procedure ButtonDatabaseClick(Sender: TObject);
      private
           { Private declarations }
           FCompanyName: String;
@@ -30,8 +30,7 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory,
-  Financas.View.Conexao;
+uses Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao;
 
 procedure TViewPrincipal.ReadVersionInfo;
 

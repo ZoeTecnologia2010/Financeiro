@@ -1,0 +1,133 @@
+object ViewConexao: TViewConexao
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'Conex'#227'o com Banco de Dados'
+  ClientHeight = 336
+  ClientWidth = 235
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object EditDataBase: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 7
+    Position.X = 8.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '< Banco de Dados >'
+  end
+  object EditUserName: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    Position.X = 8.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '< Usu'#225'rio >'
+  end
+  object EditPassword: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Password = True
+    Position.X = 8.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '< Senha >'
+  end
+  object EditDriverID: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    Position.X = 8.000000000000000000
+    Position.Y = 168.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '< Driver ID >'
+  end
+  object EditPort: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Position.X = 8.000000000000000000
+    Position.Y = 264.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '< Porta >'
+  end
+  object EditServer: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Position.X = 8.000000000000000000
+    Position.Y = 216.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '< Servidor >'
+  end
+  object ButtonGravar: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 304.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    Text = 'Gravar'
+    OnClick = ButtonGravarClick
+  end
+  object LabelDatabase: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Text = 'Banco de Dados'
+    TabOrder = 16
+  end
+  object LabelUserName: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 56.000000000000000000
+    Text = 'Usu'#225'rio'
+    TabOrder = 15
+  end
+  object LabelPassword: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 104.000000000000000000
+    Text = 'Senha'
+    TabOrder = 14
+  end
+  object LabelDriverID: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 152.000000000000000000
+    Text = 'Driver'
+    TabOrder = 11
+  end
+  object LabelServer: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 200.000000000000000000
+    Text = 'Servidor'
+    TabOrder = 13
+  end
+  object LabelPort: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 248.000000000000000000
+    Text = 'Porta'
+    TabOrder = 12
+  end
+  object ButtonCancelar: TButton
+    Position.X = 120.000000000000000000
+    Position.Y = 304.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    Text = 'Cancelar'
+    OnClick = ButtonCancelarClick
+  end
+end

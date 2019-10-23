@@ -2,17 +2,18 @@ unit Financas.Model.IniFile;
 
 interface
 
-uses Financas.Model.Interfaces;
+uses Financas.Model.Interfaces, IniFiles;
 
 type
      TModelIniFile = class(TInterfacedObject, iModelIniFile)
      private
-          FDatabase: String;
-          FUserName: String;
-          FPassword: String;
-          FDriverID: String;
-          FServer: String;
-          FPort: String;
+          FFileName: String;
+          function GetDatabase: String;
+          function GetUserName: String;
+          function GetPassword: String;
+          function GetDriverID: String;
+          function GetServer: String;
+          function GetPort: String;
           procedure SetDatabase(const Value: String);
           procedure SetUserName(const Value: String);
           procedure SetPassword(const Value: String);
@@ -20,12 +21,12 @@ type
           procedure SetServer(const Value: String);
           procedure SetPort(const Value: String);
      published
-          property Database: String read FDatabase write SetDatabase;
-          property UserName: String read FUserName write SetUserName;
-          property Password: String read FPassword write SetPassword;
-          property DriverID: String read FDriverID write SetDriverID;
-          property Server: String read FServer write SetServer;
-          property Port: String read FPort write SetPort;
+          property Database: String read GetDatabase write SetDatabase;
+          property UserName: String read GetUserName write SetUserName;
+          property Password: String read GetPassword write SetPassword;
+          property DriverID: String read GetDriverID write SetDriverID;
+          property Server: String read GetServer write SetServer;
+          property Port: String read GetPort write SetPort;
           constructor Create;
           destructor Destroy; override;
           class function New: iModelIniFile;
@@ -37,23 +38,50 @@ implementation
 
 uses Winapi.Windows, System.SysUtils, System.Classes, Math, FMX.Forms;
 
-function GetFileInfo(FileName, KeyName: String): String;
+function GetFileInfo(FileName, KeySection, KeyName, ValueDefault: String): String;
+var
+     IniFile: TIniFile;
+     KeyResult: String;
 begin
-     Result := 'X-' + KeyName + '-X';
+     KeyResult := '';
+     //
+     if FileExists(FileName) then
+     begin
+          IniFile := TIniFile.Create(FileName);
+          //
+          try
+               KeyResult := IniFile.ReadString(KeySection, KeyName, ValueDefault);
+          finally
+               Result := KeyResult;
+               //
+               IniFile.Free;
+          end;
+     end;
+end;
+
+function SetFileInfo(FileName, KeySection, KeyName, ValueDefault: String): String;
+var
+     IniFile: TIniFile;
+     KeyResult: String;
+begin
+     KeyResult := '';
+     //
+     IniFile := TIniFile.Create(FileName);
+     //
+     try
+          IniFile.WriteString(KeySection, KeyName, ValueDefault);
+          //
+          KeyResult := ValueDefault;
+     finally
+          Result := KeyResult;
+          //
+          IniFile.Free;
+     end;
 end;
 
 constructor TModelIniFile.Create;
-var
-     FileName: String;
 begin
-     FileName := Application.Title + '.INI';
-     //
-     SetDatabase(GetFileInfo(FileName, 'Database'));
-     SetUserName(GetFileInfo(FileName, 'UserName'));
-     SetPassword(GetFileInfo(FileName, 'Password'));
-     SetDriverID(GetFileInfo(FileName, 'DriverID'));
-     SetServer(GetFileInfo(FileName, 'Server'));
-     SetPort(GetFileInfo(FileName, 'Port'));
+     FFileName := System.SysUtils.GetCurrentDir + '\' + Application.Title + '.INI';
 end;
 
 destructor TModelIniFile.Destroy;
@@ -66,34 +94,64 @@ begin
      Result := Self.Create;
 end;
 
+function TModelIniFile.GetDatabase: String;
+begin
+     Result := GetFileInfo(FFileName, 'Database', 'Database', '');
+end;
+
+function TModelIniFile.GetUserName: String;
+begin
+     Result := GetFileInfo(FFileName, 'Database', 'UserName', '');
+end;
+
+function TModelIniFile.GetPassword: String;
+begin
+     Result := GetFileInfo(FFileName, 'Database', 'Password', '');
+end;
+
+function TModelIniFile.GetDriverID: String;
+begin
+     Result := GetFileInfo(FFileName, 'Database', 'DriverID', '');
+end;
+
+function TModelIniFile.GetServer: String;
+begin
+     Result := GetFileInfo(FFileName, 'Database', 'Server', '');
+end;
+
+function TModelIniFile.GetPort: String;
+begin
+     Result := GetFileInfo(FFileName, 'Database', 'Port', '');
+end;
+
 procedure TModelIniFile.SetDatabase(const Value: String);
 begin
-     FDatabase := Value;
+     SetFileInfo(FFileName, 'Database', 'Database', Value);
 end;
 
 procedure TModelIniFile.SetUserName(const Value: String);
 begin
-     FUserName := Value;
+     SetFileInfo(FFileName, 'Database', 'UserName', Value);
 end;
 
 procedure TModelIniFile.SetPassword(const Value: String);
 begin
-     FPassword := Value;
+     SetFileInfo(FFileName, 'Database', 'Password', Value);
 end;
 
 procedure TModelIniFile.SetDriverID(const Value: String);
 begin
-     FDriverID := Value;
+     SetFileInfo(FFileName, 'Database', 'DriverID', Value);
 end;
 
 procedure TModelIniFile.SetServer(const Value: String);
 begin
-     FServer := Value;
+     SetFileInfo(FFileName, 'Database', 'Server', Value);
 end;
 
 procedure TModelIniFile.SetPort(const Value: String);
 begin
-     FPort := Value;
+     SetFileInfo(FFileName, 'Database', 'Port', Value);
 end;
 
 end.

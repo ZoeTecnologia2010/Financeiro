@@ -16,8 +16,7 @@ Type
 
 implementation
 
-uses
-     System.SysUtils;
+uses System.SysUtils, Financas.Controller.IniFiles.Factory;
 
 { TControllerConnectionsFactoryConnection }
 
@@ -26,23 +25,22 @@ var
      Connection: Integer;
 begin
      Connection := 0;
-
+     //
      case Connection of
           0: Result := TModelConnectionFactoryConnections.New
                          .ConnectionFiredac
                          .Params
-                              .Database('D:\Bancos\Firebird\DIVERSOS.FDB')
-                              .UserName('SYSDBA')
-                              .Password('masterkey')
-                              .DriverID('FB')
-                              .Server('localhost')
-                              .Porta(3050)
+                              .Database(TControllerIniFileFactory.New.Database)
+                              .UserName(TControllerIniFileFactory.New.UserName)
+                              .Password(TControllerIniFileFactory.New.Password)
+                              .DriverID(TControllerIniFileFactory.New.DriverID)
+                              .Server(TControllerIniFileFactory.New.Server)
+                              .Porta(StrToInt(TControllerIniFileFactory.New.Port))
                          .EndParams
                          .Conectar;
 
           1: raise Exception.Create('Componente de acesso não configurado');
      end;
-
 end;
 
 constructor TControllerConnectionsFactoryConnection.Create;
@@ -52,7 +50,6 @@ end;
 
 destructor TControllerConnectionsFactoryConnection.Destroy;
 begin
-
      inherited;
 end;
 

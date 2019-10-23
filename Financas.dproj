@@ -266,7 +266,7 @@
         <UWP_DelphiLogo44>Image\Financas_44x44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>Image\Financas_150x150.png</UWP_DelphiLogo150>
         <DCC_ExeOutput>.\$(Platform)</DCC_ExeOutput>
-        <DCC_DcuOutput>.\$(Platform)</DCC_DcuOutput>
+        <DCC_DcuOutput>.\DCU</DCC_DcuOutput>
         <Icon_MainIcon>Image\Financas_32x32.ico</Icon_MainIcon>
         <Icns_MainIcns>Image\Financas.icns</Icns_MainIcns>
         <VerInfo_Build>1</VerInfo_Build>
@@ -282,7 +282,7 @@
         <UWP_DelphiLogo44>Image\Financas_44x44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>Image\Financas_150x150.png</UWP_DelphiLogo150>
         <DCC_ExeOutput>.\$(Platform)</DCC_ExeOutput>
-        <DCC_DcuOutput>.\$(Platform)</DCC_DcuOutput>
+        <DCC_DcuOutput>.\DCU</DCC_DcuOutput>
         <Icon_MainIcon>Image\Financas_32x32.ico</Icon_MainIcon>
         <Icns_MainIcns>Image\Financas.icns</Icns_MainIcns>
         <VerInfo_Build>1</VerInfo_Build>
@@ -300,7 +300,7 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <DCC_ExeOutput>.\$(Platform)</DCC_ExeOutput>
-        <DCC_DcuOutput>.\$(Platform)</DCC_DcuOutput>
+        <DCC_DcuOutput>.\DCU</DCC_DcuOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <Icon_MainIcon>Image\Financas_32x32.ico</Icon_MainIcon>
@@ -389,6 +389,11 @@
         <DCCReference Include="Controller\Menus\Financas.Controller.Listbox.Produtos.pas"/>
         <DCCReference Include="Model\Ini\Financas.Model.IniFile.pas"/>
         <DCCReference Include="Model\Application\Financas.Model.ApplicationInfo.pas"/>
+        <DCCReference Include="Controller\Ini\Financas.Controller.IniFiles.Factory.pas"/>
+        <DCCReference Include="View\Financas.View.Conexao.pas">
+            <Form>ViewConexao</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

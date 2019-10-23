@@ -37,7 +37,9 @@ uses
   Financas.Controller.Listbox.Principal in 'Controller\Menus\Financas.Controller.Listbox.Principal.pas',
   Financas.Controller.Listbox.Produtos in 'Controller\Menus\Financas.Controller.Listbox.Produtos.pas',
   Financas.Model.IniFile in 'Model\Ini\Financas.Model.IniFile.pas',
-  Financas.Model.ApplicationInfo in 'Model\Application\Financas.Model.ApplicationInfo.pas';
+  Financas.Model.ApplicationInfo in 'Model\Application\Financas.Model.ApplicationInfo.pas',
+  Financas.Controller.IniFiles.Factory in 'Controller\Ini\Financas.Controller.IniFiles.Factory.pas',
+  Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao};
 
 {$R *.res}
 

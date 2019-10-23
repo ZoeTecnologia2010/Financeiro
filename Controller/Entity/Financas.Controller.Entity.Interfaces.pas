@@ -2,19 +2,15 @@ unit Financas.Controller.Entity.Interfaces;
 
 interface
 
-uses
-  Data.DB;
+uses Data.DB, Datasnap.DBClient, ormbr.factory.interfaces, ormbr.container.dataset.interfaces,
+     Financas.Model.Entity.Produto, Financas.Model.Entity.Cliente, Financas.Model.Entity.Contrato, Financas.Model.Entity.ContratoParcela;
 
 type
-  iControllerEntity = interface
-    ['{C4456164-F064-461D-B383-7B4E4B538585}']
-    function Lista(aDataSource : TDataSource) : iControllerEntity;
-  end;
 
   iControllerEntityFactory = interface
     ['{9F063B38-9A72-44F6-8ABC-FF11867BAB47}']
-    function Produto : iControllerEntity;
-    function Cliente : iControllerEntity;
+    function Cliente(cdsLocal: TClientDataSet): IContainerDataSet<TCliente>;
+    function Produto(cdsLocal: TClientDataSet): IContainerDataSet<TProduto>;
   end;
 
 implementation

@@ -35,8 +35,8 @@ object ViewProduto: TViewProduto
     Size.Height = 415.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    Viewport.Width = 636.000000000000000000
-    Viewport.Height = 390.000000000000000000
+    Viewport.Width = 640.000000000000000000
+    Viewport.Height = 415.000000000000000000
   end
   object BindNavigator: TBindNavigator
     Align = Bottom
@@ -50,6 +50,7 @@ object ViewProduto: TViewProduto
     yRadius = 4.000000000000000000
   end
   object DataSource: TDataSource
+    DataSet = cdsRegistro
     Left = 536
     Top = 56
   end
@@ -70,5 +71,11 @@ object ViewProduto: TViewProduto
       GridControl = StringGrid
       Columns = <>
     end
+  end
+  object cdsRegistro: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 472
+    Top = 56
   end
 end

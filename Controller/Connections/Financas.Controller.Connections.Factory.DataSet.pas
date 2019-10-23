@@ -2,8 +2,7 @@ unit Financas.Controller.Connections.Factory.DataSet;
 
 interface
 
-uses Financas.Controller.Connections.Interfaces, Financas.Model.Connections.Interfaces,
-  Financas.Model.Connections.Factory.DataSet;
+uses Financas.Controller.Connections.Interfaces, Financas.Model.Connections.Interfaces, Financas.Model.Connections.Factory.DataSet;
 
 Type
   TControllerConnectionsFactoryDataSet = class(TInterfacedObject, iControllerFactoryDataSet)

@@ -50,6 +50,7 @@ object ViewCliente: TViewCliente
     yRadius = 4.000000000000000000
   end
   object DataSource: TDataSource
+    DataSet = cdsRegistro
     Left = 536
     Top = 56
   end
@@ -70,5 +71,11 @@ object ViewCliente: TViewCliente
       GridControl = StringGrid
       Columns = <>
     end
+  end
+  object cdsRegistro: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 472
+    Top = 56
   end
 end

@@ -21,7 +21,9 @@ begin
      ObjFMX := TFMXObjectClass(GetClass(ClassName));
      try
           newForm := (ObjFMX.Create(nil) as TCustomForm);
+          //
           try
+               newForm.Position := TFormPosition.ScreenCenter;
                newForm.ShowModal;
           finally
                newForm.Free;

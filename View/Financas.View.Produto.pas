@@ -33,14 +33,13 @@ var
 
 implementation
 
-uses Financas.Controller.Entity.Factory, Financas.Controller.Connections.Factory;
+uses Financas.Controller.Entity.Factory, Financas.Model.Connection.Factory;
 
 {$R *.fmx}
 
 procedure TViewProduto.FormCreate(Sender: TObject);
 begin
-     //oProduto := TContainerClientDataSet<TProduto>.Create(TControllerConnectionsFactory.New.Connection, cdsRegistro, 10);
-     oProduto := TControllerEntityFactory.New.Produto(cdsRegistro);
+     oProduto := TContainerClientDataSet<TProduto>.Create(TModelConnectionFactory.New.Connection, cdsRegistro, 10);
      //
      oProduto.Open;
      //

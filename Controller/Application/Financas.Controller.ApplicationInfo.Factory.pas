@@ -2,7 +2,7 @@ unit Financas.Controller.ApplicationInfo.Factory;
 
 interface
 
-uses Financas.Controller.Interfaces, Financas.Model.ApplicationInfo;
+uses Financas.Controller.ApplicationInfo.Interfaces, Financas.Model.ApplicationInfo;
 
 type
      TControllerApplicationInfoFactory = class(TInterfacedObject, iControllerApplicationInfoFactory)

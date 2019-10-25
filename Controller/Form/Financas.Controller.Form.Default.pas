@@ -1,9 +1,9 @@
-unit Financas.Controller.Forms.Default;
+unit Financas.Controller.Form.Default;
 
 interface
 
 type
-     TControllerFormsDefault = class
+     TControllerFormDefault = class
           class procedure CreateForm(ClassName: String);
      end;
 
@@ -13,7 +13,7 @@ uses FMX.Types, System.Classes, FMX.Forms, System.SysUtils;
 
 { TControllerFormsDefault }
 
-class procedure TControllerFormsDefault.CreateForm(ClassName: String);
+class procedure TControllerFormDefault.CreateForm(ClassName: String);
 var
      ObjFMX: TFMXObjectClass;
      newForm: TCustomForm;

@@ -2,7 +2,7 @@ unit Financas.Model.IniFile;
 
 interface
 
-uses Financas.Model.Interfaces, IniFiles;
+uses Financas.Model.IniFile.Interfaces, IniFiles;
 
 type
      TModelIniFile = class(TInterfacedObject, iModelIniFile)

@@ -1,18 +1,13 @@
-unit Financas.Controller.Interfaces;
+unit Financas.Controller.Listbox.Interfaces;
 
 interface
 
 uses
-     System.Classes, FMX.Types;
+     System.Classes, FMX.Types, Financas.Controller.Form.Interfaces;
 
 type
      iControllerListboxItensDefault = interface;
      iControllerListboxDefault = interface;
-
-     iControllerListboxItensForm = interface
-          ['{34754E44-2355-460E-811D-DFD01A7CAE45}']
-          function Show: TFMXObject;
-     end;
 
      iControllerListboxMenu = interface
           ['{259EE633-DE95-464C-8A8F-218FBBEBA64A}']
@@ -51,36 +46,6 @@ type
           function AddItem(Value: TFMXobject): iControllerListboxDefault;
           function Lista: TFMXObject;
           procedure Exibir;
-     end;
-
-     iControllerApplicationInfoFactory = interface
-          ['{CAAF492F-F49F-4E81-96A6-5BAEE1974DC9}']
-          function CompanyName: String;
-          function FileDescription: String;
-          function FileVersion: String;
-          function InternalName: String;
-          function LegalCopyRight: String;
-          function LegalTradeMarks: String;
-          function OriginalFileName: String;
-          function ProductName: String;
-          function ProductVersion: String;
-          function Comments: String;
-     end;
-
-     iControllerIniFileFactory = interface
-          ['{71ABF879-779C-4012-94EC-422E06133ACF}']
-          function Database: String;
-          function UserName: String;
-          function Password: String;
-          function DriverID: String;
-          function Server: String;
-          function Port: String;
-          procedure SetDatabase(const Value: String);
-          procedure SetUserName(const Value: String);
-          procedure SetPassword(const Value: String);
-          procedure SetDriverID(const Value: String);
-          procedure SetServer(const Value: String);
-          procedure SetPort(const Value: String);
      end;
 
 implementation

@@ -38,7 +38,7 @@ var
 implementation
 
 uses
-     Financas.Controller.IniFiles.Factory;
+     Financas.Controller.IniFile.Factory;
 
 {$R *.fmx}
 

@@ -31,13 +31,13 @@ var
 
 implementation
 
-uses Financas.Controller.Entity.Factory, Financas.Controller.Connections.Factory;
+uses Financas.Controller.Entity.Factory, Financas.Model.Connection.Factory;
 
 {$R *.fmx}
 
 procedure TViewCliente.FormCreate(Sender: TObject);
 begin
-     oCliente := TContainerClientDataSet<TCliente>.Create(TControllerConnectionsFactory.New.Connection, cdsRegistro, 10);
+     oCliente := TContainerClientDataSet<TCliente>.Create(TModelConnectionFactory.New.Connection, cdsRegistro, 10);
      //
      oCliente.Open;
      //

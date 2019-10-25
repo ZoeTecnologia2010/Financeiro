@@ -33,13 +33,13 @@ Type
 
 implementation
 
-uses Financas.Controller.Connections.Factory, FMX.Dialogs;
+uses Financas.Model.Connection.Factory, FMX.Dialogs;
 
 { TControllerEntityFactory }
 
 function TControllerEntityFactory.Cliente(cdsLocal: TClientDataSet): IContainerDataSet<TCliente>;
 begin
-     oCliente := TContainerClientDataSet<TCliente>.Create(TControllerConnectionsFactory.New.Connection, cdsLocal, 3);
+     oCliente := TContainerClientDataSet<TCliente>.Create(TModelConnectionFactory.New.Connection, cdsLocal, 3);
      //
      Result := oCliente;
 end;
@@ -61,7 +61,7 @@ end;
 
 function TControllerEntityFactory.Produto(cdsLocal: TClientDataSet): IContainerDataSet<TProduto>;
 begin
-     oProduto:= TContainerClientDataSet<TProduto>.Create(TControllerConnectionsFactory.New.Connection, cdsLocal, 3);
+     oProduto:= TContainerClientDataSet<TProduto>.Create(TModelConnectionFactory.New.Connection, cdsLocal, 3);
      //
      Result := oProduto;
 end;

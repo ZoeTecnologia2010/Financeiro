@@ -1,8 +1,8 @@
-unit Financas.Controller.IniFiles.Factory;
+unit Financas.Controller.IniFile.Factory;
 
 interface
 
-uses Financas.Controller.Interfaces, Financas.Model.IniFile;
+uses Financas.Controller.IniFile.Interfaces, Financas.Model.IniFile;
 
 type
      TControllerIniFileFactory = class(TInterfacedObject, iControllerIniFileFactory)

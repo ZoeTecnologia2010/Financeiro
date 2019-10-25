@@ -2,7 +2,7 @@ unit Financas.Model.ApplicationInfo;
 
 interface
 
-uses Financas.Model.Interfaces;
+uses Financas.Model.ApplicationInfo.Interfaces;
 
 type
      TModelApplicationInfo = class(TInterfacedObject, iModelApplicationInfo)

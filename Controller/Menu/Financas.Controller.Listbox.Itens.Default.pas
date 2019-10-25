@@ -2,7 +2,7 @@ unit Financas.Controller.Listbox.Itens.Default;
 
 interface
 
-uses Financas.Controller.Interfaces, FMX.Listbox, System.Classes, FMX.Types;
+uses Financas.Controller.Listbox.Interfaces, FMX.Listbox, System.Classes, FMX.Types;
 
 type
      TControllerListboxItensDefault = class(TInterfacedObject, iControllerListboxItensDefault)

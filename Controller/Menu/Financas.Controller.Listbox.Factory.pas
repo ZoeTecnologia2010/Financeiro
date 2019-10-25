@@ -2,7 +2,7 @@ unit Financas.Controller.Listbox.Factory;
 
 interface
 
-uses Financas.Controller.Interfaces, System.Classes;
+uses Financas.Controller.Listbox.Interfaces, System.Classes;
 
 type
      TControllerListboxFactory = class(TInterfacedObject, iControllerListboxFactory)

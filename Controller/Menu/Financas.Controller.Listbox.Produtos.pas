@@ -1,11 +1,11 @@
-unit Financas.Controller.Listbox.Clientes;
+unit Financas.Controller.Listbox.Produtos;
 
 interface
 
-uses Financas.Controller.Interfaces, System.Classes;
+uses Financas.Controller.Listbox.Interfaces, System.Classes;
 
 type
-     TControllerListboxClientes = class(TInterfacedObject, iControllerListboxMenu)
+     TControllerListboxProdutos = class(TInterfacedObject, iControllerListboxMenu)
      private
           FContainer: TComponent;
      public
@@ -17,29 +17,29 @@ type
 
 implementation
 
-{ TControllerListboxClientes }
+{ TControllerListboxProdutos }
 
 uses Financas.Controller.Listbox.Factory, Financas.Controller.Listbox.Itens.Factory;
 
-constructor TControllerListboxClientes.Create(Container: TComponent);
+constructor TControllerListboxProdutos.Create(Container: TComponent);
 begin
      FContainer := Container;
 end;
 
-destructor TControllerListboxClientes.Destroy;
+destructor TControllerListboxProdutos.Destroy;
 begin
      inherited;
 end;
 
-procedure TControllerListboxClientes.Exibir;
+procedure TControllerListboxProdutos.Exibir;
 begin
      TControllerListboxFactory.New
           .Default(FContainer)
-          .AddItem(TControllerListboxItensFactory.New.Produto.Show)
+          .AddItem(TControllerListboxItensFactory.New.Cliente.Show)
           .Exibir;
 end;
 
-class function TControllerListboxClientes.New(Container: TComponent): iControllerListboxMenu;
+class function TControllerListboxProdutos.New(Container: TComponent): iControllerListboxMenu;
 begin
      Result := Self.Create(Container);
 end;

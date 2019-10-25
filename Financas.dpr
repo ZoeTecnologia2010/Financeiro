@@ -35,7 +35,11 @@ uses
   Financas.Controller.Listbox.Itens.Cliente in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Cliente.pas',
   Financas.Controller.Listbox.Itens.Default in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Default.pas',
   Financas.Controller.Listbox.Itens.Factory in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Factory.pas',
-  Financas.Controller.Listbox.Itens.Produto in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Produto.pas';
+  Financas.Controller.Listbox.Itens.Produto in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Produto.pas',
+  Financas.Model.DAO.Interfaces in 'Model\DAO\Financas.Model.DAO.Interfaces.pas',
+  Financas.Model.DAO in 'Model\DAO\Financas.Model.DAO.pas',
+  Financas.Model.Connection.Query in 'Model\Connection\Financas.Model.Connection.Query.pas',
+  Financas.Model.Connection in 'Model\Connection\Financas.Model.Connection.pas';
 
 {$R *.res}
 

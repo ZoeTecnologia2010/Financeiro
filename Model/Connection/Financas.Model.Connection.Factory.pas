@@ -2,42 +2,39 @@ unit Financas.Model.Connection.Factory;
 
 interface
 
-uses Financas.Model.Connection.Interfaces, ormbr.container.dataset.interfaces, ormbr.factory.interfaces, ormbr.container.clientdataset, ormbr.factory.sqlite3, SQLiteTable3;
+uses Financas.Model.Connection.Interfaces;
 
-Type
+type
      TModelConnectionFactory = class(TInterfacedObject, iModelConnectionFactory)
      private
-         FDatabase: TSQLiteDatabase;
-         oConn: IDBConnection;
+
      public
           constructor Create;
           destructor Destroy; override;
           class function New: iModelConnectionFactory;
-          function Connection: IDBConnection;
+          function Connection: iModelConnection;
+          function Query: iModelQuery;
      end;
 
 implementation
 
-uses System.SysUtils, Financas.Controller.IniFile.Factory;
+uses System.SysUtils, Financas.Model.Connection, Financas.Model.Connection.Query;
 
-{ TControllerConnectionsFactoryConnection }
+{ TModelConnectionFactory }
 
-function TModelConnectionFactory.Connection: IDBConnection;
+function TModelConnectionFactory.Connection: iModelConnection;
 begin
-     Result := oConn;
+     Result := TModelConnection.New;
 end;
 
 constructor TModelConnectionFactory.Create;
 begin
-     FDatabase := TSQLiteDatabase.Create;
-     FDatabase.Filename := TControllerIniFileFactory.New.Database;
-     //
-     oConn := TFactorySQLite.Create(FDatabase, dnSQLite);
+
 end;
 
 destructor TModelConnectionFactory.Destroy;
 begin
-     FDatabase.Free;
+
      //
      inherited;
 end;
@@ -45,6 +42,11 @@ end;
 class function TModelConnectionFactory.New: iModelConnectionFactory;
 begin
      Result := Self.Create;
+end;
+
+function TModelConnectionFactory.Query: iModelQuery;
+begin
+     Result := TModelConnectionQuery.New;
 end;
 
 end.

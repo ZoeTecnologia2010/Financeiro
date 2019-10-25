@@ -10,7 +10,6 @@ object ViewCliente: TViewCliente
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object ToolBar: TToolBar
     Size.Width = 640.000000000000000000

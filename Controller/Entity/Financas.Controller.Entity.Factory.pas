@@ -18,7 +18,7 @@ uses Datasnap.DBClient, Data.DB, Financas.Controller.Entity.Interfaces,
        /// SQLite
        SQLiteTable3;
 
-Type
+type
      TControllerEntityFactory = class(TInterfacedObject, iControllerEntityFactory)
      private
          oCliente: IContainerDataSet<TCliente>;
@@ -39,7 +39,7 @@ uses Financas.Model.Connection.Factory, FMX.Dialogs;
 
 function TControllerEntityFactory.Cliente(cdsLocal: TClientDataSet): IContainerDataSet<TCliente>;
 begin
-     oCliente := TContainerClientDataSet<TCliente>.Create(TModelConnectionFactory.New.Connection, cdsLocal, 3);
+     //oCliente := TContainerClientDataSet<TCliente>.Create(TModelConnectionFactory.New.Connection, cdsLocal, 3);
      //
      Result := oCliente;
 end;
@@ -61,7 +61,7 @@ end;
 
 function TControllerEntityFactory.Produto(cdsLocal: TClientDataSet): IContainerDataSet<TProduto>;
 begin
-     oProduto:= TContainerClientDataSet<TProduto>.Create(TModelConnectionFactory.New.Connection, cdsLocal, 3);
+     //oProduto:= TContainerClientDataSet<TProduto>.Create(TModelConnectionFactory.New.Connection, cdsLocal, 3);
      //
      Result := oProduto;
 end;

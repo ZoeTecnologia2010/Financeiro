@@ -10,7 +10,6 @@ object ViewProduto: TViewProduto
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object ToolBar: TToolBar
     Size.Width = 640.000000000000000000
@@ -35,8 +34,8 @@ object ViewProduto: TViewProduto
     Size.Height = 415.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    Viewport.Width = 640.000000000000000000
-    Viewport.Height = 415.000000000000000000
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 390.000000000000000000
   end
   object BindNavigator: TBindNavigator
     Align = Bottom

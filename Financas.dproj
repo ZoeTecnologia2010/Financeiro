@@ -270,6 +270,8 @@
         <Icon_MainIcon>Image\Financas_32x32.ico</Icon_MainIcon>
         <Icns_MainIcns>Image\Financas.icns</Icns_MainIcns>
         <VerInfo_Build>1</VerInfo_Build>
+        <DCC_Hints>false</DCC_Hints>
+        <DCC_Warnings>false</DCC_Warnings>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXInterBaseDriver;DBXDb2Driver;vclactnband;vclFireDAC;emsclientfiredac;tethering;DataSnapFireDAC;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;fmx;FireDACIBDriver;fmxdae;RVPkgD10_3;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;RvHtmlD10_3;inet;IndyIPCommon;bindcompdbx;vcl;IndyIPServer;DBXSybaseASEDriver;IndySystem;FireDACDb2Driver;dsnapcon;tmsxlsdXE12;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;RichViewActionsD10_3;TeeDB;FireDAC;emshosting;tmsdXE12;FireDACSqliteDriver;FireDACPgDriver;FireDACASADriver;FireDACTDataDriver;DBXOdbcDriver;FMXTee;soaprtl;DbxCommonDriver;Tee;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;FireDACDSDriver;rtl;emsserverresource;DbxClientDriver;tmsexdXE12;DBXSybaseASADriver;RVDBPkgD10_3;CustomIPTransport;vcldsnap;rvHtmlViewImportD10_3;bindcomp;appanalytics;DBXInformixDriver;officeXPrt;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;inetdbxpress;FireDACMongoDBDriver;PowerPDFDR;DataSnapServerMidas;$(DCC_UsePackage)</DCC_UsePackage>
@@ -286,6 +288,8 @@
         <Icon_MainIcon>Image\Financas_32x32.ico</Icon_MainIcon>
         <Icns_MainIcns>Image\Financas.icns</Icns_MainIcns>
         <VerInfo_Build>1</VerInfo_Build>
+        <DCC_Hints>false</DCC_Hints>
+        <DCC_Warnings>false</DCC_Warnings>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -306,6 +310,8 @@
         <Icon_MainIcon>Image\Financas_32x32.ico</Icon_MainIcon>
         <Icns_MainIcns>Image\Financas.icns</Icns_MainIcns>
         <VerInfo_Build>1</VerInfo_Build>
+        <DCC_Hints>false</DCC_Hints>
+        <DCC_Warnings>false</DCC_Warnings>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -390,6 +396,10 @@
         <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Default.pas"/>
         <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Factory.pas"/>
         <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Produto.pas"/>
+        <DCCReference Include="Model\DAO\Financas.Model.DAO.Interfaces.pas"/>
+        <DCCReference Include="Model\DAO\Financas.Model.DAO.pas"/>
+        <DCCReference Include="Model\Connection\Financas.Model.Connection.Query.pas"/>
+        <DCCReference Include="Model\Connection\Financas.Model.Connection.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

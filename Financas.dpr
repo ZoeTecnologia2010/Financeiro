@@ -30,12 +30,12 @@ uses
   Financas.Controller.Listbox.Default in 'Controller\Menu\Financas.Controller.Listbox.Default.pas',
   Financas.Controller.Listbox.Factory in 'Controller\Menu\Financas.Controller.Listbox.Factory.pas',
   Financas.Controller.Listbox.Interfaces in 'Controller\Menu\Financas.Controller.Listbox.Interfaces.pas',
-  Financas.Controller.Listbox.Itens.Cliente in 'Controller\Menu\Financas.Controller.Listbox.Itens.Cliente.pas',
-  Financas.Controller.Listbox.Itens.Default in 'Controller\Menu\Financas.Controller.Listbox.Itens.Default.pas',
-  Financas.Controller.Listbox.Itens.Factory in 'Controller\Menu\Financas.Controller.Listbox.Itens.Factory.pas',
-  Financas.Controller.Listbox.Itens.Produto in 'Controller\Menu\Financas.Controller.Listbox.Itens.Produto.pas',
   Financas.Controller.Listbox.Principal in 'Controller\Menu\Financas.Controller.Listbox.Principal.pas',
-  Financas.Controller.Listbox.Produtos in 'Controller\Menu\Financas.Controller.Listbox.Produtos.pas';
+  Financas.Controller.Listbox.Produtos in 'Controller\Menu\Financas.Controller.Listbox.Produtos.pas',
+  Financas.Controller.Listbox.Itens.Cliente in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Cliente.pas',
+  Financas.Controller.Listbox.Itens.Default in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Default.pas',
+  Financas.Controller.Listbox.Itens.Factory in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Factory.pas',
+  Financas.Controller.Listbox.Itens.Produto in 'Controller\Menu\Item\Financas.Controller.Listbox.Itens.Produto.pas';
 
 {$R *.res}
 

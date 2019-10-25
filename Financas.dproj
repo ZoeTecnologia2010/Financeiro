@@ -384,12 +384,12 @@
         <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Default.pas"/>
         <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Factory.pas"/>
         <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Interfaces.pas"/>
-        <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Itens.Cliente.pas"/>
-        <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Itens.Default.pas"/>
-        <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Itens.Factory.pas"/>
-        <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Itens.Produto.pas"/>
         <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Principal.pas"/>
         <DCCReference Include="Controller\Menu\Financas.Controller.Listbox.Produtos.pas"/>
+        <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Cliente.pas"/>
+        <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Default.pas"/>
+        <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Factory.pas"/>
+        <DCCReference Include="Controller\Menu\Item\Financas.Controller.Listbox.Itens.Produto.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -81,7 +81,7 @@ end;
 
 constructor TModelIniFile.Create;
 begin
-     FFileName := System.SysUtils.GetCurrentDir + '\' + Application.Title + '.INI';
+     FFileName := ChangeFileExt(ParamStr(0), '.ini');
 end;
 
 destructor TModelIniFile.Destroy;

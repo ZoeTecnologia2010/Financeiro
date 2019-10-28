@@ -12,8 +12,8 @@ type
           function Open: iModelDAO<T>;
           function ApplyUpdate: iModelDAO<T>;
           function Save: iModelDAO<T>;
-          function _this: iModelDAO<T>;
-          function _newthis: iModelDAO<T>;
+          function _this: T;
+          function _newthis: T;
      end;
 
 implementation

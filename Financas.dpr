@@ -7,8 +7,7 @@ uses
   Financas.View.Principal in 'View\Financas.View.Principal.pas' {ViewPrincipal},
   Financas.View.Cliente in 'View\Financas.View.Cliente.pas' {ViewCliente},
   Financas.View.Produto in 'View\Financas.View.Produto.pas' {ViewProduto},
-  Financas.Controller.Entity.Factory in 'Controller\Entity\Financas.Controller.Entity.Factory.pas',
-  Financas.Controller.Entity.Interfaces in 'Controller\Entity\Financas.Controller.Entity.Interfaces.pas',
+  Financas.Controller.Entity in 'Controller\Entity\Financas.Controller.Entity.pas',
   Financas.Controller.ApplicationInfo.Factory in 'Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas',
   Financas.Model.ApplicationInfo in 'Model\Application\Financas.Model.ApplicationInfo.pas',
   Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao},
@@ -39,7 +38,12 @@ uses
   Financas.Model.DAO.Interfaces in 'Model\DAO\Financas.Model.DAO.Interfaces.pas',
   Financas.Model.DAO in 'Model\DAO\Financas.Model.DAO.pas',
   Financas.Model.Connection.Query in 'Model\Connection\Financas.Model.Connection.Query.pas',
-  Financas.Model.Connection in 'Model\Connection\Financas.Model.Connection.pas';
+  Financas.Model.Connection in 'Model\Connection\Financas.Model.Connection.pas',
+  Financas.Controller.Entity.Interfaces in 'Controller\Entity\Financas.Controller.Entity.Interfaces.pas',
+  Financas.Controller.Entities in 'Controller\Entity\Financas.Controller.Entities.pas',
+  Financas.Model.LogFile.Interfaces in 'Model\LogFile\Financas.Model.LogFile.Interfaces.pas',
+  Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas',
+  Financas.Controller.Exception in 'Controller\Exception\Financas.Controller.Exception.pas';
 
 {$R *.res}
 

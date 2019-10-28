@@ -2,7 +2,12 @@ unit Financas.Model.Connection;
 
 interface
 
-uses Financas.Model.Connection.Interfaces, Data.DB, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.Comp.UI, FireDAC.Comp.Client;
+uses Financas.Model.Connection.Interfaces,
+     FireDAC.Stan.Intf, FireDAC.Stan.Option,
+     FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+     FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+     FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite,
+     FireDAC.Comp.UI, FireDAC.Comp.Client, Data.DB;
 
 type
      TModelConnection = class(TInterfacedObject, iModelConnection)

@@ -364,8 +364,7 @@
         <DCCReference Include="View\Financas.View.Produto.pas">
             <Form>ViewProduto</Form>
         </DCCReference>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Factory.pas"/>
-        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Interfaces.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.pas"/>
         <DCCReference Include="Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas"/>
         <DCCReference Include="Model\Application\Financas.Model.ApplicationInfo.pas"/>
         <DCCReference Include="View\Financas.View.Conexao.pas">
@@ -400,6 +399,11 @@
         <DCCReference Include="Model\DAO\Financas.Model.DAO.pas"/>
         <DCCReference Include="Model\Connection\Financas.Model.Connection.Query.pas"/>
         <DCCReference Include="Model\Connection\Financas.Model.Connection.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Interfaces.pas"/>
+        <DCCReference Include="Controller\Entity\Financas.Controller.Entities.pas"/>
+        <DCCReference Include="Model\LogFile\Financas.Model.LogFile.Interfaces.pas"/>
+        <DCCReference Include="Model\LogFile\Financas.Model.LogFile.pas"/>
+        <DCCReference Include="Controller\Exception\Financas.Controller.Exception.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -9,10 +9,12 @@ type
      TViewPrincipal = class(TForm)
           LayoutMain: TLayout;
           ButtonDatabase: TButton;
+          ButtonException: TButton;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
           procedure ButtonDatabaseClick(Sender: TObject);
+          procedure ButtonExceptionClick(Sender: TObject);
      private
           { Private declarations }
           FCompanyName: String;
@@ -45,6 +47,13 @@ begin
      ViewConexao := TViewConexao.Create(Self);
      //
      ViewConexao.ShowModal;
+end;
+
+procedure TViewPrincipal.ButtonExceptionClick(Sender: TObject);
+var
+     Contador: Integer;
+begin
+     Contador := StrToInt('aaa');
 end;
 
 procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

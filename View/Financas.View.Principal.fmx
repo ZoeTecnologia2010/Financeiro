@@ -28,4 +28,11 @@ object ViewPrincipal: TViewPrincipal
     Text = 'Database'
     OnClick = ButtonDatabaseClick
   end
+  object ButtonException: TButton
+    Position.X = 536.000000000000000000
+    Position.Y = 32.000000000000000000
+    TabOrder = 3
+    Text = 'Exception'
+    OnClick = ButtonExceptionClick
+  end
 end

@@ -1,23 +1,27 @@
 ﻿[LabelTitle]
-Coordinates=10,105,62,51
+Coordinates=10,105,71,58
 
 [ToolBar]
-Coordinates=189,105,53,33
+Coordinates=260,130,60,36
 
 [DataSource]
 Visible=False
-Coordinates=186,159,71,33
+Coordinates=186,159,82,36
 
 [StringGrid]
-Coordinates=98,105,65,51
+Coordinates=310,20,73,58
+Visible=True
 
 [BindSourceDB]
-Coordinates=10,10,87,87
+Coordinates=140,0,99,94
 Visible=True
 
 []
 Coordinates=289,1,82,33
 
 [BindingsList]
-Coordinates=299,1,82,33
+Coordinates=299,1,84,36
+
+[BindNavigator]
+Coordinates=0,0,95,58
 

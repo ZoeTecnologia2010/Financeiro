@@ -2,12 +2,12 @@ unit Financas.Model.Connection.Query;
 
 interface
 
-uses Financas.Model.Connection.Interfaces, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+uses Financas.Model.Connection.Interfaces, Data.DB, Datasnap.DBClient;
 
 Type
      TModelConnectionQuery = class(TInterfacedObject, iModelQuery)
      private
-          FQuery: TFDMemTable;
+          FQuery: TClientDataSet;
      public
           constructor Create;
           destructor Destroy; override;
@@ -23,7 +23,7 @@ uses System.SysUtils;
 
 constructor TModelConnectionQuery.Create;
 begin
-     FQuery := TFDMemTable.Create(nil);
+     FQuery := TClientDataSet.Create(nil);
 end;
 
 destructor TModelConnectionQuery.Destroy;

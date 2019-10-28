@@ -34,8 +34,6 @@ end;
 
 destructor TModelConnectionFactory.Destroy;
 begin
-
-     //
      inherited;
 end;
 

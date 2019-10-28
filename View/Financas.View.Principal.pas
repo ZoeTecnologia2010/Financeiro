@@ -53,7 +53,11 @@ procedure TViewPrincipal.ButtonExceptionClick(Sender: TObject);
 var
      Contador: Integer;
 begin
-     Contador := StrToInt('aaa');
+     try
+          Contador := StrToInt('aaa');
+     except
+          raise exception.Create('Erro na conversão!');
+     end;
 end;
 
 procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

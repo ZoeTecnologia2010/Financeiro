@@ -21,7 +21,6 @@ implementation
 
 uses System.SysUtils;
 
-
 procedure TModelLogFile.SaveLog(aValue: String);
 var
      txtLog: TextFile;

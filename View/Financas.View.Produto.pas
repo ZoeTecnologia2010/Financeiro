@@ -17,7 +17,9 @@ type
           BindingsList: TBindingsList;
           LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
           cdsRegistro: TClientDataSet;
+    ButtonReplace: TSpeedButton;
           procedure FormCreate(Sender: TObject);
+    procedure ButtonReplaceClick(Sender: TObject);
      private
           { Private declarations }
           FControllerEntities: iControllerEntities;
@@ -33,6 +35,16 @@ implementation
 uses Financas.Controller.Entities;
 
 {$R *.fmx}
+
+procedure TViewProduto.ButtonReplaceClick(Sender: TObject);
+begin
+     with FControllerEntities.Entities.Produto._newthis do
+     begin
+          DESCRICAO := 'Nova informação';
+     end;
+     //
+     FControllerEntities.Entities.Produto.Save;
+end;
 
 procedure TViewProduto.FormCreate(Sender: TObject);
 begin

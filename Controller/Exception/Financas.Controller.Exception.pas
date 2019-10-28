@@ -2,7 +2,7 @@ unit Financas.Controller.Exception;
 
 interface
 
-uses System.SysUtils;
+uses System.SysUtils, System.Classes, FMX.Forms, FMX.Types;
 
 type
      TControllerException = class
@@ -15,7 +15,7 @@ type
 
 implementation
 
-uses FMX.Forms, System.Classes, Financas.Model.LogFile;
+uses Financas.Model.LogFile;
 
 { TControllerExcaption }
 
@@ -32,13 +32,13 @@ begin
      begin
           TModelLogFile.New.SaveLog('Form: ' + TForm(Sender).Name);
           TModelLogFile.New.SaveLog('Class: ' + E.ClassName);
-          TModelLogFile.New.SaveLog('Erro: ' + E.Message);
+          TModelLogFile.New.SaveLog('Error: ' + E.Message);
      end
      else
      begin
-          TModelLogFile.New.SaveLog('Component: ' + TComponent(Sender).Name);  // Problemas...
+          TModelLogFile.New.SaveLog('Component: ' + TComponent(Sender).Name);
           TModelLogFile.New.SaveLog('Class: ' + E.ClassName);
-          TModelLogFile.New.SaveLog('Erro: ' + E.Message);
+          TModelLogFile.New.SaveLog('Error: ' + E.Message);
      end;
      //
      Application.ShowException(E);

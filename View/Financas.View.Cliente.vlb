@@ -1,10 +1,4 @@
-﻿[LabelTitle]
-Coordinates=10,105,71,58
-
-[ToolBar]
-Coordinates=260,130,60,36
-
-[DataSource]
+﻿[DataSource]
 Visible=False
 Coordinates=186,159,82,36
 

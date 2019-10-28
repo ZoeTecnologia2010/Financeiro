@@ -26,6 +26,12 @@ object ViewProduto: TViewProduto
       Text = 'Produtos'
       TabOrder = 1
     end
+    object ButtonReplace: TSpeedButton
+      Position.X = 488.000000000000000000
+      Position.Y = 8.000000000000000000
+      Text = 'Replace'
+      OnClick = ButtonReplaceClick
+    end
   end
   object StringGrid: TStringGrid
     Align = Client

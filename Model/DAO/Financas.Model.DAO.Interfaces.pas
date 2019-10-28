@@ -10,6 +10,7 @@ type
           function DataSet(aValue: TDataSource): iModelDAO<T>; overload;
           function DataSet(aValue: TDataSet): iModelDAO<T>; overload;
           function Open: iModelDAO<T>;
+          function OpenWhere(AWhere, AOrderBy: String): iModelDAO<T>;
           function ApplyUpdate: iModelDAO<T>;
           function Save: iModelDAO<T>;
           function _this: T;

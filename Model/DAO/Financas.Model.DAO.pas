@@ -21,6 +21,7 @@ type
           function DataSet(aValue: TDataSource): iModelDAO<T>; overload;
           function DataSet(aValue: TDataSet): iModelDAO<T>; overload;
           function Open: iModelDAO<T>;
+          function OpenWhere(AWhere, AOrderBy: String): iModelDAO<T>;
           function ApplyUpdate: iModelDAO<T>;
           function Save: iModelDAO<T>;
           function _this: T;
@@ -85,6 +86,13 @@ begin
      Result := Self;
      //
      oContainer.Open;
+end;
+
+function TModelDAO<T>.OpenWhere(AWhere, AOrderBy: String): iModelDAO<T>;
+begin
+     Result := Self;
+     //
+     oContainer.OpenWhere(AWhere, AOrderBy);
 end;
 
 function TModelDAO<T>.Save: iModelDAO<T>;

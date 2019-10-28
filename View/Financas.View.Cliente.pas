@@ -8,15 +8,19 @@ uses
 
 type
      TViewCliente = class(TForm)
-          ToolBar: TToolBar;
-          LabelTitle: TLabel;
           DataSource: TDataSource;
           StringGrid: TStringGrid;
           BindNavigator: TBindNavigator;
           BindSourceDB: TBindSourceDB;
           BindingsList: TBindingsList;
           LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
+          Panel1: TPanel;
+    ButtonContrato: TButton;
+          ButtonFind: TButton;
+    EditFind: TEdit;
+    LabelFind: TLabel;
           procedure FormCreate(Sender: TObject);
+          procedure ButtonFindClick(Sender: TObject);
      private
           { Private declarations }
           FControllerEntities: iControllerEntities;
@@ -33,17 +37,31 @@ uses Financas.Controller.Entities;
 
 {$R *.fmx}
 
+procedure TViewCliente.ButtonFindClick(Sender: TObject);
+begin
+     if EditFind.Text = '' then
+     begin
+          FControllerEntities
+               .Entities
+               .Cliente
+                    .DataSet(DataSource)
+               .Open;
+     end
+     else
+     begin
+          FControllerEntities
+               .Entities
+               .Cliente
+                    .DataSet(DataSource)
+               .OpenWhere('NOME LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'NOME');
+     end;
+     //
+     if Assigned(DataSource.DataSet) then StringGrid.Columns[0].Visible := False;
+end;
+
 procedure TViewCliente.FormCreate(Sender: TObject);
 begin
      FControllerEntities := TControllerEntities.New;
-     //
-     FControllerEntities
-          .Entities
-          .Cliente
-               .DataSet(DataSource)
-          .Open;
-     //
-     StringGrid.Columns[0].Visible := False;
 end;
 
 initialization

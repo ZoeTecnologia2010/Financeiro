@@ -21,6 +21,7 @@ type
           FSystemName: String;
           FVersion: String;
           procedure ReadVersionInfo;
+          function LoginView: Boolean;
      public
           { Public declarations }
      end;
@@ -32,7 +33,7 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao;
+uses Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login;
 
 procedure TViewPrincipal.ReadVersionInfo;
 
@@ -40,6 +41,20 @@ begin
      FSystemName := TControllerApplicationInfoFactory.New.ProductName;
      FCompanyName := TControllerApplicationInfoFactory.New.CompanyName;
      FVersion := 'Versão ' + TControllerApplicationInfoFactory.New.FileVersion;
+end;
+
+function TViewPrincipal.LoginView: Boolean;
+begin
+     Result := False;
+     //
+     try
+          ViewLogin := TViewLogin.Create(nil);
+          ViewLogin.ShowModal;
+          //
+          Result := ViewLogin.FLogin;
+     finally
+          ViewLogin.Free;
+     end;
 end;
 
 procedure TViewPrincipal.ButtonDatabaseClick(Sender: TObject);
@@ -54,7 +69,7 @@ var
      Contador: Integer;
 begin
      try
-          Contador := StrToInt('aaa');
+          Contador := StrToInt('A');
      except
           raise exception.Create('Erro na conversão!');
      end;
@@ -77,6 +92,9 @@ end;
 
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
+     if not LoginView then
+          Application.Terminate;
+     //
      TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
 end;
 

@@ -16,19 +16,19 @@ object ViewSplash: TViewSplash
   DesignerMasterStyle = 0
   object LayoutMain: TLayout
     Align = Client
-    Margins.Left = 10.000000000000000000
-    Margins.Top = 10.000000000000000000
-    Margins.Right = 10.000000000000000000
-    Margins.Bottom = 10.000000000000000000
-    Size.Width = 400.000000000000000000
-    Size.Height = 220.000000000000000000
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Size.Width = 410.000000000000000000
+    Size.Height = 230.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     object RectangleBlack: TRectangle
       Align = Client
       Fill.Color = claChocolate
-      Size.Width = 400.000000000000000000
-      Size.Height = 220.000000000000000000
+      Size.Width = 410.000000000000000000
+      Size.Height = 230.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
     end

@@ -6,7 +6,6 @@ object ViewLogin: TViewLogin
   Caption = 'Login'
   ClientHeight = 480
   ClientWidth = 640
-  Fill.Kind = Solid
   Position = ScreenCenter
   Transparency = True
   FormStyle = StayOnTop
@@ -42,7 +41,7 @@ object ViewLogin: TViewLogin
         end
         object LabelUser: TLabel
           Position.X = 72.000000000000000000
-          Position.Y = 24.000000000000000000
+          Position.Y = 32.000000000000000000
           Size.Width = 177.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
@@ -51,7 +50,7 @@ object ViewLogin: TViewLogin
         end
         object LabelPassword: TLabel
           Position.X = 72.000000000000000000
-          Position.Y = 72.000000000000000000
+          Position.Y = 80.000000000000000000
           Size.Width = 177.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
@@ -62,7 +61,7 @@ object ViewLogin: TViewLogin
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           TabOrder = 4
           Position.X = 72.000000000000000000
-          Position.Y = 40.000000000000000000
+          Position.Y = 48.000000000000000000
           Size.Width = 177.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
@@ -73,7 +72,7 @@ object ViewLogin: TViewLogin
           TabOrder = 3
           Password = True
           Position.X = 72.000000000000000000
-          Position.Y = 88.000000000000000000
+          Position.Y = 96.000000000000000000
           Size.Width = 177.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
@@ -82,14 +81,14 @@ object ViewLogin: TViewLogin
         object ButtonOk: TButton
           Default = True
           Position.X = 72.000000000000000000
-          Position.Y = 128.000000000000000000
+          Position.Y = 136.000000000000000000
           TabOrder = 6
           Text = 'Login'
           OnClick = ButtonOkClick
         end
         object ButtonCancel: TButton
           Position.X = 168.000000000000000000
-          Position.Y = 128.000000000000000000
+          Position.Y = 136.000000000000000000
           TabOrder = 5
           Text = 'Cancelar'
           OnClick = ButtonCancelClick

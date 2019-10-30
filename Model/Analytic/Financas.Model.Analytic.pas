@@ -2,7 +2,7 @@ unit Financas.Model.Analytic;
 
 interface
 
-uses System.SysUtils, System.Classes, Financas.Model.Analytic.Interfaces;
+uses Financas.Model.Analytic.Interfaces, System.SysUtils, System.Classes, FMX.Forms;
 
 type
      TModelAnalytic = class(TInterfacedObject, iModelAnalytic)
@@ -25,6 +25,8 @@ implementation
 { TModelAnalytic }
 { https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide?hl=pt-br }
 
+uses IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP;
+
 procedure TModelAnalytic.RegisterDAT(aValue: String);
 var
      txtAnalytic: TextFile;
@@ -35,14 +37,45 @@ begin
           Append(txtAnalytic)
      else ReWrite(txtAnalytic);
      //
-     WriteLn(txtAnalytic, FSite + #13 + aValue);
+     WriteLn(txtAnalytic, aValue);
      //
      CloseFile(txtAnalytic);
 end;
 
 procedure TModelAnalytic.RegisterAnalytic(EnvStr: TStringList);
+var
+     IdHTTP: TIdHTTP;
+     IdSSLIOHandlerSocketOpenSSL: TIdSSLIOHandlerSocketOpenSSL;
+     sReturn, sResponse: String;
 begin
+     sReturn := '';
+     sResponse := '';
      //
+     IdSSLIOHandlerSocketOpenSSL := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+     IdHTTP := TIdHTTP.Create(nil);
+     //
+     try
+          IdHTTP.IOHandler := IdSSLIOHandlerSocketOpenSSL;
+          IdHTTP.HTTPOptions := [hoForceEncodeParams];
+          IdHTTP.AllowCookies := True;
+          //
+          if (EnvStr.Text <> '') then
+          begin
+               try
+                    sReturn := IdHTTP.Post(FSite, EnvStr);
+                    //
+                    Application.ProcessMessages;
+                    //
+                    sResponse := IdHTTP.ResponseText;
+               except
+                    on E: Exception do
+                         sReturn := E.Message;
+               end;
+          end;
+     finally
+          IdHTTP.Free;
+          IdSSLIOHandlerSocketOpenSSL.Free;
+     end;
 end;
 
 procedure TModelAnalytic.RegisterScreen(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aUserID, aUserAgent, aAppVersion, aScreenResolution, aSource, aCampaignName: String);
@@ -70,7 +103,8 @@ begin
           EnvStr.Values['ds'] := aSource;
           EnvStr.Values['cn'] := aCampaignName;
           //
-          RegisterDAT(EnvStr.Text);
+          //RegisterDAT(EnvStr.Text);
+          RegisterAnalytic(EnvStr);
      finally
           EnvStr.Free;
      end;
@@ -97,7 +131,8 @@ begin
           EnvStr.Values['el'] := aLabel;
           EnvStr.Values['ev'] := aValue;
           //
-          RegisterDAT(EnvStr.Text);
+          //RegisterDAT(EnvStr.Text);
+          RegisterAnalytic(EnvStr);
      finally
           EnvStr.Free;
      end;
@@ -125,7 +160,8 @@ begin
           EnvStr.Values['exd'] := aException;
           EnvStr.Values['exf'] := aValue;
           //
-          RegisterDAT(EnvStr.Text);
+          //RegisterDAT(EnvStr.Text);
+          RegisterAnalytic(EnvStr);
      finally
           EnvStr.Free;
      end;

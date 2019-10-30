@@ -15,9 +15,8 @@ type
           constructor Create;
           destructor Destroy; override;
           class function New: iModelAnalytic;
-          procedure RegisterScreen(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aUserID, aUserAgent, aAppVersion, aScreenResolution, aSource, aCampaignName: String);
+          procedure RegisterPage(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aDescription, aUserID, aUserAgent, aAppVersion, aScreenResolution, aSource, aReference: String);
           procedure RegisterEvent(aVersion, aTrackingID, aClientID, aCategory, aAction, aLabel, aValue: String);
-          procedure RegisterException(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aUserID, aException, aValue: String);
      end;
 
 implementation
@@ -51,11 +50,9 @@ begin
      sReturn := '';
      sResponse := '';
      //
-     IdSSLIOHandlerSocketOpenSSL := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
      IdHTTP := TIdHTTP.Create(nil);
      //
      try
-          IdHTTP.IOHandler := IdSSLIOHandlerSocketOpenSSL;
           IdHTTP.HTTPOptions := [hoForceEncodeParams];
           IdHTTP.AllowCookies := True;
           //
@@ -74,11 +71,10 @@ begin
           end;
      finally
           IdHTTP.Free;
-          IdSSLIOHandlerSocketOpenSSL.Free;
      end;
 end;
 
-procedure TModelAnalytic.RegisterScreen(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aUserID, aUserAgent, aAppVersion, aScreenResolution, aSource, aCampaignName: String);
+procedure TModelAnalytic.RegisterPage(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aDescription, aUserID, aUserAgent, aAppVersion, aScreenResolution, aSource, aReference: String);
 var
      sResponse: String;
      EnvStr: TStringList;
@@ -88,20 +84,22 @@ begin
      try
           EnvStr.Clear;
           //
-          EnvStr.Values['t'] := 'screenview';
-          //
           EnvStr.Values['v'] := aVersion;
           EnvStr.Values['tid'] := aTrackingID;
           EnvStr.Values['cid'] := aClientID;
-          EnvStr.Values['an'] := aAppName;
-          EnvStr.Values['cd'] := aScreenName;
-          EnvStr.Values['uid'] := aUserID;
           //
-          EnvStr.Values['ua'] := aUserAgent;
-          EnvStr.Values['av'] := aAppVersion;
-          EnvStr.Values['sr'] := aScreenResolution;
-          EnvStr.Values['ds'] := aSource;
-          EnvStr.Values['cn'] := aCampaignName;
+          EnvStr.Values['t'] := 'pageview';
+          //
+          EnvStr.Values['dh']  := aAppName;
+          EnvStr.Values['dp']  := aScreenName;
+          EnvStr.Values['dt']  := aDescription;
+          //
+          EnvStr.Values['dr'] := aReference;
+          EnvStr.Values['cn'] := aSource;
+          EnvStr.Values['cs'] := 'Version ' + aAppVersion;
+          EnvStr.Values['cm'] := aUserAgent;
+          EnvStr.Values['ck'] := aUserID;
+          EnvStr.Values['cc'] := aScreenResolution;
           //
           //RegisterDAT(EnvStr.Text);
           RegisterAnalytic(EnvStr);
@@ -130,35 +128,6 @@ begin
           EnvStr.Values['ea'] := aAction;
           EnvStr.Values['el'] := aLabel;
           EnvStr.Values['ev'] := aValue;
-          //
-          //RegisterDAT(EnvStr.Text);
-          RegisterAnalytic(EnvStr);
-     finally
-          EnvStr.Free;
-     end;
-end;
-
-procedure TModelAnalytic.RegisterException(aVersion, aTrackingID, aClientID, aAppName, aScreenName, aUserID, aException, aValue: String);
-var
-     sResponse: String;
-     EnvStr: TStringList;
-begin
-     EnvStr := TStringList.Create;
-     //
-     try
-          EnvStr.Clear;
-          //
-          EnvStr.Values['t'] := 'exception';
-          //
-          EnvStr.Values['v'] := aVersion;
-          EnvStr.Values['tid'] := aTrackingID;
-          EnvStr.Values['cid'] := aClientID;
-          EnvStr.Values['an'] := aAppName;
-          EnvStr.Values['cd'] := aScreenName;
-          EnvStr.Values['uid'] := aUserID;
-          //
-          EnvStr.Values['exd'] := aException;
-          EnvStr.Values['exf'] := aValue;
           //
           //RegisterDAT(EnvStr.Text);
           RegisterAnalytic(EnvStr);

@@ -60,7 +60,7 @@ end;
 
 procedure TViewCliente.FormShow(Sender: TObject);
 begin
-     TControllerAnalyticFactory.New.GetScreen(Name);
+     TControllerAnalyticFactory.New.GetPage(Name, Caption);
 end;
 
 initialization

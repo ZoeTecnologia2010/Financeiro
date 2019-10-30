@@ -70,7 +70,7 @@ procedure TViewPrincipal.ButtonExceptionClick(Sender: TObject);
 var
      Contador: Integer;
 begin
-     TControllerAnalyticFactory.New.GetException(Name, 'Erro na conversão');
+     TControllerAnalyticFactory.New.GetEvent('Erro', 'Erro na conversão', Name);
      //
      try
           Contador := StrToInt('A');
@@ -96,7 +96,7 @@ end;
 
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
-     TControllerAnalyticFactory.New.GetScreen(Name);
+     TControllerAnalyticFactory.New.GetPage(Name, Caption);
      //
      if not LoginView then
           Application.Terminate;

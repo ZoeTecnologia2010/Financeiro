@@ -69,7 +69,7 @@ end;
 
 procedure TViewConexao.FormShow(Sender: TObject);
 begin
-     TControllerAnalyticFactory.New.GetScreen(Name);
+     TControllerAnalyticFactory.New.GetPage(Name, Caption);
 end;
 
 procedure TViewConexao.ReadIniFile;

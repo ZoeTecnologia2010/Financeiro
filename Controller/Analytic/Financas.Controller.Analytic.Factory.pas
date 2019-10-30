@@ -16,15 +16,14 @@ type
           FAppVersion: String;
           FScreenResolution: String;
           FSource: String;
-          FCampaignName: String;
+          FReference: String;
           FAnalytic: TModelAnalytic;
      public
           constructor Create;
           destructor Destroy; override;
           class function New: iControllerAnalyticFactory;
-          procedure GetScreen(aScreenName: String);
+          procedure GetPage(aScreenName, aDescription: String);
           procedure GetEvent(aCategory, aAction, aLabel: String);
-          procedure GetException(aScreenName, aException: String);
      end;
 
 implementation
@@ -37,13 +36,13 @@ constructor TControllerAnalyticFactory.Create;
 begin
      FVersion := '1';
      FTrackingID := 'UA-128990494-3';
-     FClientID := '128990494';
+     FClientID := '555';
      FSource := 'App';
      //
-     FAppName := 'EXEMPLOS';
-     FCampaignName := 'AppFinancas';
+     FAppName := 'AppFinancas';
+     FReference := 'http://www.zoetecnologia.com.br';
      //
-     FUserID := 'Desenvolvedor';
+     FUserID := 'developer';
      FUserAgent := 'Windows 10';
      FAppVersion := '1.0.0.1';
      FScreenResolution := '800x600';
@@ -63,14 +62,9 @@ begin
      FAnalytic.RegisterEvent(FVersion, FTrackingID, FClientID, aCategory, aAction, aLabel, '1');
 end;
 
-procedure TControllerAnalyticFactory.GetException(aScreenName, aException: String);
+procedure TControllerAnalyticFactory.GetPage(aScreenName, aDescription: String);
 begin
-     FAnalytic.RegisterException(FVersion, FTrackingID, FClientID, FAppName, aScreenName, FUserID, aException, '1');
-end;
-
-procedure TControllerAnalyticFactory.GetScreen(aScreenName: String);
-begin
-     FAnalytic.RegisterScreen(FVersion, FTrackingID, FClientID, FAppName, aScreenName, FUserID, FUserAgent, FAppVersion, FScreenResolution, FSource, FCampaignName);
+     FAnalytic.RegisterPage(FVersion, FTrackingID, FClientID, FAppName, aScreenName, aDescription, FUserID, FUserAgent, FAppVersion, FScreenResolution, FSource, FReference);
 end;
 
 class function TControllerAnalyticFactory.New: iControllerAnalyticFactory;

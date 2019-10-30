@@ -59,7 +59,7 @@ end;
 
 procedure TViewPrincipal.ButtonDatabaseClick(Sender: TObject);
 begin
-     TControllerAnalyticFactory.New.GetEvent(Name + ' -> ' + TComponent(Sender).Name);
+     TControllerAnalyticFactory.New.GetEvent(TComponent(Sender).ClassName, TButton(Sender).Text, TButton(Sender).Name);
      //
      ViewConexao := TViewConexao.Create(Self);
      //
@@ -70,12 +70,12 @@ procedure TViewPrincipal.ButtonExceptionClick(Sender: TObject);
 var
      Contador: Integer;
 begin
-     TControllerAnalyticFactory.New.GetEvent(Name + ' -> ' + TComponent(Sender).Name);
+     TControllerAnalyticFactory.New.GetException(Name, 'Erro na conversão');
      //
      try
           Contador := StrToInt('A');
      except
-          raise exception.Create('Erro na conversão!');
+          raise exception.Create('Erro na conversão');
      end;
 end;
 

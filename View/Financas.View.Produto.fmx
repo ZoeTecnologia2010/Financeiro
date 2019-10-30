@@ -11,6 +11,7 @@ object ViewProduto: TViewProduto
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object ToolBar: TToolBar
     Size.Width = 640.000000000000000000

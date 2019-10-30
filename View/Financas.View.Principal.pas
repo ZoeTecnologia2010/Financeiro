@@ -33,7 +33,7 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login;
+uses Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login;
 
 procedure TViewPrincipal.ReadVersionInfo;
 
@@ -59,6 +59,8 @@ end;
 
 procedure TViewPrincipal.ButtonDatabaseClick(Sender: TObject);
 begin
+     TControllerAnalyticFactory.New.GetEvent(Name + ' -> ' + TComponent(Sender).Name);
+     //
      ViewConexao := TViewConexao.Create(Self);
      //
      ViewConexao.ShowModal;
@@ -68,6 +70,8 @@ procedure TViewPrincipal.ButtonExceptionClick(Sender: TObject);
 var
      Contador: Integer;
 begin
+     TControllerAnalyticFactory.New.GetEvent(Name + ' -> ' + TComponent(Sender).Name);
+     //
      try
           Contador := StrToInt('A');
      except
@@ -92,6 +96,8 @@ end;
 
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
+     TControllerAnalyticFactory.New.GetScreen(Name);
+     //
      if not LoginView then
           Application.Terminate;
      //

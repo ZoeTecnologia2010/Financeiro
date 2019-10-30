@@ -390,6 +390,8 @@
         <DCCReference Include="Controller\Entity\Financas.Controller.Entity.Interfaces.pas"/>
         <DCCReference Include="Controller\Entity\Financas.Controller.Entities.pas"/>
         <DCCReference Include="Controller\Exception\Financas.Controller.Exception.pas"/>
+        <DCCReference Include="Controller\Analytic\Financas.Controller.Analytic.Factory.pas"/>
+        <DCCReference Include="Controller\Analytic\Financas.Controller.Analytic.Interfaces.pas"/>
         <DCCReference Include="Model\Application\Financas.Model.ApplicationInfo.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Cliente.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Contrato.pas"/>
@@ -406,6 +408,8 @@
         <DCCReference Include="Model\Connection\Financas.Model.Connection.pas"/>
         <DCCReference Include="Model\LogFile\Financas.Model.LogFile.Interfaces.pas"/>
         <DCCReference Include="Model\LogFile\Financas.Model.LogFile.pas"/>
+        <DCCReference Include="Model\Analytic\Financas.Model.Analytic.pas"/>
+        <DCCReference Include="Model\Analytic\Financas.Model.Analytic.Interfaces.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

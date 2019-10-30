@@ -15,12 +15,13 @@ type
           BindingsList: TBindingsList;
           LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
           Panel1: TPanel;
-    ButtonContrato: TButton;
+          ButtonContrato: TButton;
           ButtonFind: TButton;
-    EditFind: TEdit;
-    LabelFind: TLabel;
+          EditFind: TEdit;
+          LabelFind: TLabel;
           procedure FormCreate(Sender: TObject);
           procedure ButtonFindClick(Sender: TObject);
+          procedure FormShow(Sender: TObject);
      private
           { Private declarations }
           FControllerEntities: iControllerEntities;
@@ -33,7 +34,7 @@ var
 
 implementation
 
-uses Financas.Controller.Entities;
+uses Financas.Controller.Analytic.Factory, Financas.Controller.Entities;
 
 {$R *.fmx}
 
@@ -41,27 +42,25 @@ procedure TViewCliente.ButtonFindClick(Sender: TObject);
 begin
      if EditFind.Text = '' then
      begin
-          FControllerEntities
-               .Entities
-               .Cliente
-                    .DataSet(DataSource)
-               .Open;
+          FControllerEntities.Entities.Cliente.DataSet(DataSource).Open;
      end
      else
      begin
-          FControllerEntities
-               .Entities
-               .Cliente
-                    .DataSet(DataSource)
-               .OpenWhere('NOME LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'NOME');
+          FControllerEntities.Entities.Cliente.DataSet(DataSource).OpenWhere('NOME LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'NOME');
      end;
      //
-     if Assigned(DataSource.DataSet) then StringGrid.Columns[0].Visible := False;
+     if Assigned(DataSource.DataSet) then
+          StringGrid.Columns[0].Visible := False;
 end;
 
 procedure TViewCliente.FormCreate(Sender: TObject);
 begin
      FControllerEntities := TControllerEntities.New;
+end;
+
+procedure TViewCliente.FormShow(Sender: TObject);
+begin
+     TControllerAnalyticFactory.New.GetScreen(Name);
 end;
 
 initialization

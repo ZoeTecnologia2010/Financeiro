@@ -26,6 +26,8 @@ type
 
 implementation
 
+uses System.SysUtils;
+
 { TControllerApplicationInfoFactory }
 
 function TControllerApplicationInfoFactory.Comments: String;
@@ -45,6 +47,8 @@ end;
 
 destructor TControllerApplicationInfoFactory.Destroy;
 begin
+     FreeAndNil(FApplicationInfo);
+     //
      inherited;
 end;
 

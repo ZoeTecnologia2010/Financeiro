@@ -24,7 +24,8 @@ type
           procedure ButtonGravarClick(Sender: TObject);
           procedure ButtonCancelarClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+          procedure FormClose(Sender: TObject; var Action: TCloseAction);
+          procedure FormShow(Sender: TObject);
      private
           procedure ReadIniFile;
           { Private declarations }
@@ -37,8 +38,7 @@ var
 
 implementation
 
-uses
-     Financas.Controller.IniFile.Factory;
+uses Financas.Controller.Analytic.Factory, Financas.Controller.IniFile.Factory;
 
 {$R *.fmx}
 
@@ -65,6 +65,11 @@ end;
 procedure TViewConexao.FormCreate(Sender: TObject);
 begin
      ReadIniFile;
+end;
+
+procedure TViewConexao.FormShow(Sender: TObject);
+begin
+     TControllerAnalyticFactory.New.GetScreen(Name);
 end;
 
 procedure TViewConexao.ReadIniFile;

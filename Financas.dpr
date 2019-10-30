@@ -29,6 +29,8 @@ uses
   Financas.Controller.Entity.Interfaces in 'Controller\Entity\Financas.Controller.Entity.Interfaces.pas',
   Financas.Controller.Entities in 'Controller\Entity\Financas.Controller.Entities.pas',
   Financas.Controller.Exception in 'Controller\Exception\Financas.Controller.Exception.pas',
+  Financas.Controller.Analytic.Factory in 'Controller\Analytic\Financas.Controller.Analytic.Factory.pas',
+  Financas.Controller.Analytic.Interfaces in 'Controller\Analytic\Financas.Controller.Analytic.Interfaces.pas',
   Financas.Model.ApplicationInfo in 'Model\Application\Financas.Model.ApplicationInfo.pas',
   Financas.Model.Entity.Cliente in 'Model\Entity\Financas.Model.Entity.Cliente.pas',
   Financas.Model.Entity.Contrato in 'Model\Entity\Financas.Model.Entity.Contrato.pas',
@@ -44,11 +46,15 @@ uses
   Financas.Model.Connection.Query in 'Model\Connection\Financas.Model.Connection.Query.pas',
   Financas.Model.Connection in 'Model\Connection\Financas.Model.Connection.pas',
   Financas.Model.LogFile.Interfaces in 'Model\LogFile\Financas.Model.LogFile.Interfaces.pas',
-  Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas';
+  Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas',
+  Financas.Model.Analytic in 'Model\Analytic\Financas.Model.Analytic.pas',
+  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas';
 
 {$R *.res}
 
 begin
+     ReportMemoryLeaksOnShutdown := True;
+     //
      Application.Initialize;
      //
      ViewSplash := TViewSplash.Create(nil);

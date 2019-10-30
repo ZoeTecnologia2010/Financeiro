@@ -17,9 +17,10 @@ type
           BindingsList: TBindingsList;
           LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
           cdsRegistro: TClientDataSet;
-    ButtonReplace: TSpeedButton;
+          ButtonReplace: TSpeedButton;
           procedure FormCreate(Sender: TObject);
-    procedure ButtonReplaceClick(Sender: TObject);
+          procedure ButtonReplaceClick(Sender: TObject);
+          procedure FormShow(Sender: TObject);
      private
           { Private declarations }
           FControllerEntities: iControllerEntities;
@@ -32,7 +33,7 @@ var
 
 implementation
 
-uses Financas.Controller.Entities;
+uses Financas.Controller.Analytic.Factory, Financas.Controller.Entities;
 
 {$R *.fmx}
 
@@ -50,13 +51,14 @@ procedure TViewProduto.FormCreate(Sender: TObject);
 begin
      FControllerEntities := TControllerEntities.New;
      //
-     FControllerEntities
-          .Entities
-          .Produto
-               .DataSet(DataSource)
-          .Open;
+     FControllerEntities.Entities.Produto.DataSet(DataSource).Open;
      //
      StringGrid.Columns[0].Visible := False;
+end;
+
+procedure TViewProduto.FormShow(Sender: TObject);
+begin
+     TControllerAnalyticFactory.New.GetScreen(Name);
 end;
 
 initialization

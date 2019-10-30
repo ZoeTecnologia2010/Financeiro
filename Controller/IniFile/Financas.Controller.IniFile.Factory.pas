@@ -28,6 +28,8 @@ type
 
 implementation
 
+uses System.SysUtils;
+
 { TControllerIniFileFactory }
 
 function TControllerIniFileFactory.Database: String;
@@ -47,6 +49,8 @@ end;
 
 destructor TControllerIniFileFactory.Destroy;
 begin
+     FreeAndNil(FIniFile);
+     //
      inherited;
 end;
 

@@ -12,6 +12,7 @@ object ViewConexao: TViewConexao
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   OnClose = FormClose
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object EditDataBase: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]

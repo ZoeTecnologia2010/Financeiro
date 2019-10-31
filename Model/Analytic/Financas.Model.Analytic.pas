@@ -24,7 +24,7 @@ implementation
 { TModelAnalytic }
 { https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide?hl=pt-br }
 
-uses IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP;
+uses IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP;
 
 procedure TModelAnalytic.RegisterDAT(aValue: String);
 var
@@ -44,7 +44,6 @@ end;
 procedure TModelAnalytic.RegisterAnalytic(EnvStr: TStringList);
 var
      IdHTTP: TIdHTTP;
-     IdSSLIOHandlerSocketOpenSSL: TIdSSLIOHandlerSocketOpenSSL;
      sReturn, sResponse: String;
 begin
      sReturn := '';

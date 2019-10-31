@@ -16,7 +16,6 @@ type
           BindSourceDB: TBindSourceDB;
           BindingsList: TBindingsList;
           LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
-          cdsRegistro: TClientDataSet;
           ButtonReplace: TSpeedButton;
           procedure FormCreate(Sender: TObject);
           procedure ButtonReplaceClick(Sender: TObject);

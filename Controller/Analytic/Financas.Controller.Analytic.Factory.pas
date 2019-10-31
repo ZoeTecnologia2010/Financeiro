@@ -2,7 +2,7 @@ unit Financas.Controller.Analytic.Factory;
 
 interface
 
-uses Financas.Controller.Analytic.Interfaces, Financas.Model.Analytic;
+uses Financas.Controller.Analytic.Interfaces, Financas.Model.Analytic, Financas.Controller.Login, Financas.Controller.Login.Interfaces;
 
 type
      TControllerAnalyticFactory = class(TInterfacedObject, iControllerAnalyticFactory)
@@ -30,19 +30,20 @@ implementation
 
 { TControllerIniFileFactory }
 
-uses System.SysUtils, FMX.Forms;
+uses System.SysUtils, FMX.Forms, Financas.Controller.ApplicationInfo.Factory;
 
 constructor TControllerAnalyticFactory.Create;
 begin
+     FClientID := TControllerLogin.New.GetClientID;
+     FUserID := TControllerLogin.New.GetUserName;
+     //
      FVersion := '1';
      FTrackingID := 'UA-128990494-3';
-     FClientID := '555';
      FSource := 'App';
      //
-     FAppName := 'AppFinancas';
+     FAppName := TControllerApplicationInfoFactory.New.ProductName;
      FReference := 'http://www.zoetecnologia.com.br';
      //
-     FUserID := 'developer';
      FUserAgent := 'Windows 10';
      FAppVersion := '1.0.0.1';
      FScreenResolution := '800x600';

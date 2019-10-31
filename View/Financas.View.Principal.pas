@@ -10,11 +10,13 @@ type
           LayoutMain: TLayout;
           ButtonDatabase: TButton;
           ButtonException: TButton;
+          LabelUser: TLabel;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
           procedure ButtonDatabaseClick(Sender: TObject);
           procedure ButtonExceptionClick(Sender: TObject);
+          procedure FormDestroy(Sender: TObject);
      private
           { Private declarations }
           FCompanyName: String;
@@ -33,10 +35,9 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login;
+uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login;
 
 procedure TViewPrincipal.ReadVersionInfo;
-
 begin
      FSystemName := TControllerApplicationInfoFactory.New.ProductName;
      FCompanyName := TControllerApplicationInfoFactory.New.CompanyName;
@@ -52,6 +53,9 @@ begin
           ViewLogin.ShowModal;
           //
           Result := ViewLogin.FLogin;
+          //
+          TControllerLogin.New.SetClientID(ViewLogin.FClientID);
+          TControllerLogin.New.SetUserName(ViewLogin.FUserName);
      finally
           ViewLogin.Free;
      end;
@@ -94,12 +98,18 @@ begin
      Caption := FSystemName + ' - ' + FVersion;
 end;
 
+procedure TViewPrincipal.FormDestroy(Sender: TObject);
+begin
+     //
+end;
+
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
      TControllerAnalyticFactory.New.GetPage(Name, Caption);
      //
-     if not LoginView then
-          Application.Terminate;
+     if not LoginView then Application.Terminate;
+     //
+     LabelUser.Text := TControllerLogin.New.GetUserName + ' => ' + TControllerLogin.New.GetClientID;
      //
      TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
 end;

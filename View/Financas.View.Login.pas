@@ -24,9 +24,13 @@ type
           function Login(UserName, Password: String): Boolean;
      private
           { Private declarations }
+          Uid: TGuid;
+          Result: HResult;
      public
           { Public declarations }
           FLogin: Boolean;
+          FClientID: String;
+          FUserName: String;
      end;
 
 var
@@ -51,6 +55,12 @@ end;
 procedure TViewLogin.FormCreate(Sender: TObject);
 begin
      FLogin := False;
+     //
+     Result := CreateGuid(Uid);
+     //
+     if Result = S_OK then
+          FClientID := GuidToString(Uid)
+     else FClientID := '555';
 end;
 
 function TViewLogin.Login(UserName, Password: String): Boolean;
@@ -58,7 +68,11 @@ begin
      Result := False;
      //
      if (UserName <> '') and (Password <> '') and (UserName = Password) then
-          Result := True
+     begin
+          Result := True;
+          //
+          FUserName := UserName;
+     end
      else
           raise exception.Create('Usuário e Senha inválidos!');
 end;

@@ -12,6 +12,7 @@ object ViewPrincipal: TViewPrincipal
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   OnClose = FormClose
+  OnDestroy = FormDestroy
   OnShow = FormShow
   DesignerMasterStyle = 0
   object LayoutMain: TLayout
@@ -34,5 +35,14 @@ object ViewPrincipal: TViewPrincipal
     TabOrder = 3
     Text = 'Exception'
     OnClick = ButtonExceptionClick
+  end
+  object LabelUser: TLabel
+    Position.X = 200.000000000000000000
+    Position.Y = 456.000000000000000000
+    Size.Width = 433.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'UserName and GUID'
+    TabOrder = 4
   end
 end

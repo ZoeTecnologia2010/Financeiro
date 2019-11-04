@@ -17,32 +17,61 @@ object ViewPrincipal: TViewPrincipal
   DesignerMasterStyle = 0
   object LayoutMain: TLayout
     Align = Left
+    Position.Y = 57.000000000000000000
     Size.Width = 193.000000000000000000
-    Size.Height = 480.000000000000000000
+    Size.Height = 423.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
   end
-  object ButtonDatabase: TButton
-    Position.X = 536.000000000000000000
-    Position.Y = 8.000000000000000000
-    TabOrder = 2
-    Text = 'Database'
-    OnClick = ButtonDatabaseClick
-  end
-  object ButtonException: TButton
-    Position.X = 536.000000000000000000
-    Position.Y = 32.000000000000000000
-    TabOrder = 3
-    Text = 'Exception'
-    OnClick = ButtonExceptionClick
-  end
-  object LabelUser: TLabel
-    Position.X = 200.000000000000000000
-    Position.Y = 456.000000000000000000
-    Size.Width = 433.000000000000000000
-    Size.Height = 17.000000000000000000
+  object LayoutTop: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 57.000000000000000000
     Size.PlatformDefault = False
-    Text = 'UserName and GUID'
-    TabOrder = 4
+    TabOrder = 2
+    object PanelTop: TPanel
+      Align = Client
+      Size.Width = 640.000000000000000000
+      Size.Height = 57.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object ButtonDatabase: TButton
+        Position.X = 464.000000000000000000
+        Position.Y = 19.000000000000000000
+        TabOrder = 2
+        Text = 'Database'
+        OnClick = ButtonDatabaseClick
+      end
+      object ButtonException: TButton
+        Position.X = 552.000000000000000000
+        Position.Y = 19.000000000000000000
+        TabOrder = 1
+        Text = 'Exception'
+        OnClick = ButtonExceptionClick
+      end
+    end
+    object LabelUser: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 305.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'UserName and GUID'
+      TabOrder = 1
+    end
+  end
+  object LayoutDashboard: TLayout
+    Align = Client
+    Size.Width = 447.000000000000000000
+    Size.Height = 423.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object PanelDashboard: TPanel
+      Align = Client
+      Size.Width = 447.000000000000000000
+      Size.Height = 423.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
   end
 end

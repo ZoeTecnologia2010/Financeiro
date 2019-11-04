@@ -370,6 +370,10 @@
         <DCCReference Include="View\Financas.View.Conexao.pas">
             <Form>ViewConexao</Form>
         </DCCReference>
+        <DCCReference Include="View\Financas.View.Dashboard.pas">
+            <Form>ViewDashboard</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <DCCReference Include="Controller\Entity\Financas.Controller.Entity.pas"/>
         <DCCReference Include="Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas"/>
         <DCCReference Include="Controller\Application\Financas.Controller.ApplicationInfo.Interfaces.pas"/>
@@ -392,12 +396,15 @@
         <DCCReference Include="Controller\Exception\Financas.Controller.Exception.pas"/>
         <DCCReference Include="Controller\Analytic\Financas.Controller.Analytic.Factory.pas"/>
         <DCCReference Include="Controller\Analytic\Financas.Controller.Analytic.Interfaces.pas"/>
+        <DCCReference Include="Controller\Login\Financas.Controller.Login.pas"/>
+        <DCCReference Include="Controller\Login\Financas.Controller.Login.Interfaces.pas"/>
+        <DCCReference Include="Controller\Connection\Financas.Controller.Connection.Interfaces.pas"/>
+        <DCCReference Include="Controller\Connection\Financas.Controller.Connection.Factory.pas"/>
         <DCCReference Include="Model\Application\Financas.Model.ApplicationInfo.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Cliente.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Contrato.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.ContratoParcela.pas"/>
         <DCCReference Include="Model\Entity\Financas.Model.Entity.Produto.pas"/>
-        <DCCReference Include="Model\Connection\Financas.Model.Connection.Factory.pas"/>
         <DCCReference Include="Model\Connection\Financas.Model.Connection.Interfaces.pas"/>
         <DCCReference Include="Model\Application\Financas.Model.ApplicationInfo.Interfaces.pas"/>
         <DCCReference Include="Model\IniFile\Financas.Model.IniFile.Interfaces.pas"/>
@@ -410,8 +417,6 @@
         <DCCReference Include="Model\LogFile\Financas.Model.LogFile.pas"/>
         <DCCReference Include="Model\Analytic\Financas.Model.Analytic.pas"/>
         <DCCReference Include="Model\Analytic\Financas.Model.Analytic.Interfaces.pas"/>
-        <DCCReference Include="Controller\Login\Financas.Controller.Login.pas"/>
-        <DCCReference Include="Controller\Login\Financas.Controller.Login.Interfaces.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

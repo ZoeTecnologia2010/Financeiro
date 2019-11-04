@@ -30,7 +30,7 @@ type
 
 implementation
 
-uses Financas.Model.Connection.Factory;
+uses Financas.Controller.Connection.Factory;
 
 { TModelDAO }
 
@@ -49,8 +49,8 @@ end;
 
 constructor TModelDAO<T>.Create;
 begin
-     FConnection := TModelConnectionFactory.New.Connection;
-     FQuery := TModelConnectionFactory.New.Query;
+     FConnection := TControllerConnectionFactory.New.Connection;
+     FQuery := TControllerConnectionFactory.New.Query;
      FNewThis := nil;
      //
      oConn := TFactoryFireDAC.Create(FConnection.Connection, dnSQLite);

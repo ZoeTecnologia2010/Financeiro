@@ -9,6 +9,7 @@ uses
   Financas.View.Cliente in 'View\Financas.View.Cliente.pas' {ViewCliente},
   Financas.View.Produto in 'View\Financas.View.Produto.pas' {ViewProduto},
   Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao},
+  Financas.View.Dashboard in 'View\Financas.View.Dashboard.pas' {ViewDashboard: TFrame},
   Financas.Controller.Entity in 'Controller\Entity\Financas.Controller.Entity.pas',
   Financas.Controller.ApplicationInfo.Factory in 'Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas',
   Financas.Controller.ApplicationInfo.Interfaces in 'Controller\Application\Financas.Controller.ApplicationInfo.Interfaces.pas',
@@ -31,12 +32,15 @@ uses
   Financas.Controller.Exception in 'Controller\Exception\Financas.Controller.Exception.pas',
   Financas.Controller.Analytic.Factory in 'Controller\Analytic\Financas.Controller.Analytic.Factory.pas',
   Financas.Controller.Analytic.Interfaces in 'Controller\Analytic\Financas.Controller.Analytic.Interfaces.pas',
+  Financas.Controller.Login in 'Controller\Login\Financas.Controller.Login.pas',
+  Financas.Controller.Login.Interfaces in 'Controller\Login\Financas.Controller.Login.Interfaces.pas',
+  Financas.Controller.Connection.Interfaces in 'Controller\Connection\Financas.Controller.Connection.Interfaces.pas',
+  Financas.Controller.Connection.Factory in 'Controller\Connection\Financas.Controller.Connection.Factory.pas',
   Financas.Model.ApplicationInfo in 'Model\Application\Financas.Model.ApplicationInfo.pas',
   Financas.Model.Entity.Cliente in 'Model\Entity\Financas.Model.Entity.Cliente.pas',
   Financas.Model.Entity.Contrato in 'Model\Entity\Financas.Model.Entity.Contrato.pas',
   Financas.Model.Entity.ContratoParcela in 'Model\Entity\Financas.Model.Entity.ContratoParcela.pas',
   Financas.Model.Entity.Produto in 'Model\Entity\Financas.Model.Entity.Produto.pas',
-  Financas.Model.Connection.Factory in 'Model\Connection\Financas.Model.Connection.Factory.pas',
   Financas.Model.Connection.Interfaces in 'Model\Connection\Financas.Model.Connection.Interfaces.pas',
   Financas.Model.ApplicationInfo.Interfaces in 'Model\Application\Financas.Model.ApplicationInfo.Interfaces.pas',
   Financas.Model.IniFile.Interfaces in 'Model\IniFile\Financas.Model.IniFile.Interfaces.pas',
@@ -48,9 +52,7 @@ uses
   Financas.Model.LogFile.Interfaces in 'Model\LogFile\Financas.Model.LogFile.Interfaces.pas',
   Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas',
   Financas.Model.Analytic in 'Model\Analytic\Financas.Model.Analytic.pas',
-  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas',
-  Financas.Controller.Login in 'Controller\Login\Financas.Controller.Login.pas',
-  Financas.Controller.Login.Interfaces in 'Controller\Login\Financas.Controller.Login.Interfaces.pas';
+  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas';
 
 {$R *.res}
 

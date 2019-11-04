@@ -8,9 +8,13 @@ uses
 type
      TViewPrincipal = class(TForm)
           LayoutMain: TLayout;
+          LabelUser: TLabel;
+          LayoutTop: TLayout;
+          PanelTop: TPanel;
           ButtonDatabase: TButton;
           ButtonException: TButton;
-          LabelUser: TLabel;
+          LayoutDashboard: TLayout;
+          PanelDashboard: TPanel;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
@@ -22,6 +26,7 @@ type
           FCompanyName: String;
           FSystemName: String;
           FVersion: String;
+          procedure LoadDashboard;
           procedure ReadVersionInfo;
           function LoginView: Boolean;
      public
@@ -35,13 +40,24 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login;
+uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login, Financas.View.Dashboard;
 
 procedure TViewPrincipal.ReadVersionInfo;
 begin
      FSystemName := TControllerApplicationInfoFactory.New.ProductName;
      FCompanyName := TControllerApplicationInfoFactory.New.CompanyName;
      FVersion := 'Versão ' + TControllerApplicationInfoFactory.New.FileVersion;
+end;
+
+procedure TViewPrincipal.LoadDashboard;
+var
+     frmEmbeded: TViewDashboard;
+begin
+     frmEmbeded := TViewDashboard.Create(PanelDashboard);
+     frmEmbeded.Parent := TFmxObject(PanelDashboard);
+     frmEmbeded.Align := TAlignLayout.Client;
+     //
+     Application.ProcessMessages;
 end;
 
 function TViewPrincipal.LoginView: Boolean;
@@ -79,7 +95,7 @@ begin
      try
           Contador := StrToInt('A');
      except
-          raise exception.Create('Erro na conversão');
+          raise Exception.Create('Erro na conversão');
      end;
 end;
 
@@ -107,11 +123,18 @@ procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
      TControllerAnalyticFactory.New.GetPage(Name, Caption);
      //
-     if not LoginView then Application.Terminate;
+     if not LoginView then
+     begin
+          Application.Terminate;
+          //
+          Exit;
+     end;
      //
      LabelUser.Text := TControllerLogin.New.GetUserName + ' => ' + TControllerLogin.New.GetClientID;
      //
      TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
+     //
+     LoadDashboard;
 end;
 
 end.

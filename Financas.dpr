@@ -6,6 +6,7 @@ uses
   Financas.View.Splash in 'View\Financas.View.Splash.pas' {ViewSplash},
   Financas.View.Login in 'View\Financas.View.Login.pas' {ViewLogin},
   Financas.View.Principal in 'View\Financas.View.Principal.pas' {ViewPrincipal},
+  Financas.View.Modelo in 'View\Financas.View.Modelo.pas' {ViewModelo},
   Financas.View.Cliente in 'View\Financas.View.Cliente.pas' {ViewCliente},
   Financas.View.Produto in 'View\Financas.View.Produto.pas' {ViewProduto},
   Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao},
@@ -67,5 +68,5 @@ begin
      Application.ProcessMessages;
      //
      Application.CreateForm(TViewPrincipal, ViewPrincipal);
-  Application.Run;
+     Application.Run;
 end.

@@ -362,6 +362,9 @@
         <DCCReference Include="View\Financas.View.Principal.pas">
             <Form>ViewPrincipal</Form>
         </DCCReference>
+        <DCCReference Include="View\Financas.View.Modelo.pas">
+            <Form>ViewModelo</Form>
+        </DCCReference>
         <DCCReference Include="View\Financas.View.Cliente.pas">
             <Form>ViewCliente</Form>
         </DCCReference>

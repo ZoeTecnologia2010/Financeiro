@@ -3,30 +3,19 @@ unit Financas.View.Cliente;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Memo, FMX.Edit, System.Rtti, FMX.Grid.Style, Data.Bind.Controls, Data.Bind.Components, Data.Bind.DBScope, FMX.Layouts, FMX.Bind.Navigator, FMX.Grid, Data.DB,
-     Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid, System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Grid, Datasnap.DBClient, Financas.Controller.Entity.Interfaces;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, System.Rtti, FMX.Grid.Style, Data.Bind.Controls, Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid, System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, Data.DB,
+     FMX.Edit, FMX.Layouts, FMX.Bind.Navigator, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid, Financas.View.Modelo, Financas.Controller.Entity.Interfaces;
 
 type
-     TViewCliente = class(TForm)
-          DataSource: TDataSource;
-          StringGrid: TStringGrid;
-          BindNavigator: TBindNavigator;
-          BindSourceDB: TBindSourceDB;
-          BindingsList: TBindingsList;
-          LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
-          Panel1: TPanel;
-          ButtonContrato: TButton;
-          ButtonFind: TButton;
-          EditFind: TEdit;
-          LabelFind: TLabel;
+     TViewCliente = class(TViewModelo)
           procedure FormCreate(Sender: TObject);
-          procedure ButtonFindClick(Sender: TObject);
           procedure FormShow(Sender: TObject);
+          procedure ButtonFindClick(Sender: TObject);
      private
           { Private declarations }
-          FControllerEntities: iControllerEntities;
      public
           { Public declarations }
+          FControllerEntities: iControllerEntities;
      end;
 
 var
@@ -34,12 +23,14 @@ var
 
 implementation
 
-uses Financas.Controller.Analytic.Factory, Financas.Controller.Entities;
-
 {$R *.fmx}
+
+uses Financas.Controller.Analytic.Factory, Financas.Controller.Entities;
 
 procedure TViewCliente.ButtonFindClick(Sender: TObject);
 begin
+     inherited;
+     //
      if EditFind.Text = '' then
      begin
           FControllerEntities.Entities.Cliente.DataSet(DataSource).Open;
@@ -55,11 +46,15 @@ end;
 
 procedure TViewCliente.FormCreate(Sender: TObject);
 begin
+     inherited;
+     //
      FControllerEntities := TControllerEntities.New;
 end;
 
 procedure TViewCliente.FormShow(Sender: TObject);
 begin
+     inherited;
+     //
      TControllerAnalyticFactory.New.GetPage(Name, Caption);
 end;
 

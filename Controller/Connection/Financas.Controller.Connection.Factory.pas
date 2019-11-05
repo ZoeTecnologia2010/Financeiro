@@ -2,7 +2,8 @@ unit Financas.Controller.Connection.Factory;
 
 interface
 
-uses Data.DB, Financas.Controller.Connection.Interfaces, Financas.Model.Connection.Interfaces;
+uses Data.DB,
+     Financas.Controller.Connection.Interfaces, Financas.Model.Connection.Interfaces;
 
 type
      TControllerConnectionFactory = class(TInterfacedObject, iControllerConnectionFactory)

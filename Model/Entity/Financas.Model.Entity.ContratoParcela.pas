@@ -19,8 +19,7 @@ type
 
      [Entity]
      [Table('ContratoParcela', '')]
-     [PrimaryKey('IDCONTRATO', NotInc, NoSort, False, 'Chave primária')]
-     [PrimaryKey('PARCELA', NotInc, NoSort, False, 'Chave primária')]
+     [PrimaryKey('IDCONTRATO, PARCELA', NotInc, NoSort, False, 'Chave primária')]
      TContratoParcela = class
      private
           { Private declarations }

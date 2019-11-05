@@ -3,7 +3,8 @@ unit Financas.View.Dashboard;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, Data.DB, Datasnap.DBClient, View.WebCharts, FMX.WebBrowser;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, Data.DB, Datasnap.DBClient,
+     FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, View.WebCharts, FMX.WebBrowser;
 
 type
      TViewDashboard = class(TFrame)
@@ -27,6 +28,9 @@ implementation
 
 uses Charts.Types, TypInfo, Financas.Controller.Connection.Factory;
 
+var
+     SQLCommandSerie1: String;
+
 function GenerateRandomColor: String;
 var
      Red, Green, Blue: Integer;
@@ -44,11 +48,11 @@ var
 begin
      inherited;
      //
-     LDataSet := TControllerConnectionFactory.New.SQL('SELECT * FROM Produto');
+     LDataSet := TControllerConnectionFactory.New.SQL(SQLCommandSerie1);
      //
      DataSourceSerie1.DataSet := LDataSet;
      //
-     GeneratorSerie(cdsLocal, DataSourceSerie1.DataSet, 'DESCRICAO', 'ID', '');
+     GeneratorSerie(cdsLocal, DataSourceSerie1.DataSet, 'LABEL', 'VALUE', '');
      //
      Timer.Enabled := True;
 end;
@@ -123,5 +127,18 @@ end;
 initialization
 
   RegisterClass(TViewDashboard);
+
+  SQLCommandSerie1 := 'SELECT DESCRICAO AS LABEL, ID AS VALUE FROM Produto';
+
+//  SQLCommandSerie1 := 'SELECT ' +
+//'{fn CONVERT({fn YEAR(VENCIMENTO)}, INT)} AS ANO, ' +
+//'{fn CONVERT({fn MONTH(VENCIMENTO)}, INT)} AS MES, ' +
+//'{fn CONVERT({fn MONTH(VENCIMENTO)}, VARCHAR)} AS LABEL, ' +
+//'{fn CONCAT({fn CONVERT({fn MONTHNAME(VENCIMENTO)}, CHAR)}, {fn CONCAT(' + QuotedStr(' / ') + ', {fn CONVERT({fn YEAR(VENCIMENTO)}, CHAR)})})} AS LABEL, ' +
+//'SUM({fn IFNULL(COBRADO, 0)}) AS VALUE, ' +
+//'SUM({fn IFNULL(RECEBIDO, 0)}) AS VALUE ' +
+//'FROM ContratoParcela ' +
+//'GROUP BY ANO, MES, VENCIMENTO ' +
+//'ORDER BY ANO, MES, VENCIMENTO '
 
 end.

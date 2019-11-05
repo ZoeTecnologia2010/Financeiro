@@ -4,14 +4,15 @@ interface
 
 uses Data.DB, Datasnap.DBClient, Financas.Model.Connection.Interfaces,
      FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
-     FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.Comp.UI,
-     FireDAC.Comp.Client,
+     FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite,
+     FireDAC.Comp.Client, FireDAC.Comp.UI, FireDAC.FMXUI.Wait,
      // ormbr
      ormbr.factory.firedac, ormbr.container.fdmemtable, ormbr.factory.interfaces, ormbr.dml.generator.sqlite, ormbr.container.clientdataset, ormbr.container.dataset.interfaces, ormbr.criteria, ormbr.container.objectset, ormbr.container.objectset.interfaces, ormbr.factory.sqlite3, SQLiteTable3;
 
 type
      TModelConnection = class(TInterfacedObject, iModelConnection)
      private
+          FDGUIxWaitCursor: TFDGUIxWaitCursor;
           FConnection: TFDConnection;
           oConn: IDBConnection;
      public
@@ -28,14 +29,13 @@ uses Financas.Controller.IniFile.Factory, System.SysUtils;
 
 { TModelConnection }
 
-function ConvertToDataSet(LResultSet: IDBResultSet): TDataSet;
 var
      LClientDataSet: TClientDataSet;
-     LDataSet: TDataSet;
+
+function ConvertToDataSet(LResultSet: IDBResultSet): TDataSet;
+var
      Contador: Integer;
 begin
-     LClientDataSet := TClientDataSet.Create(nil);
-     //
      try
           LClientDataSet.Close;
           LClientDataSet.FieldDefs.Clear;
@@ -53,12 +53,8 @@ begin
                //
                LClientDataSet.Post;
           end;
-          //
-          LDataSet := LClientDataSet;
-          //
-          //LClientDataSet.Free;
      finally
-          Result := LDataSet;
+          Result := LClientDataSet;
      end;
 end;
 
@@ -101,5 +97,13 @@ begin
           Result := LDataSet;
      end;
 end;
+
+initialization
+
+     LClientDataSet := TClientDataSet.Create(nil);
+
+finalization
+
+     LClientDataSet.Free;
 
 end.

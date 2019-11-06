@@ -9,11 +9,12 @@ type
      TViewSplash = class(TForm)
           TimerSplash: TTimer;
           LayoutMain: TLayout;
-          RectangleBlack: TRectangle;
           LabelSystem: TLabel;
           LabelVersion: TLabel;
           LabelCompany: TLabel;
-          ShadowEffect: TShadowEffect;
+    ImageBackground: TImage;
+    BlurEffect: TBlurEffect;
+    ShadowEffect: TShadowEffect;
           procedure FormShow(Sender: TObject);
           procedure TimerSplashTimer(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);

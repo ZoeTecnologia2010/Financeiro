@@ -3,25 +3,34 @@ unit Financas.View.Login;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.Layouts, FMX.Ani, FMX.Effects;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.Layouts, FMX.Ani, FMX.Effects, FMX.Filter.Effects;
 
 type
      TViewLogin = class(TForm)
           LayoutMain: TLayout;
+          LayoutFundo: TLayout;
+          ImageBackground: TImage;
+          BlurEffect: TBlurEffect;
+          GloomEffect: TGloomEffect;
+          RectangleBackground: TRectangle;
+          ImageCompany: TImage;
           LayoutLogin: TLayout;
           RectangleLogin: TRectangle;
-          LabelUser: TLabel;
-          LabelPassword: TLabel;
-          EditUser: TEdit;
-          EditPassword: TEdit;
-          ButtonOk: TButton;
-          ButtonCancel: TButton;
-          PanelMain: TPanel;
-          ShadowEffect: TShadowEffect;
+          LayoutButton: TLayout;
+          ButtonLogin: TRectangle;
+          LabelButtonLogin: TLabel;
+          ShadowButtonLogin: TShadowEffect;
+          ShadowButton: TShadowEffect;
+          ButtonCancel: TRectangle;
+          LabelButtonCancel: TLabel;
+          ShadowButtonCancel: TShadowEffect;
+    EditPassword: TEdit;
+    EditUsername: TEdit;
+    LabelCompany: TLabel;
           procedure ButtonCancelClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);
-          procedure ButtonOkClick(Sender: TObject);
           function Login(UserName, Password: String): Boolean;
+          procedure ButtonLoginClick(Sender: TObject);
      private
           { Private declarations }
           Uid: TGuid;
@@ -45,11 +54,12 @@ begin
      Close;
 end;
 
-procedure TViewLogin.ButtonOkClick(Sender: TObject);
+procedure TViewLogin.ButtonLoginClick(Sender: TObject);
 begin
-     FLogin := Login(EditUser.Text, EditUser.Text);
+     FLogin := Login(EditUsername.Text, EditPassword.Text);
      //
-     if FLogin then Close;
+     if FLogin then
+          Close;
 end;
 
 procedure TViewLogin.FormCreate(Sender: TObject);
@@ -60,7 +70,8 @@ begin
      //
      if Result = S_OK then
           FClientID := GuidToString(Uid)
-     else FClientID := '555';
+     else
+          FClientID := '555';
 end;
 
 function TViewLogin.Login(UserName, Password: String): Boolean;

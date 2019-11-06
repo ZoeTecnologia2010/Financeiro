@@ -68,5 +68,5 @@ begin
      Application.ProcessMessages;
      //
      Application.CreateForm(TViewPrincipal, ViewPrincipal);
-     Application.Run;
+  Application.Run;
 end.

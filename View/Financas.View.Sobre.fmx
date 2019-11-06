@@ -1,0 +1,73 @@
+object ViewSobre: TViewSobre
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'Sobre'
+  ClientHeight = 147
+  ClientWidth = 235
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object RectangleDashboard: TRectangle
+    Align = Client
+    Fill.Color = claSlategray
+    Size.Width = 235.000000000000000000
+    Size.Height = 147.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+  end
+  object LabelSystem: TLabel
+    StyledSettings = [Family, Size, Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'labelstyle'
+    TextSettings.FontColor = claWhite
+    Text = 'Sistema Modelo'
+    TabOrder = 6
+  end
+  object LabelVersion: TLabel
+    StyledSettings = [Family, Size, Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'labelstyle'
+    TextSettings.FontColor = claWhite
+    Text = 'Vers'#227'o 0.0.0.0'
+    TabOrder = 5
+  end
+  object LabelCompany: TLabel
+    StyledSettings = [Family, Size, Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'labelstyle'
+    TextSettings.FontColor = claWhite
+    Text = 'Empresa Modelo'
+    TabOrder = 3
+  end
+  object LabelSite: TLabel
+    StyledSettings = [Family, Size, Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'labelstyle'
+    TextSettings.FontColor = claWhite
+    Text = 'http://www.company.com'
+    TabOrder = 4
+  end
+end

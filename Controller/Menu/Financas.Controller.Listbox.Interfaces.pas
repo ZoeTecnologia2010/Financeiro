@@ -34,6 +34,7 @@ type
           function Name(Value: String): iControllerListboxItensDefault;
           function Text(Value: String): iControllerListboxItensDefault;
           function StyleLookup(Value: String): iControllerListboxItensDefault;
+          function FontColor(Value: String): iControllerListboxItensDefault;
           function OnClick(Value: TNotifyEvent): iControllerListboxItensDefault;
           function Item: TFMXObject;
      end;

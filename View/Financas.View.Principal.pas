@@ -3,24 +3,34 @@ unit Financas.View.Principal;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.ListBox;
 
 type
      TViewPrincipal = class(TForm)
-          LayoutMain: TLayout;
-          LabelUser: TLabel;
+          LayoutMenu: TLayout;
           LayoutTop: TLayout;
           PanelTop: TPanel;
           ButtonDatabase: TButton;
           ButtonException: TButton;
           LayoutDashboard: TLayout;
           PanelDashboard: TPanel;
+          RectangleDashboard: TRectangle;
+          RectangleTop: TRectangle;
+          LayoutMain: TLayout;
+          LayoutUsername: TLayout;
+          RectangleUsername: TRectangle;
+          LabelUser: TLabel;
+          LayoutMenuArea: TLayout;
+          RectangleMenu: TRectangle;
+          LayoutListbox: TLayout;
+          ImageUser: TImage;
+          RectangleListbox: TRectangle;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
           procedure ButtonDatabaseClick(Sender: TObject);
-          procedure ButtonExceptionClick(Sender: TObject);
           procedure FormDestroy(Sender: TObject);
+    procedure ButtonExceptionClick(Sender: TObject);
      private
           { Private declarations }
           FCompanyName: String;
@@ -40,7 +50,7 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.Listbox.Factory, Financas.View.Conexao, Financas.View.Login, Financas.View.Dashboard;
+uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.ListBox.Factory, Financas.View.Conexao, Financas.View.Login, Financas.View.Dashboard, Financas.View.Sobre;
 
 procedure TViewPrincipal.ReadVersionInfo;
 begin
@@ -87,16 +97,12 @@ begin
 end;
 
 procedure TViewPrincipal.ButtonExceptionClick(Sender: TObject);
-var
-     Contador: Integer;
 begin
-     TControllerAnalyticFactory.New.GetEvent('Erro', 'Erro na conversão', Name);
+     TControllerAnalyticFactory.New.GetEvent(TComponent(Sender).ClassName, TButton(Sender).Text, TButton(Sender).Name);
      //
-     try
-          Contador := StrToInt('A');
-     except
-          raise Exception.Create('Erro na conversão');
-     end;
+     ViewSobre := TViewSobre.Create(Self);
+     //
+     ViewSobre.ShowModal;
 end;
 
 procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -111,7 +117,7 @@ procedure TViewPrincipal.FormCreate(Sender: TObject);
 begin
      ReadVersionInfo;
      //
-     Caption := FSystemName + ' - ' + FVersion;
+     Caption := FSystemName;
 end;
 
 procedure TViewPrincipal.FormDestroy(Sender: TObject);
@@ -130,9 +136,9 @@ begin
           Exit;
      end;
      //
-     LabelUser.Text := TControllerLogin.New.GetUserName + ' => ' + TControllerLogin.New.GetClientID;
+     LabelUser.Text := TControllerLogin.New.GetUserName;
      //
-     TControllerListboxFactory.New.Principal(LayoutMain).Exibir;
+     TControllerListboxFactory.New.Principal(LayoutListbox).Exibir;
      //
      LoadDashboard;
 end;

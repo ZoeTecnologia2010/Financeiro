@@ -49,6 +49,7 @@ begin
      FListbox.Name := 'ListaDefault';
      FListbox.Align := TAlignlayout.Client;
      FListbox.ItemHeight := 60;
+     FListbox.StyleLookup := 'transparentlistboxstyle';
 end;
 
 destructor TControllerListboxDefault.Destroy;

@@ -78,7 +78,7 @@ function TViewLogin.Login(UserName, Password: String): Boolean;
 begin
      Result := False;
      //
-     if (UserName <> '') and (Password <> '') and (UserName = Password) then
+     if (UserName <> '') and (Password <> '') and (UpperCase(UserName) = UpperCase(Password)) then
      begin
           Result := True;
           //

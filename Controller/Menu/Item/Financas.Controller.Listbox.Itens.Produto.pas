@@ -45,6 +45,8 @@ begin
      Result := TControllerListboxItensFactory.New
                     .Default
                     .Name('btnProduto')
+                    .FontColor('White')
+                    .StyleLookup('listboxitemlabel')
                     .Text('Produtos')
                     .OnClick(OnClick)
                     .Item;

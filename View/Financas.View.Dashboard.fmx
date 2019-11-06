@@ -10,7 +10,6 @@ object ViewDashboard: TViewDashboard
   end
   object Timer: TTimer
     Enabled = False
-    Interval = 3000
     OnTimer = TimerTimer
     Left = 8
     Top = 8

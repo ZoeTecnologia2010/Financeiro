@@ -9,10 +9,12 @@ uses
 type
      TViewProduto = class(TViewModelo)
           ButtonEditor: TSpeedButton;
+    ButtonException: TButton;
           procedure ButtonEditorClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure FormShow(Sender: TObject);
           procedure ButtonFindClick(Sender: TObject);
+    procedure ButtonExceptionClick(Sender: TObject);
      private
           { Private declarations }
           FControllerEntities: iControllerEntities;
@@ -29,17 +31,30 @@ implementation
 
 uses Financas.Controller.Analytic.Factory, Financas.Controller.Entities;
 
+procedure TViewProduto.ButtonExceptionClick(Sender: TObject);
+var
+     Contador: Integer;
+begin
+     TControllerAnalyticFactory.New.GetEvent('Erro', 'Erro na conversão', Name);
+     //
+     try
+          Contador := StrToInt('A');
+     except
+          raise Exception.Create('Erro na conversão');
+     end;
+end;
+
 procedure TViewProduto.ButtonFindClick(Sender: TObject);
 begin
      inherited;
      //
      if EditFind.Text = '' then
      begin
-          FControllerEntities.Entities.Cliente.DataSet(DataSource).Open;
+          FControllerEntities.Entities.Produto.DataSet(DataSource).Open;
      end
      else
      begin
-          FControllerEntities.Entities.Cliente.DataSet(DataSource).OpenWhere('DESCRICAO LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'DESCRICAO');
+          FControllerEntities.Entities.Produto.DataSet(DataSource).OpenWhere('DESCRICAO LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'DESCRICAO');
      end;
      //
      if Assigned(DataSource.DataSet) then

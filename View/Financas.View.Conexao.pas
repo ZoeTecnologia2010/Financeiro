@@ -3,7 +3,7 @@ unit Financas.View.Conexao;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Controls.Presentation, FMX.Edit;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls, FMX.Controls.Presentation, FMX.Edit, FMX.Effects, FMX.Objects;
 
 type
      TViewConexao = class(TForm)
@@ -21,6 +21,7 @@ type
           LabelServer: TLabel;
           LabelPort: TLabel;
           ButtonCancelar: TButton;
+          RectangleDashboard: TRectangle;
           procedure ButtonGravarClick(Sender: TObject);
           procedure ButtonCancelarClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);
@@ -38,7 +39,7 @@ var
 
 implementation
 
-uses Financas.Controller.Analytic.Factory, Financas.Controller.IniFile.Factory;
+uses Financas.Controller.Analytic.Factory, Financas.Controller.IniFile.Factory, Financas.Controller.ApplicationInfo.Factory;
 
 {$R *.fmx}
 
@@ -64,6 +65,8 @@ end;
 
 procedure TViewConexao.FormCreate(Sender: TObject);
 begin
+     Caption := TControllerApplicationInfoFactory.New.ProductName + ' - ' + Caption;
+     //
      ReadIniFile;
 end;
 

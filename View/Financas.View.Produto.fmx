@@ -27,7 +27,6 @@ inherited ViewProduto: TViewProduto
       ExplicitSize.cx = 142.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       inherited StringGrid: TStringGrid
-        Options = [Editing, AlwaysShowEditor, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         Viewport.Width = 640.000000000000000000
         Viewport.Height = 388.000000000000000000
       end
@@ -38,12 +37,6 @@ inherited ViewProduto: TViewProduto
     end
   end
   inherited DataSource: TDataSource
-    DataSet = cdsRegistro
-  end
-  object cdsRegistro: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 449
-    Top = 53
+    Left = 528
   end
 end

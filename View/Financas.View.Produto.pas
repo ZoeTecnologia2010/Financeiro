@@ -9,7 +9,6 @@ uses
 type
      TViewProduto = class(TViewModelo)
           ButtonException: TButton;
-    cdsRegistro: TClientDataSet;
           procedure ButtonEditorClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           procedure ButtonFindClick(Sender: TObject);
@@ -50,14 +49,14 @@ begin
      //
      if EditFind.Text = '' then
      begin
-          FControllerEntities.Entities.Produto.DataSet(cdsRegistro).Open;
+          FControllerEntities.Entities.Produto.DataSet(CDSLocal).Open;
      end
      else
      begin
-          FControllerEntities.Entities.Produto.DataSet(cdsRegistro).OpenWhere('DESCRICAO LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'DESCRICAO');
+          FControllerEntities.Entities.Produto.DataSet(CDSLocal).OpenWhere('DESCRICAO LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'DESCRICAO');
      end;
      //
-     if Assigned(cdsRegistro) then
+     if Assigned(CDSLocal) then
      begin
           StringGrid.Columns[0].Visible := False;
           //

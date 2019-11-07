@@ -8,20 +8,21 @@ uses
 
 type
      TViewCliente = class(TViewModelo)
-    EditID: TEdit;
-    EditNome: TEdit;
-    EditDocumento: TEdit;
-    LabelID: TLabel;
-    LabelNome: TLabel;
-    LabelDocumento: TLabel;
+          EditID: TEdit;
+          EditNome: TEdit;
+          EditDocumento: TEdit;
+          LabelID: TLabel;
+          LabelNome: TLabel;
+          LabelDocumento: TLabel;
           procedure FormCreate(Sender: TObject);
           procedure ButtonFindClick(Sender: TObject);
-    procedure BindNavigatorClick(Sender: TObject; Button: TNavigateButton);
+          procedure BindNavigatorClick(Sender: TObject; Button: TNavigateButton);
      private
           { Private declarations }
      public
           { Public declarations }
           FControllerEntities: iControllerEntities;
+          LinkControlToField: TLinkControlToField;
      end;
 
 var
@@ -45,14 +46,14 @@ procedure TViewCliente.ButtonFindClick(Sender: TObject);
 begin
      if EditFind.Text = '' then
      begin
-          FControllerEntities.Entities.Cliente.DataSet(DataSource).Open;
+          FControllerEntities.Entities.Cliente.DataSet(CDSLocal).Open;
      end
      else
      begin
-          FControllerEntities.Entities.Cliente.DataSet(DataSource).OpenWhere('NOME LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'NOME');
+          FControllerEntities.Entities.Cliente.DataSet(CDSLocal).OpenWhere('NOME LIKE ' + QuotedStr('%' + EditFind.Text + '%'), 'NOME');
      end;
      //
-     if Assigned(DataSource.DataSet) then
+     if Assigned(CDSLocal) then
      begin
           StringGrid.Columns[0].Visible := False;
           //
@@ -65,6 +66,15 @@ begin
      inherited;
      //
      FControllerEntities := TControllerEntities.New;
+     //
+     LinkControlToField := TLinkControlToField.Create(Self);
+     LinkControlToField.Name := 'LinkControlToFieldNOME';
+     LinkControlToField.Category := 'Quick Bindings';
+     LinkControlToField.DataSource := BindSourceDB;
+     LinkControlToField.FieldName := 'NOME';
+     LinkControlToField.Control := EditNome;
+     LinkControlToField.AutoActivate := True;
+     LinkControlToField.Track := True;
 end;
 
 initialization

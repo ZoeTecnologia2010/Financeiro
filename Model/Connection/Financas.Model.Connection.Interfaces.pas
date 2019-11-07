@@ -11,12 +11,6 @@ type
           function SQL(SQLCommand: String): TDataSet;
      end;
 
-     iModelQuery = interface
-          ['{E28E3388-34D3-4497-830B-D3BC351D711C}']
-          function cdsQuery: TClientDataSet;
-          function Query: TDataSet;
-     end;
-
 implementation
 
 end.

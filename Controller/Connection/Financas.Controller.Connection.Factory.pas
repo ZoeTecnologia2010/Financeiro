@@ -14,13 +14,12 @@ type
           destructor Destroy; override;
           class function New: iControllerConnectionFactory;
           function Connection: iModelConnection;
-          function Query: iModelQuery;
           function SQL(SQLCommand: String): TDataSet;
      end;
 
 implementation
 
-uses System.SysUtils, Financas.Model.Connection, Financas.Model.Connection.Query;
+uses System.SysUtils, Financas.Model.Connection;
 
 { TModelConnectionFactory }
 
@@ -42,11 +41,6 @@ end;
 class function TControllerConnectionFactory.New: iControllerConnectionFactory;
 begin
      Result := Self.Create;
-end;
-
-function TControllerConnectionFactory.Query: iModelQuery;
-begin
-     Result := TModelConnectionQuery.New;
 end;
 
 function TControllerConnectionFactory.SQL(SQLCommand: String): TDataSet;

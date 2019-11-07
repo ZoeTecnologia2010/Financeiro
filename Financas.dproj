@@ -102,7 +102,7 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>Financas</SanitizedProjectName>
-        <DCC_Define>FMX;has_fmx;$(DCC_Define)</DCC_Define>
+        <DCC_Define>FMX;has_fmx;USECLIENTDATASET;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;emsclientfiredac;tethering;DataSnapFireDAC;bindcompfmx;FmxTeeUI;fmx;FireDACIBDriver;FireDACDBXDriver;dbexpress;IndyCore;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;soapserver;bindengine;CloudService;FireDACCommonDriver;DataSnapClient;inet;IndyIPCommon;bindcompdbx;IndyIPServer;IndySystem;fmxFireDAC;FireDAC;FireDACSqliteDriver;FMXTee;soaprtl;DbxCommonDriver;xmlrtl;soapmidas;DataSnapNativeClient;FireDACDSDriver;rtl;DbxClientDriver;CustomIPTransport;bindcomp;IndyIPClient;dbxcds;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;$(DCC_UsePackage)</DCC_UsePackage>
@@ -418,7 +418,6 @@
         <DCCReference Include="Model\IniFile\Financas.Model.IniFile.pas"/>
         <DCCReference Include="Model\DAO\Financas.Model.DAO.pas"/>
         <DCCReference Include="Model\DAO\Financas.Model.DAO.Interfaces.pas"/>
-        <DCCReference Include="Model\Connection\Financas.Model.Connection.Query.pas"/>
         <DCCReference Include="Model\Connection\Financas.Model.Connection.pas"/>
         <DCCReference Include="Model\LogFile\Financas.Model.LogFile.Interfaces.pas"/>
         <DCCReference Include="Model\LogFile\Financas.Model.LogFile.pas"/>

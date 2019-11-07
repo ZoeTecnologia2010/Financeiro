@@ -110,6 +110,7 @@ object ViewModelo: TViewModelo
     end
   end
   object DataSource: TDataSource
+    DataSet = CDSLocal
     Left = 536
     Top = 56
   end
@@ -130,5 +131,11 @@ object ViewModelo: TViewModelo
       GridControl = StringGrid
       Columns = <>
     end
+  end
+  object CDSLocal: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 449
+    Top = 61
   end
 end

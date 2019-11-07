@@ -49,7 +49,6 @@ uses
   Financas.Model.IniFile in 'Model\IniFile\Financas.Model.IniFile.pas',
   Financas.Model.DAO in 'Model\DAO\Financas.Model.DAO.pas',
   Financas.Model.DAO.Interfaces in 'Model\DAO\Financas.Model.DAO.Interfaces.pas',
-  Financas.Model.Connection.Query in 'Model\Connection\Financas.Model.Connection.Query.pas',
   Financas.Model.Connection in 'Model\Connection\Financas.Model.Connection.pas',
   Financas.Model.LogFile.Interfaces in 'Model\LogFile\Financas.Model.LogFile.Interfaces.pas',
   Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas',
@@ -72,5 +71,5 @@ begin
      ViewLogin.ShowModal;
      //
      Application.CreateForm(TViewPrincipal, ViewPrincipal);
-     Application.Run;
+  Application.Run;
 end.

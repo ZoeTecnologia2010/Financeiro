@@ -21,6 +21,7 @@ type
           TabData: TTabItem;
           StringGrid: TStringGrid;
           LinkGridToDataSourceBindSourceDB: TLinkGridToDataSource;
+    CDSLocal: TClientDataSet;
           procedure FormShow(Sender: TObject);
      private
           { Private declarations }

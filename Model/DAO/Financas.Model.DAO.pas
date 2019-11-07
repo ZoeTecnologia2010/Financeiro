@@ -4,23 +4,20 @@ interface
 
 uses Financas.Model.DAO.Interfaces, Financas.Model.Connection.Interfaces, Data.DB, Datasnap.DBClient,
      // ormbr
-     ormbr.factory.firedac, ormbr.container.fdmemtable, ormbr.factory.interfaces, ormbr.dml.generator.sqlite, ormbr.container.clientdataset, ormbr.container.dataset.interfaces, ormbr.criteria, ormbr.container.objectset, ormbr.container.objectset.interfaces, ormbr.factory.sqlite3, SQLiteTable3;
+     ormbr.factory.firedac, ormbr.manager.dataset, ormbr.container.clientdataset, ormbr.factory.interfaces, ormbr.dml.generator.sqlite, ormbr.container.dataset.interfaces, ormbr.criteria, ormbr.container.objectset, ormbr.container.objectset.interfaces, ormbr.factory.sqlite3, SQLiteTable3;
 
 type
      TModelDAO<T: class, constructor> = class(TInterfacedObject, iModelDAO<T>)
      private
           oConn: IDBConnection;
-          oContainer: IContainerDataSet<T>;
+          FManager: TManagerDataSet;
           FConnection: iModelConnection;
-          FQuery: iModelQuery;
           FNewThis: T;
      public
           constructor Create;
           destructor Destroy; override;
           class function New: iModelDAO<T>;
-          function DataSet(aValue: TClientDataSet): iModelDAO<T>; overload;
-          function DataSet(aValue: TDataSource): iModelDAO<T>; overload;
-          function DataSet(aValue: TDataSet): iModelDAO<T>; overload;
+          function DataSet(aValue: TClientDataSet): iModelDAO<T>;
           function Open: iModelDAO<T>;
           function OpenWhere(AWhere, AOrderBy: String): iModelDAO<T>;
           function ApplyUpdate: iModelDAO<T>;
@@ -31,7 +28,7 @@ type
 
 implementation
 
-uses Financas.Controller.Connection.Factory;
+uses Financas.Controller.Connection.Factory, System.SysUtils;
 
 { TModelDAO }
 
@@ -39,53 +36,43 @@ function TModelDAO<T>.ApplyUpdate: iModelDAO<T>;
 begin
      Result := Self;
      //
+     oConn.StartTransaction;
+     //
      try
-          oConn.StartTransaction;
-          oContainer.ApplyUpdates(0);
+          FManager.ApplyUpdates<T>(-1);
+          //
           oConn.Commit;
      except
-          oConn.Rollback;
+          on E: Exception do
+          begin
+               oConn.Rollback;
+               //
+               raise Exception.Create(E.Message);
+          end;
      end;
 end;
 
 constructor TModelDAO<T>.Create;
 begin
      FConnection := TControllerConnectionFactory.New.Connection;
-     FQuery := TControllerConnectionFactory.New.Query;
      FNewThis := nil;
      //
      oConn := TFactoryFireDAC.Create(FConnection.Connection, dnSQLite);
-     oContainer := TContainerClientDataSet<T>.Create(oConn, FQuery.Query);
-end;
-
-function TModelDAO<T>.DataSet(aValue: TDataSource): iModelDAO<T>;
-begin
-     Result := Self;
      //
-     aValue.DataSet := FQuery.Query;
-end;
-
-function TModelDAO<T>.DataSet(aValue: TDataSet): iModelDAO<T>;
-begin
-     Result := Self;
-     //
-     aValue.Assign(FQuery.Query);
+     FManager := TManagerDataSet.Create(oConn);
 end;
 
 function TModelDAO<T>.DataSet(aValue: TClientDataSet): iModelDAO<T>;
 begin
      Result := Self;
      //
-     try
-          aValue.DisableControls;
-          aValue.CloneCursor(FQuery.cdsQuery, True, True);
-     finally
-          aValue.EnableControls;
-     end;
+     FManager.AddAdapter<T>(aValue).Open<T>;
 end;
 
 destructor TModelDAO<T>.Destroy;
 begin
+     FManager.Free;
+     //
      inherited;
 end;
 
@@ -98,21 +85,21 @@ function TModelDAO<T>.Open: iModelDAO<T>;
 begin
      Result := Self;
      //
-     oContainer.Open;
+     FManager.Open<T>;
 end;
 
 function TModelDAO<T>.OpenWhere(AWhere, AOrderBy: String): iModelDAO<T>;
 begin
      Result := Self;
      //
-     oContainer.OpenWhere(AWhere, AOrderBy);
+     FManager.OpenWhere<T>(AWhere, AOrderBy);
 end;
 
 function TModelDAO<T>.Save: iModelDAO<T>;
 begin
      Result := Self;
      //
-     oContainer.Save(FNewThis);
+     FManager.Save<T>(FNewThis);
      //
      Self.ApplyUpdate;
      //
@@ -121,14 +108,14 @@ end;
 
 function TModelDAO<T>._newthis: T;
 begin
-     if FNewThis = nil then FNewThis := oContainer.Current;
+     if FNewThis = nil then FNewThis := FManager.Current<T>;
      //
      Result := FNewThis;
 end;
 
 function TModelDAO<T>._this: T;
 begin
-     Result := oContainer.Current;
+     Result := FManager.Current<T>;
 end;
 
 end.

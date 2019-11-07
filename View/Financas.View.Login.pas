@@ -24,28 +24,31 @@ type
           ButtonCancel: TRectangle;
           LabelButtonCancel: TLabel;
           ShadowButtonCancel: TShadowEffect;
-    EditPassword: TEdit;
-    EditUsername: TEdit;
-    LabelCompany: TLabel;
+          EditPassword: TEdit;
+          EditUsername: TEdit;
+          LabelCompany: TLabel;
           procedure ButtonCancelClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);
           function Login(UserName, Password: String): Boolean;
           procedure ButtonLoginClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure EditPasswordKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
      private
           { Private declarations }
-          Uid: TGuid;
-          Result: HResult;
-     public
-          { Public declarations }
           FLogin: Boolean;
           FClientID: String;
           FUserName: String;
+     public
+          { Public declarations }
      end;
 
 var
      ViewLogin: TViewLogin;
 
 implementation
+
+uses Financas.Controller.Login;
 
 {$R *.fmx}
 
@@ -56,13 +59,34 @@ end;
 
 procedure TViewLogin.ButtonLoginClick(Sender: TObject);
 begin
+     FUserName := EditUsername.Text;
+     //
      FLogin := Login(EditUsername.Text, EditPassword.Text);
      //
      if FLogin then
+     begin
+          TControllerLogin.New.SetLogin(FLogin);
+          TControllerLogin.New.SetUserName(FUserName);
+          TControllerLogin.New.SetClientID(FClientID);
+          //
           Close;
+     end;
+end;
+
+procedure TViewLogin.EditPasswordKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
+begin
+     if Key = 13 then ButtonLoginClick(Sender);
+end;
+
+procedure TViewLogin.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+     Action := TCloseAction.caFree;
 end;
 
 procedure TViewLogin.FormCreate(Sender: TObject);
+var
+     Uid: TGuid;
+     Result: HResult;
 begin
      FLogin := False;
      //
@@ -74,18 +98,19 @@ begin
           FClientID := '555';
 end;
 
+procedure TViewLogin.FormShow(Sender: TObject);
+begin
+     EditUsername.SetFocus;
+end;
+
 function TViewLogin.Login(UserName, Password: String): Boolean;
 begin
      Result := False;
      //
      if (UserName <> '') and (Password <> '') and (UpperCase(UserName) = UpperCase(Password)) then
-     begin
-          Result := True;
-          //
-          FUserName := UserName;
-     end
+          Result := True
      else
-          raise exception.Create('Usuário e Senha inválidos!');
+          raise Exception.Create('Usuário e Senha inválidos!');
 end;
 
 end.

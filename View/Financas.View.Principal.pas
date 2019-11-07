@@ -30,15 +30,10 @@ type
           procedure FormShow(Sender: TObject);
           procedure ButtonDatabaseClick(Sender: TObject);
           procedure FormDestroy(Sender: TObject);
-    procedure ButtonExceptionClick(Sender: TObject);
+          procedure ButtonExceptionClick(Sender: TObject);
      private
           { Private declarations }
-          FCompanyName: String;
-          FSystemName: String;
-          FVersion: String;
           procedure LoadDashboard;
-          procedure ReadVersionInfo;
-          function LoginView: Boolean;
      public
           { Public declarations }
      end;
@@ -52,13 +47,6 @@ implementation
 
 uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.ListBox.Factory, Financas.View.Conexao, Financas.View.Login, Financas.View.Dashboard, Financas.View.Sobre;
 
-procedure TViewPrincipal.ReadVersionInfo;
-begin
-     FSystemName := TControllerApplicationInfoFactory.New.ProductName;
-     FCompanyName := TControllerApplicationInfoFactory.New.CompanyName;
-     FVersion := 'Versão ' + TControllerApplicationInfoFactory.New.FileVersion;
-end;
-
 procedure TViewPrincipal.LoadDashboard;
 var
      frmEmbeded: TViewDashboard;
@@ -68,23 +56,6 @@ begin
      frmEmbeded.Align := TAlignLayout.Client;
      //
      Application.ProcessMessages;
-end;
-
-function TViewPrincipal.LoginView: Boolean;
-begin
-     Result := False;
-     //
-     try
-          ViewLogin := TViewLogin.Create(nil);
-          ViewLogin.ShowModal;
-          //
-          Result := ViewLogin.FLogin;
-          //
-          TControllerLogin.New.SetClientID(ViewLogin.FClientID);
-          TControllerLogin.New.SetUserName(ViewLogin.FUserName);
-     finally
-          ViewLogin.Free;
-     end;
 end;
 
 procedure TViewPrincipal.ButtonDatabaseClick(Sender: TObject);
@@ -115,9 +86,7 @@ end;
 
 procedure TViewPrincipal.FormCreate(Sender: TObject);
 begin
-     ReadVersionInfo;
-     //
-     Caption := FSystemName;
+     Caption := TControllerApplicationInfoFactory.New.CompanyName;
 end;
 
 procedure TViewPrincipal.FormDestroy(Sender: TObject);
@@ -127,20 +96,22 @@ end;
 
 procedure TViewPrincipal.FormShow(Sender: TObject);
 begin
-     TControllerAnalyticFactory.New.GetPage(Name, Caption);
-     //
-     if not LoginView then
+     if not TControllerLogin.New.GetLogin then
      begin
           Application.Terminate;
           //
           Exit;
+     end
+     else
+     begin
+          TControllerAnalyticFactory.New.GetPage(Name, Caption);
+          //
+          LabelUser.Text := TControllerLogin.New.GetUserName;
+          //
+          TControllerListboxFactory.New.Principal(LayoutListbox).Exibir;
+          //
+          LoadDashboard;
      end;
-     //
-     LabelUser.Text := TControllerLogin.New.GetUserName;
-     //
-     TControllerListboxFactory.New.Principal(LayoutListbox).Exibir;
-     //
-     LoadDashboard;
 end;
 
 end.

@@ -100,7 +100,7 @@ begin
           EnvStr.Values['ck'] := aUserID;
           EnvStr.Values['cc'] := aScreenResolution;
           //
-          //RegisterDAT(EnvStr.Text);
+          RegisterDAT(EnvStr.Text);
           RegisterAnalytic(EnvStr);
      finally
           EnvStr.Free;
@@ -128,7 +128,7 @@ begin
           EnvStr.Values['el'] := aLabel;
           EnvStr.Values['ev'] := aValue;
           //
-          //RegisterDAT(EnvStr.Text);
+          RegisterDAT(EnvStr.Text);
           RegisterAnalytic(EnvStr);
      finally
           EnvStr.Free;

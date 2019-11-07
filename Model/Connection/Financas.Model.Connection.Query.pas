@@ -12,6 +12,7 @@ Type
           constructor Create;
           destructor Destroy; override;
           class function New: iModelQuery;
+          function cdsQuery: TClientDataSet;
           function Query: TDataSet;
      end;
 
@@ -20,6 +21,11 @@ implementation
 uses System.SysUtils;
 
 { TModelConnectionQuery }
+
+function TModelConnectionQuery.cdsQuery: TClientDataSet;
+begin
+     Result := FQuery;
+end;
 
 constructor TModelConnectionQuery.Create;
 begin

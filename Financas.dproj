@@ -374,6 +374,9 @@
         <DCCReference Include="View\Financas.View.Sobre.pas">
             <Form>ViewSobre</Form>
         </DCCReference>
+        <DCCReference Include="View\Financas.View.Conexao.pas">
+            <Form>ViewConexao</Form>
+        </DCCReference>
         <DCCReference Include="View\Financas.View.Dashboard.pas">
             <Form>ViewDashboard</Form>
             <DesignClass>TFrame</DesignClass>
@@ -421,10 +424,6 @@
         <DCCReference Include="Model\LogFile\Financas.Model.LogFile.pas"/>
         <DCCReference Include="Model\Analytic\Financas.Model.Analytic.pas"/>
         <DCCReference Include="Model\Analytic\Financas.Model.Analytic.Interfaces.pas"/>
-        <DCCReference Include="View\Financas.View.Conexao.pas">
-            <Form>ViewConexao</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

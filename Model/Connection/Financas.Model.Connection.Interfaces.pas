@@ -2,7 +2,7 @@ unit Financas.Model.Connection.Interfaces;
 
 interface
 
-uses Data.DB;
+uses Data.DB, Datasnap.DBClient;
 
 type
      iModelConnection = interface
@@ -13,6 +13,7 @@ type
 
      iModelQuery = interface
           ['{E28E3388-34D3-4497-830B-D3BC351D711C}']
+          function cdsQuery: TClientDataSet;
           function Query: TDataSet;
      end;
 

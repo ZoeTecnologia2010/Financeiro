@@ -43,16 +43,8 @@ begin
 end;
 
 constructor TViewDashboard.Create(AOwner: TComponent);
-var
-     LDataSet: TDataSet;
 begin
      inherited;
-     //
-     LDataSet := TControllerConnectionFactory.New.SQL(SQLCommandSerie1);
-     //
-     DataSourceSerie1.DataSet := LDataSet;
-     //
-     GeneratorSerie(cdsLocal, DataSourceSerie1.DataSet, 'LABEL', 'VALUE', '');
      //
      Timer.Enabled := True;
 end;
@@ -93,11 +85,19 @@ begin
 end;
 
 procedure TViewDashboard.TimerTimer(Sender: TObject);
+var
+     LDataSet: TDataSet;
 begin
+     Timer.Interval := 30000;
+     //
+     LDataSet := TControllerConnectionFactory.New.SQL(SQLCommandSerie1);
+     //
+     DataSourceSerie1.DataSet := LDataSet;
+     //
+     GeneratorSerie(cdsLocal, DataSourceSerie1.DataSet, 'LABEL', 'VALUE', '');
+     //
      if cdsLocal.Active and (cdsLocal.RecordCount > 0) then
      begin
-          Timer.Interval := 30000;
-          //
           WebChartsLocal
                .NewProject
                     .Charts._ChartType(doughnut)

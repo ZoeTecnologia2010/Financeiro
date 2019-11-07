@@ -2,7 +2,7 @@ unit Financas.Controller.Analytic.Factory;
 
 interface
 
-uses Financas.Controller.Analytic.Interfaces, Financas.Model.Analytic, Financas.Controller.Login, Financas.Controller.Login.Interfaces;
+uses Financas.Controller.Analytic.Interfaces, Financas.Model.Analytic, Financas.Controller.Login, Financas.Controller.Login.Interfaces, System.Types;
 
 type
      TControllerAnalyticFactory = class(TInterfacedObject, iControllerAnalyticFactory)
@@ -33,7 +33,12 @@ implementation
 uses System.SysUtils, FMX.Forms, Financas.Controller.ApplicationInfo.Factory;
 
 constructor TControllerAnalyticFactory.Create;
+var
+     OSVersion: TOSVersion;
+     ScreenSize: TSize;
 begin
+     ScreenSize := Screen.Size;
+     //
      FClientID := TControllerLogin.New.GetClientID;
      FUserID := TControllerLogin.New.GetUserName;
      //
@@ -42,11 +47,11 @@ begin
      FSource := 'App';
      //
      FAppName := TControllerApplicationInfoFactory.New.ProductName;
-     FReference := 'http://www.zoetecnologia.com.br';
+     FReference := TControllerApplicationInfoFactory.New.Comments;
+     FAppVersion := TControllerApplicationInfoFactory.New.FileVersion;
      //
-     FUserAgent := 'Windows 10';
-     FAppVersion := '1.0.0.1';
-     FScreenResolution := '800x600';
+     FUserAgent := OSVersion.Name; //OSVersion.ToString
+     FScreenResolution := IntToStr(ScreenSize.Width) + ' x ' + IntToStr(ScreenSize.Height);
      //
      FAnalytic := TModelAnalytic.Create;
 end;

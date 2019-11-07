@@ -10,6 +10,7 @@ uses
   Financas.View.Cliente in 'View\Financas.View.Cliente.pas' {ViewCliente},
   Financas.View.Produto in 'View\Financas.View.Produto.pas' {ViewProduto},
   Financas.View.Sobre in 'View\Financas.View.Sobre.pas' {ViewSobre},
+  Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao},
   Financas.View.Dashboard in 'View\Financas.View.Dashboard.pas' {ViewDashboard: TFrame},
   Financas.Controller.Entity in 'Controller\Entity\Financas.Controller.Entity.pas',
   Financas.Controller.ApplicationInfo.Factory in 'Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas',
@@ -53,8 +54,7 @@ uses
   Financas.Model.LogFile.Interfaces in 'Model\LogFile\Financas.Model.LogFile.Interfaces.pas',
   Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas',
   Financas.Model.Analytic in 'Model\Analytic\Financas.Model.Analytic.pas',
-  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas',
-  Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao};
+  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas';
 
 {$R *.res}
 
@@ -68,7 +68,9 @@ begin
      //
      Application.ProcessMessages;
      //
+     ViewLogin := TViewLogin.Create(nil);
+     ViewLogin.ShowModal;
+     //
      Application.CreateForm(TViewPrincipal, ViewPrincipal);
-  Application.CreateForm(TViewConexao, ViewConexao);
-  Application.Run;
+     Application.Run;
 end.

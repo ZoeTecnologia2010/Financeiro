@@ -1,46 +1,49 @@
 inherited ViewProduto: TViewProduto
   Caption = 'Produto(s)'
   OnCreate = FormCreate
-  OnShow = FormShow
   DesignerMasterStyle = 0
-  inherited StringGrid: TStringGrid
-    Viewport.Width = 640.000000000000000000
-    Viewport.Height = 414.000000000000000000
+  inherited BindNavigator: TBindNavigator
+    OnClick = BindNavigatorClick
   end
-  inherited Panel1: TPanel
+  inherited PanelTop: TPanel
     inherited ButtonFind: TButton
       OnClick = ButtonFindClick
     end
-    inherited EditFind: TEdit
-      TabOrder = 2
-    end
-    inherited LabelFind: TLabel
-      TabOrder = 3
-    end
-    object ButtonEditor: TSpeedButton
-      Position.X = 552.000000000000000000
-      Position.Y = 8.000000000000000000
-      Size.Width = 80.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Editor'
-      OnClick = ButtonEditorClick
-    end
     object ButtonException: TButton
-      Anchors = [akTop, akRight]
-      Margins.Left = 5.000000000000000000
-      Margins.Top = 5.000000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 5.000000000000000000
-      Position.X = 458.000000000000000000
-      Position.Y = 2.000000000000000000
-      Size.Width = 48.000000000000000000
-      Size.Height = 47.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = 'infotoolbutton'
-      TabOrder = 1
+      Position.X = 464.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 3
       Text = 'Exception'
       OnClick = ButtonExceptionClick
     end
+  end
+  inherited TabControlDataSet: TTabControl
+    Sizes = (
+      640s
+      388s
+      640s
+      388s)
+    inherited TabList: TTabItem
+      ExplicitSize.cx = 142.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      inherited StringGrid: TStringGrid
+        Options = [Editing, AlwaysShowEditor, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+        Viewport.Width = 640.000000000000000000
+        Viewport.Height = 388.000000000000000000
+      end
+    end
+    inherited TabData: TTabItem
+      ExplicitSize.cx = 118.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+  end
+  inherited DataSource: TDataSource
+    DataSet = cdsRegistro
+  end
+  object cdsRegistro: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 449
+    Top = 53
   end
 end

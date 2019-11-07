@@ -9,23 +9,27 @@ type
           private
                FClientID : String;
                FUserName : String;
+               FLogin: Boolean;
           public
                constructor Create;
                property ClientID: String read FClientID write FClientID;
                property UserName: String read FUserName write FUserName;
+               property Login: Boolean read FLogin write FLogin;
      end;
 
      TControllerLogin = class(TInterfacedObject, iControllerLogin)
           private
                //
           published
-               procedure SetClientID(const Value: String);
-               procedure SetUserName(const Value: String);
-               function GetClientID: String;
-               function GetUserName: String;
                constructor Create;
                destructor Destroy; override;
                class function New: iControllerLogin;
+               procedure SetClientID(const Value: String);
+               procedure SetUserName(const Value: String);
+               procedure SetLogin(const Value: Boolean);
+               function GetClientID: String;
+               function GetUserName: String;
+               function GetLogin: Boolean;
      end;
 
 implementation
@@ -39,6 +43,7 @@ constructor TUserLogin.Create;
 begin
      FClientID := '';
      FUserName := '';
+     FLogin := False;
 end;
 
 constructor TControllerLogin.Create;
@@ -56,6 +61,11 @@ begin
      Result := UserLogin.ClientID;
 end;
 
+function TControllerLogin.GetLogin: Boolean;
+begin
+     Result := UserLogin.Login;
+end;
+
 function TControllerLogin.GetUserName: String;
 begin
      Result := UserLogin.UserName;
@@ -69,6 +79,11 @@ end;
 procedure TControllerLogin.SetClientID(const Value: String);
 begin
      UserLogin.ClientID := Value;
+end;
+
+procedure TControllerLogin.SetLogin(const Value: Boolean);
+begin
+     UserLogin.Login := Value;
 end;
 
 procedure TControllerLogin.SetUserName(const Value: String);

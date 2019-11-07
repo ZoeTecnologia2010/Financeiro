@@ -2,7 +2,7 @@ unit Financas.Model.DAO;
 
 interface
 
-uses Financas.Model.DAO.Interfaces, Financas.Model.Connection.Interfaces, Data.DB,
+uses Financas.Model.DAO.Interfaces, Financas.Model.Connection.Interfaces, Data.DB, Datasnap.DBClient,
      // ormbr
      ormbr.factory.firedac, ormbr.container.fdmemtable, ormbr.factory.interfaces, ormbr.dml.generator.sqlite, ormbr.container.clientdataset, ormbr.container.dataset.interfaces, ormbr.criteria, ormbr.container.objectset, ormbr.container.objectset.interfaces, ormbr.factory.sqlite3, SQLiteTable3;
 
@@ -18,6 +18,7 @@ type
           constructor Create;
           destructor Destroy; override;
           class function New: iModelDAO<T>;
+          function DataSet(aValue: TClientDataSet): iModelDAO<T>; overload;
           function DataSet(aValue: TDataSource): iModelDAO<T>; overload;
           function DataSet(aValue: TDataSet): iModelDAO<T>; overload;
           function Open: iModelDAO<T>;
@@ -69,6 +70,18 @@ begin
      Result := Self;
      //
      aValue.Assign(FQuery.Query);
+end;
+
+function TModelDAO<T>.DataSet(aValue: TClientDataSet): iModelDAO<T>;
+begin
+     Result := Self;
+     //
+     try
+          aValue.DisableControls;
+          aValue.CloneCursor(FQuery.cdsQuery, True, True);
+     finally
+          aValue.EnableControls;
+     end;
 end;
 
 destructor TModelDAO<T>.Destroy;

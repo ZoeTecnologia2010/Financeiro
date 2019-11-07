@@ -10,35 +10,25 @@ object ViewModelo: TViewModelo
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnShow = FormShow
   DesignerMasterStyle = 0
-  object StringGrid: TStringGrid
-    Align = Client
-    CanFocus = True
-    ClipChildren = True
-    Size.Width = 640.000000000000000000
-    Size.Height = 414.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    Viewport.Width = 636.000000000000000000
-    Viewport.Height = 389.000000000000000000
-  end
   object BindNavigator: TBindNavigator
     Align = Bottom
     Position.Y = 455.000000000000000000
     Size.Width = 640.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 1
     DataSource = BindSourceDB
     xRadius = 4.000000000000000000
     yRadius = 4.000000000000000000
   end
-  object Panel1: TPanel
+  object PanelTop: TPanel
     Align = Top
     Size.Width = 640.000000000000000000
     Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 6
+    TabOrder = 5
     object ButtonFind: TButton
       Position.X = 272.000000000000000000
       Position.Y = 8.000000000000000000
@@ -63,6 +53,60 @@ object ViewModelo: TViewModelo
       Size.PlatformDefault = False
       Text = 'Texto:'
       TabOrder = 2
+    end
+  end
+  object TabControlDataSet: TTabControl
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 414.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 9
+    TabPosition = Bottom
+    Sizes = (
+      640s
+      388s
+      640s
+      388s)
+    object TabList: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 142.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Listagem dos Registros'
+      ExplicitSize.cx = 142.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object StringGrid: TStringGrid
+        Align = Client
+        CanFocus = True
+        ClipChildren = True
+        Size.Width = 640.000000000000000000
+        Size.Height = 388.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Options = [ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+        Viewport.Width = 636.000000000000000000
+        Viewport.Height = 363.000000000000000000
+      end
+    end
+    object TabData: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 118.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Dados do Registro'
+      ExplicitSize.cx = 118.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
     end
   end
   object DataSource: TDataSource

@@ -16,6 +16,7 @@ type
           procedure GeneratorSerie(var Destination: TClientDataSet; Source: TDataSet; FieldLabel, FieldValue, FieldRGB: String);
           procedure TimerTimer(Sender: TObject);
           constructor Create(AOwner: TComponent); override;
+          destructor Destroy; override;
      private
           { Private declarations }
      public
@@ -26,10 +27,7 @@ implementation
 
 {$R *.fmx}
 
-uses Charts.Types, TypInfo, Financas.Controller.Connection.Factory;
-
-var
-     SQLCommandSerie1: String;
+uses Charts.Types, TypInfo, Financas.Controller.Connection.Factory, Financas.Controller.Command.Factory;
 
 function GenerateRandomColor: String;
 var
@@ -47,6 +45,13 @@ begin
      inherited;
      //
      Timer.Enabled := True;
+end;
+
+destructor TViewDashboard.Destroy;
+begin
+     cdsLocal.Close;
+     //
+     inherited;
 end;
 
 procedure TViewDashboard.GeneratorSerie(var Destination: TClientDataSet; Source: TDataSet; FieldLabel, FieldValue, FieldRGB: String);
@@ -90,7 +95,7 @@ var
 begin
      Timer.Interval := 30000;
      //
-     LDataSet := TControllerConnectionFactory.New.SQL(SQLCommandSerie1);
+     LDataSet := TControllerConnectionFactory.New.SQL(TControllerCommandFactory.New.Dashboard);
      //
      DataSourceSerie1.DataSet := LDataSet;
      //
@@ -127,18 +132,5 @@ end;
 initialization
 
   RegisterClass(TViewDashboard);
-
-  SQLCommandSerie1 := 'SELECT DESCRICAO AS LABEL, ID AS VALUE FROM Produto';
-
-//  SQLCommandSerie1 := 'SELECT ' +
-//'{fn CONVERT({fn YEAR(VENCIMENTO)}, INT)} AS ANO, ' +
-//'{fn CONVERT({fn MONTH(VENCIMENTO)}, INT)} AS MES, ' +
-//'{fn CONVERT({fn MONTH(VENCIMENTO)}, VARCHAR)} AS LABEL, ' +
-//'{fn CONCAT({fn CONVERT({fn MONTHNAME(VENCIMENTO)}, CHAR)}, {fn CONCAT(' + QuotedStr(' / ') + ', {fn CONVERT({fn YEAR(VENCIMENTO)}, CHAR)})})} AS LABEL, ' +
-//'SUM({fn IFNULL(COBRADO, 0)}) AS VALUE, ' +
-//'SUM({fn IFNULL(RECEBIDO, 0)}) AS VALUE ' +
-//'FROM ContratoParcela ' +
-//'GROUP BY ANO, MES, VENCIMENTO ' +
-//'ORDER BY ANO, MES, VENCIMENTO '
 
 end.

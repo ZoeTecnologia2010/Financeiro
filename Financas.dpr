@@ -53,12 +53,16 @@ uses
   Financas.Model.LogFile.Interfaces in 'Model\LogFile\Financas.Model.LogFile.Interfaces.pas',
   Financas.Model.LogFile in 'Model\LogFile\Financas.Model.LogFile.pas',
   Financas.Model.Analytic in 'Model\Analytic\Financas.Model.Analytic.pas',
-  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas';
+  Financas.Model.Analytic.Interfaces in 'Model\Analytic\Financas.Model.Analytic.Interfaces.pas',
+  Financas.Model.Command in 'Model\Command\Financas.Model.Command.pas',
+  Financas.Model.Command.Interfaces in 'Model\Command\Financas.Model.Command.Interfaces.pas',
+  Financas.Controller.Command.Factory in 'Controller\Command\Financas.Controller.Command.Factory.pas',
+  Financas.Controller.Command.Interfaces in 'Controller\Command\Financas.Controller.Command.Interfaces.pas';
 
 {$R *.res}
 
 begin
-     ReportMemoryLeaksOnShutdown := True;
+     ReportMemoryLeaksOnShutdown := DebugHook <> 0;
      //
      Application.Initialize;
      //

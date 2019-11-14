@@ -273,6 +273,10 @@
         <VerInfo_Build>1</VerInfo_Build>
         <DCC_Hints>false</DCC_Hints>
         <DCC_Warnings>false</DCC_Warnings>
+        <PF_KeyStore>C:\Projetos\MODELO\Certificados\ZoeTecnologia.pfx</PF_KeyStore>
+        <PF_KeyStorePass>853547C65F925585A304712AD15DE33A81940557A005978797B40FAA8E6D3CD0DB48A3D6E3181C3AC1B85752FAB3C36BBABA361304262290166845ECE5BA2290C95DF35DD544A8E1D3803B47727185CA</PF_KeyStorePass>
+        <PF_KeyStoreSubject>CN=zoetecnologia</PF_KeyStoreSubject>
+        <PF_UWPDistributionType>AdHoc</PF_UWPDistributionType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXInterBaseDriver;DBXDb2Driver;vclactnband;vclFireDAC;emsclientfiredac;tethering;DataSnapFireDAC;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;DBXOracleDriver;inetdb;FmxTeeUI;emsedge;fmx;FireDACIBDriver;fmxdae;RVPkgD10_3;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;RvHtmlD10_3;inet;IndyIPCommon;bindcompdbx;vcl;IndyIPServer;DBXSybaseASEDriver;IndySystem;FireDACDb2Driver;dsnapcon;tmsxlsdXE12;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;RichViewActionsD10_3;TeeDB;FireDAC;emshosting;tmsdXE12;FireDACSqliteDriver;FireDACPgDriver;FireDACASADriver;FireDACTDataDriver;DBXOdbcDriver;FMXTee;soaprtl;DbxCommonDriver;Tee;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;FireDACDSDriver;rtl;emsserverresource;DbxClientDriver;tmsexdXE12;DBXSybaseASADriver;RVDBPkgD10_3;CustomIPTransport;vcldsnap;rvHtmlViewImportD10_3;bindcomp;appanalytics;DBXInformixDriver;officeXPrt;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;inetdbxpress;FireDACMongoDBDriver;PowerPDFDR;DataSnapServerMidas;$(DCC_UsePackage)</DCC_UsePackage>
@@ -291,6 +295,10 @@
         <VerInfo_Build>1</VerInfo_Build>
         <DCC_Hints>false</DCC_Hints>
         <DCC_Warnings>false</DCC_Warnings>
+        <PF_KeyStore>C:\Projetos\MODELO\Certificados\ZoeTecnologia.pfx</PF_KeyStore>
+        <PF_KeyStorePass>853547C65F9207AACF23E565A400E36281C30502A02B979B97EE0FB48E3E3C9EDB56A384E34A1C6BC1AE577CFA9CC360BAE1367E044B22801678459DE5E522CEC91BF36FD558FAD0BFAFAF11070285CA</PF_KeyStorePass>
+        <PF_KeyStoreSubject>CN=zoetecnologia</PF_KeyStoreSubject>
+        <PF_UWPDistributionType>AdHoc</PF_UWPDistributionType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -381,6 +389,9 @@
             <Form>ViewDashboard</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="View\Financas.View.Dialog.pas">
+            <Form>ViewDialog</Form>
+        </DCCReference>
         <DCCReference Include="Controller\Entity\Financas.Controller.Entity.pas"/>
         <DCCReference Include="Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas"/>
         <DCCReference Include="Controller\Application\Financas.Controller.ApplicationInfo.Interfaces.pas"/>
@@ -427,10 +438,6 @@
         <DCCReference Include="Model\Command\Financas.Model.Command.Interfaces.pas"/>
         <DCCReference Include="Controller\Command\Financas.Controller.Command.Factory.pas"/>
         <DCCReference Include="Controller\Command\Financas.Controller.Command.Interfaces.pas"/>
-        <DCCReference Include="View\Financas.View.Dialog.pas">
-            <Form>ViewDialog</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="Controller\Dialog\Financas.Controller.Dialog.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

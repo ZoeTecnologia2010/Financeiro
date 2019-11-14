@@ -12,6 +12,7 @@ uses
   Financas.View.Sobre in 'View\Financas.View.Sobre.pas' {ViewSobre},
   Financas.View.Conexao in 'View\Financas.View.Conexao.pas' {ViewConexao},
   Financas.View.Dashboard in 'View\Financas.View.Dashboard.pas' {ViewDashboard: TFrame},
+  Financas.View.Dialog in 'View\Financas.View.Dialog.pas' {ViewDialog},
   Financas.Controller.Entity in 'Controller\Entity\Financas.Controller.Entity.pas',
   Financas.Controller.ApplicationInfo.Factory in 'Controller\Application\Financas.Controller.ApplicationInfo.Factory.pas',
   Financas.Controller.ApplicationInfo.Interfaces in 'Controller\Application\Financas.Controller.ApplicationInfo.Interfaces.pas',
@@ -58,7 +59,6 @@ uses
   Financas.Model.Command.Interfaces in 'Model\Command\Financas.Model.Command.Interfaces.pas',
   Financas.Controller.Command.Factory in 'Controller\Command\Financas.Controller.Command.Factory.pas',
   Financas.Controller.Command.Interfaces in 'Controller\Command\Financas.Controller.Command.Interfaces.pas',
-  Financas.View.Dialog in 'View\Financas.View.Dialog.pas' {ViewDialog},
   Financas.Controller.Dialog in 'Controller\Dialog\Financas.Controller.Dialog.pas';
 
 {$R *.res}

@@ -15,7 +15,7 @@ type
 
 implementation
 
-uses Financas.Model.LogFile;
+uses Financas.Model.LogFile, Financas.Controller.Dialog;
 
 { TControllerExcaption }
 
@@ -26,6 +26,8 @@ end;
 
 procedure TControllerException.LogException(Sender: TObject; E: Exception);
 begin
+     TControllerDialog.Dialog('E', E.Message);
+     //
      TModelLogFile.New.SaveLog('====================================================================================================');
      //
      if TComponent(Sender) is TForm then
@@ -40,8 +42,6 @@ begin
           TModelLogFile.New.SaveLog('Class: ' + E.ClassName);
           TModelLogFile.New.SaveLog('Error: ' + E.Message);
      end;
-     //
-     Application.ShowException(E);
 end;
 
 var

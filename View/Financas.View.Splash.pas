@@ -3,7 +3,7 @@ unit Financas.View.Splash;
 interface
 
 uses
-     System.SysUtils, System.Types, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.UITypes, FMX.Objects, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Effects;
+     System.SysUtils, System.Types, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, System.UITypes, FMX.Objects, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Effects;
 
 type
      TViewSplash = class(TForm)
@@ -12,9 +12,9 @@ type
           LabelSystem: TLabel;
           LabelVersion: TLabel;
           LabelCompany: TLabel;
-    ImageBackground: TImage;
-    BlurEffect: TBlurEffect;
-    ShadowEffect: TShadowEffect;
+          ImageBackground: TImage;
+          BlurEffect: TBlurEffect;
+          ShadowEffect: TShadowEffect;
           procedure FormShow(Sender: TObject);
           procedure TimerSplashTimer(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);

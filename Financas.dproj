@@ -427,6 +427,11 @@
         <DCCReference Include="Model\Command\Financas.Model.Command.Interfaces.pas"/>
         <DCCReference Include="Controller\Command\Financas.Controller.Command.Factory.pas"/>
         <DCCReference Include="Controller\Command\Financas.Controller.Command.Interfaces.pas"/>
+        <DCCReference Include="View\Financas.View.Dialog.pas">
+            <Form>ViewDialog</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Controller\Dialog\Financas.Controller.Dialog.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

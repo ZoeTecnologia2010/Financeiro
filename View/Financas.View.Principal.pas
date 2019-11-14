@@ -3,7 +3,7 @@ unit Financas.View.Principal;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.ListBox;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.ListBox;
 
 type
      TViewPrincipal = class(TForm)
@@ -45,7 +45,7 @@ implementation
 
 {$R *.fmx}
 
-uses Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.ListBox.Factory, Financas.View.Conexao, Financas.View.Login, Financas.View.Dashboard, Financas.View.Sobre;
+uses Financas.Controller.Dialog, Financas.Controller.Login, Financas.Controller.Login.Interfaces, Financas.Controller.Analytic.Factory, Financas.Controller.ApplicationInfo.Factory, Financas.Controller.ListBox.Factory, Financas.View.Conexao, Financas.View.Login, Financas.View.Dashboard, Financas.View.Sobre;
 
 procedure TViewPrincipal.LoadDashboard;
 var
@@ -78,7 +78,7 @@ end;
 
 procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-     if MessageDlg('Deseja encerrar o sistema?', TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], 0, TMsgDlgBtn.mbYes) = mrYes then
+     if TControllerDialog.Dialog('C', 'Deseja encerrar o sistema?') then
           Action := TCloseAction.caFree
      else
           Action := TCloseAction.caNone;

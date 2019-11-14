@@ -2,7 +2,7 @@ unit Financas.Model.Command;
 
 interface
 
-uses Financas.Model.Command.Interfaces, FMX.Dialogs,
+uses Financas.Model.Command.Interfaces,
      // ORMBr
      cqlbr.interfaces, cqlbr.select.sqlite, cqlbr.serialize.sqlite, criteria.query.language;
 

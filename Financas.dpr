@@ -57,7 +57,9 @@ uses
   Financas.Model.Command in 'Model\Command\Financas.Model.Command.pas',
   Financas.Model.Command.Interfaces in 'Model\Command\Financas.Model.Command.Interfaces.pas',
   Financas.Controller.Command.Factory in 'Controller\Command\Financas.Controller.Command.Factory.pas',
-  Financas.Controller.Command.Interfaces in 'Controller\Command\Financas.Controller.Command.Interfaces.pas';
+  Financas.Controller.Command.Interfaces in 'Controller\Command\Financas.Controller.Command.Interfaces.pas',
+  Financas.View.Dialog in 'View\Financas.View.Dialog.pas' {ViewDialog},
+  Financas.Controller.Dialog in 'Controller\Dialog\Financas.Controller.Dialog.pas';
 
 {$R *.res}
 
@@ -75,5 +77,6 @@ begin
      ViewLogin.ShowModal;
      //
      Application.CreateForm(TViewPrincipal, ViewPrincipal);
+  Application.CreateForm(TViewDialog, ViewDialog);
   Application.Run;
 end.

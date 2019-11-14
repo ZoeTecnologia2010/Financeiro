@@ -4,7 +4,7 @@ interface
 
 uses
      System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, Data.DB, Datasnap.DBClient,
-     FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls, View.WebCharts, FMX.WebBrowser;
+     FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.StdCtrls, View.WebCharts, FMX.WebBrowser;
 
 type
      TViewDashboard = class(TFrame)

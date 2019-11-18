@@ -59,7 +59,8 @@ uses
   Financas.Model.Command.Interfaces in 'Model\Command\Financas.Model.Command.Interfaces.pas',
   Financas.Controller.Command.Factory in 'Controller\Command\Financas.Controller.Command.Factory.pas',
   Financas.Controller.Command.Interfaces in 'Controller\Command\Financas.Controller.Command.Interfaces.pas',
-  Financas.Controller.Dialog in 'Controller\Dialog\Financas.Controller.Dialog.pas';
+  Financas.Controller.Dialog in 'Controller\Dialog\Financas.Controller.Dialog.pas',
+  Financas.Model.Entity.Usuario in 'Model\Entity\Financas.Model.Entity.Usuario.pas';
 
 {$R *.res}
 

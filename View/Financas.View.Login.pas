@@ -31,9 +31,9 @@ type
           procedure FormCreate(Sender: TObject);
           function Login(UserName, Password: String): Boolean;
           procedure ButtonLoginClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormShow(Sender: TObject);
-    procedure EditPasswordKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
+          procedure FormClose(Sender: TObject; var Action: TCloseAction);
+          procedure FormShow(Sender: TObject);
+          procedure EditPasswordKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
      private
           { Private declarations }
           FLogin: Boolean;
@@ -48,7 +48,7 @@ var
 
 implementation
 
-uses Financas.Controller.Login;
+uses Financas.Controller.Login, Financas.Controller.Dialog;
 
 {$R *.fmx}
 
@@ -75,7 +75,8 @@ end;
 
 procedure TViewLogin.EditPasswordKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
 begin
-     if Key = 13 then ButtonLoginClick(Sender);
+     if Key = 13 then
+          ButtonLoginClick(Sender);
 end;
 
 procedure TViewLogin.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -107,10 +108,11 @@ function TViewLogin.Login(UserName, Password: String): Boolean;
 begin
      Result := False;
      //
-     if (UserName <> '') and (Password <> '') and (UpperCase(UserName) = UpperCase(Password)) then
-          Result := True
-     else
-          raise Exception.Create('Usuário e Senha inválidos!');
+     if (UserName <> '') and (Password <> '') then
+          Result := TControllerLogin.New.Authentication(UserName, Password);
+     //
+     if not Result then
+          TControllerDialog.Dialog('E', 'Usuário e Senha inválidos!')
 end;
 
 end.

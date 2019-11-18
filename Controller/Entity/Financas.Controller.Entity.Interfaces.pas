@@ -2,7 +2,7 @@ unit Financas.Controller.Entity.Interfaces;
 
 interface
 
-uses Financas.Model.DAO.Interfaces, Financas.Model.Entity.Cliente, Financas.Model.Entity.Contrato, Financas.Model.Entity.ContratoParcela, Financas.Model.Entity.Produto;
+uses Financas.Model.DAO.Interfaces, Financas.Model.Entity.Cliente, Financas.Model.Entity.Contrato, Financas.Model.Entity.ContratoParcela, Financas.Model.Entity.Produto, Financas.Model.Entity.Usuario;
 
 type
      iControllerEntity = interface
@@ -11,6 +11,7 @@ type
           function Contrato: iModelDAO<TContrato>;
           function ContratoParcela: iModelDAO<TContratoParcela>;
           function Produto: iModelDAO<TProduto>;
+          function Usuario: iModelDAO<TUsuario>;
      end;
 
      iControllerEntities = interface

@@ -11,6 +11,7 @@ type
           function GetClientID: String;
           function GetUserName: String;
           function GetLogin: Boolean;
+          function Authentication(Username, Password: String): Boolean;
      end;
 
 implementation

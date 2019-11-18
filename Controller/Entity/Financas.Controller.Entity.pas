@@ -2,7 +2,7 @@ unit Financas.Controller.Entity;
 
 interface
 
-uses Financas.Controller.Entity.Interfaces, Financas.Model.DAO.Interfaces, Financas.Model.Entity.Cliente, Financas.Model.Entity.Contrato, Financas.Model.Entity.ContratoParcela, Financas.Model.Entity.Produto;
+uses Financas.Controller.Entity.Interfaces, Financas.Model.DAO.Interfaces, Financas.Model.Entity.Cliente, Financas.Model.Entity.Contrato, Financas.Model.Entity.ContratoParcela, Financas.Model.Entity.Produto, Financas.Model.Entity.Usuario;
 
 type
      TControllerEntity = class(TInterfacedObject, iControllerEntity)
@@ -11,6 +11,7 @@ type
           FProduto: iModelDAO<TProduto>;
           FContrato: iModelDAO<TContrato>;
           FContratoParcela: iModelDAO<TContratoParcela>;
+          FUsuario: iModelDAO<TUsuario>;
      public
           constructor Create;
           destructor Destroy; override;
@@ -19,6 +20,7 @@ type
           function Contrato: iModelDAO<TContrato>;
           function ContratoParcela: iModelDAO<TContratoParcela>;
           function Produto: iModelDAO<TProduto>;
+          function Usuario: iModelDAO<TUsuario>;
      end;
 
 implementation
@@ -68,6 +70,13 @@ begin
      if not Assigned(FProduto) then FProduto := TModelDAO<TProduto>.New;
      //
      Result := FProduto;
+end;
+
+function TControllerEntity.Usuario: iModelDAO<TUsuario>;
+begin
+     if not Assigned(FUsuario) then FUsuario := TModelDAO<TUsuario>.New;
+     //
+     Result := FUsuario;
 end;
 
 end.

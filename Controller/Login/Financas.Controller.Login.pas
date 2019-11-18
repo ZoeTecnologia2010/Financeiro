@@ -2,7 +2,7 @@ unit Financas.Controller.Login;
 
 interface
 
-uses Financas.Controller.Login.Interfaces;
+uses System.SysUtils, Datasnap.DBClient, Financas.Controller.Login.Interfaces, Financas.Controller.Entity.Interfaces;
 
 type
      TUserLogin = class
@@ -30,11 +30,14 @@ type
                function GetClientID: String;
                function GetUserName: String;
                function GetLogin: Boolean;
+               function Authentication(Username, Password: String): Boolean;
      end;
 
 implementation
 
 { TControllerLogin }
+
+uses Financas.Controller.Entities;
 
 var
      UserLogin: TUserLogin;
@@ -44,6 +47,26 @@ begin
      FClientID := '';
      FUserName := '';
      FLogin := False;
+end;
+
+function TControllerLogin.Authentication(Username, Password: String): Boolean;
+var
+     FControllerEntities: iControllerEntities;
+     cdsLocal: TClientDataSet;
+begin
+     Result := False;
+     //
+     FControllerEntities := TControllerEntities.New;
+     //
+     cdsLocal := TClientDataSet.Create(nil);
+     //
+     FControllerEntities.Entities.Usuario.DataSet(cdsLocal).OpenWhere('nomeLogin = ' + QuotedStr(Username) + ' AND nomeSenha = ' + QuotedStr(Password) + ' AND ativoUsuario = 1', 'idUsuario');
+     //
+     Result := (cdsLocal.Active and (cdsLocal.RecordCount > 0));
+     //
+     cdsLocal.Close;
+     //
+     FreeAndNil(cdsLocal);
 end;
 
 constructor TControllerLogin.Create;

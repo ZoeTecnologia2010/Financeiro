@@ -38,6 +38,7 @@ begin
                                    .Select
                                         .Column('Vencimento').&As('LABEL')
                                         .Column('Cobrado').&As('VALUE')
+                                        .Column(CQL.Q('000, 208, 194')).&As('RGB')
                                    .From('ContratoParcela')
                                    .GroupBy('Vencimento')
                                    .OrderBy('Vencimento')

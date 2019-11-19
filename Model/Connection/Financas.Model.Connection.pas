@@ -35,11 +35,29 @@ var
 function ConvertToDataSet(LResultSet: IDBResultSet): TDataSet;
 var
      Contador: Integer;
+     FieldName: String;
+     FieldType: TFieldType;
+     FieldSize: Integer;
 begin
      try
           LClientDataSet.Close;
           LClientDataSet.FieldDefs.Clear;
-          LClientDataSet.FieldDefs := LResultSet.FieldDefs;
+          //
+          for Contador := 0 to LResultSet.FieldDefs.Count-1 do
+          begin
+               FieldName := LResultSet.FieldDefs[Contador].Name;
+               //
+               if LResultSet.FieldDefs[Contador].Size > 300 then
+                    FieldSize := 300
+               else FieldSize := LResultSet.FieldDefs[Contador].Size;
+               //
+               if LResultSet.FieldDefs[Contador].DataType = ftWideString then
+                    FieldType := ftString
+               else FieldType := LResultSet.FieldDefs[Contador].DataType;
+               //
+               LClientDataSet.FieldDefs.Add(FieldName, FieldType, FieldSize, False);
+          end;
+          //
           LClientDataSet.CreateDataSet;
           //
           LClientDataSet.Open;

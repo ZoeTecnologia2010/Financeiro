@@ -4,7 +4,7 @@ interface
 
 uses
      System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, Data.DB, Datasnap.DBClient,
-     FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.StdCtrls, View.WebCharts, FMX.WebBrowser;
+     FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.StdCtrls, View.WebCharts, FMX.WebBrowser, FMX.Dialogs;
 
 type
      TViewDashboard = class(TFrame)
@@ -99,13 +99,13 @@ begin
      //
      DataSourceSerie1.DataSet := LDataSet;
      //
-     GeneratorSerie(cdsLocal, DataSourceSerie1.DataSet, 'LABEL', 'VALUE', '');
+     GeneratorSerie(cdsLocal, DataSourceSerie1.DataSet, 'LABEL', 'VALUE', 'RGB');
      //
      if cdsLocal.Active and (cdsLocal.RecordCount > 0) then
      begin
           WebChartsLocal
                .NewProject
-                    .Charts._ChartType(doughnut)
+                    .Charts._ChartType(TTypeChart.bar)
                          .Attributes
                               .ColSpan(12)
                               .Options

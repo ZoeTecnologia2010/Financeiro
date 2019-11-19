@@ -21,7 +21,6 @@ type
           LabelServer: TLabel;
           LabelPort: TLabel;
           ButtonCancelar: TButton;
-          RectangleDashboard: TRectangle;
           procedure ButtonGravarClick(Sender: TObject);
           procedure ButtonCancelarClick(Sender: TObject);
           procedure FormCreate(Sender: TObject);

@@ -5,7 +5,7 @@ object ViewConexao: TViewConexao
   BorderStyle = Single
   Caption = 'Conex'#227'o com Banco de Dados'
   ClientHeight = 336
-  ClientWidth = 235
+  ClientWidth = 251
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -14,16 +14,9 @@ object ViewConexao: TViewConexao
   OnClose = FormClose
   OnShow = FormShow
   DesignerMasterStyle = 0
-  object RectangleDashboard: TRectangle
-    Align = Client
-    Fill.Color = claSlategray
-    Size.Width = 235.000000000000000000
-    Size.Height = 336.000000000000000000
-    Size.PlatformDefault = False
-    Stroke.Kind = None
-  end
   object EditDataBase: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'clearingeditstyle'
     TabOrder = 7
     Position.X = 8.000000000000000000
     Position.Y = 24.000000000000000000
@@ -34,6 +27,7 @@ object ViewConexao: TViewConexao
   end
   object EditUserName: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'clearingeditstyle'
     TabOrder = 6
     Position.X = 8.000000000000000000
     Position.Y = 72.000000000000000000
@@ -44,6 +38,7 @@ object ViewConexao: TViewConexao
   end
   object EditPassword: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'clearingeditstyle'
     TabOrder = 5
     Password = True
     Position.X = 8.000000000000000000
@@ -55,6 +50,7 @@ object ViewConexao: TViewConexao
   end
   object EditDriverID: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'clearingeditstyle'
     TabOrder = 4
     Position.X = 8.000000000000000000
     Position.Y = 168.000000000000000000
@@ -65,6 +61,7 @@ object ViewConexao: TViewConexao
   end
   object EditPort: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'clearingeditstyle'
     TabOrder = 3
     Position.X = 8.000000000000000000
     Position.Y = 264.000000000000000000
@@ -75,6 +72,7 @@ object ViewConexao: TViewConexao
   end
   object EditServer: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
+    StyleLookup = 'clearingeditstyle'
     TabOrder = 2
     Position.X = 8.000000000000000000
     Position.Y = 216.000000000000000000
@@ -91,10 +89,9 @@ object ViewConexao: TViewConexao
     Size.Width = 105.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    StyleLookup = 'toolbuttonleft'
+    StyleLookup = 'toolbutton'
     TabOrder = 10
     Text = 'Gravar'
-    TextSettings.FontColor = claWhite
     OnClick = ButtonGravarClick
   end
   object LabelDatabase: TLabel
@@ -105,7 +102,6 @@ object ViewConexao: TViewConexao
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'labelstyle'
-    TextSettings.FontColor = claWhite
     Text = 'Banco de Dados'
     TabOrder = 16
   end
@@ -117,7 +113,6 @@ object ViewConexao: TViewConexao
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'labelstyle'
-    TextSettings.FontColor = claWhite
     Text = 'Usu'#225'rio'
     TabOrder = 15
   end
@@ -129,7 +124,6 @@ object ViewConexao: TViewConexao
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'labelstyle'
-    TextSettings.FontColor = claWhite
     Text = 'Senha'
     TabOrder = 14
   end
@@ -141,7 +135,6 @@ object ViewConexao: TViewConexao
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'labelstyle'
-    TextSettings.FontColor = claWhite
     Text = 'Driver'
     TabOrder = 11
   end
@@ -153,7 +146,6 @@ object ViewConexao: TViewConexao
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'labelstyle'
-    TextSettings.FontColor = claWhite
     Text = 'Servidor'
     TabOrder = 13
   end
@@ -165,22 +157,20 @@ object ViewConexao: TViewConexao
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'labelstyle'
-    TextSettings.FontColor = claWhite
     Text = 'Porta'
     TabOrder = 12
   end
   object ButtonCancelar: TButton
     Anchors = [akRight, akBottom]
     StyledSettings = [Family, Size, Style]
-    Position.X = 120.000000000000000000
+    Position.X = 136.000000000000000000
     Position.Y = 304.000000000000000000
     Size.Width = 105.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    StyleLookup = 'toolbuttonright'
+    StyleLookup = 'toolbutton'
     TabOrder = 9
     Text = 'Cancelar'
-    TextSettings.FontColor = claWhite
     OnClick = ButtonCancelarClick
   end
 end

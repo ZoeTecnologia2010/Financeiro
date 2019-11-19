@@ -8,7 +8,6 @@ uses
 type
      TViewSobre = class(TForm)
           LabelSystem: TLabel;
-          RectangleDashboard: TRectangle;
           LabelVersion: TLabel;
           LabelCompany: TLabel;
           LabelSite: TLabel;

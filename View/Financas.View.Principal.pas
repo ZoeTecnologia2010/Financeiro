@@ -3,7 +3,7 @@ unit Financas.View.Principal;
 interface
 
 uses
-     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.ListBox;
+     System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.ListBox, FMX.TabControl;
 
 type
      TViewPrincipal = class(TForm)
@@ -25,6 +25,7 @@ type
           LayoutListbox: TLayout;
           ImageUser: TImage;
           RectangleListbox: TRectangle;
+          StyleBookLocal: TStyleBook;
           procedure FormCreate(Sender: TObject);
           procedure FormClose(Sender: TObject; var Action: TCloseAction);
           procedure FormShow(Sender: TObject);
@@ -63,6 +64,7 @@ begin
      TControllerAnalyticFactory.New.GetEvent(TComponent(Sender).ClassName, TButton(Sender).Text, TButton(Sender).Name);
      //
      ViewConexao := TViewConexao.Create(Self);
+     ViewConexao.StyleBook := StyleBookLocal;
      //
      ViewConexao.ShowModal;
 end;
@@ -72,6 +74,7 @@ begin
      TControllerAnalyticFactory.New.GetEvent(TComponent(Sender).ClassName, TButton(Sender).Text, TButton(Sender).Name);
      //
      ViewSobre := TViewSobre.Create(Self);
+     ViewSobre.StyleBook := StyleBookLocal;
      //
      ViewSobre.ShowModal;
 end;
@@ -111,6 +114,8 @@ begin
           TControllerListboxFactory.New.Principal(LayoutListbox).Exibir;
           //
           LoadDashboard;
+          //
+          if FileExists('Financas.style') then StyleBookLocal.Resource.LoadFromFile('Financas.style');
      end;
 end;
 

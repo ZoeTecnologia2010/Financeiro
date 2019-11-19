@@ -4,8 +4,8 @@ object ViewLogin: TViewLogin
   BorderIcons = [biSystemMenu]
   BorderStyle = None
   Caption = 'Login'
-  ClientHeight = 480
-  ClientWidth = 640
+  ClientHeight = 373
+  ClientWidth = 592
   Position = ScreenCenter
   FormStyle = StayOnTop
   FormFactor.Width = 320
@@ -17,14 +17,14 @@ object ViewLogin: TViewLogin
   DesignerMasterStyle = 0
   object LayoutMain: TLayout
     Align = Contents
-    Size.Width = 640.000000000000000000
-    Size.Height = 480.000000000000000000
+    Size.Width = 592.000000000000000000
+    Size.Height = 373.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object LayoutFundo: TLayout
       Align = Contents
-      Size.Width = 640.000000000000000000
-      Size.Height = 480.000000000000000000
+      Size.Width = 592.000000000000000000
+      Size.Height = 373.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object ImageBackground: TImage
@@ -11360,8 +11360,8 @@ object ViewLogin: TViewLogin
         Align = Contents
         Scale.X = 0.500000000000000000
         Scale.Y = 0.500000000000000000
-        Size.Width = 1280.000000000000000000
-        Size.Height = 960.000000000000000000
+        Size.Width = 1184.000000000000000000
+        Size.Height = 746.000000000000000000
         Size.PlatformDefault = False
         WrapMode = Center
         object BlurEffect: TBlurEffect
@@ -11379,8 +11379,8 @@ object ViewLogin: TViewLogin
       Align = Contents
       Fill.Color = claWhite
       Opacity = 0.250000000000000000
-      Size.Width = 640.000000000000000000
-      Size.Height = 480.000000000000000000
+      Size.Width = 592.000000000000000000
+      Size.Height = 373.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
     end
@@ -11705,16 +11705,16 @@ object ViewLogin: TViewLogin
             5B07306B32B3CDE20FD65941BE1BCC9ABCD6668D2692C95F186565306C9D6465
             6125908D8DC1EE8DF22F16B3FC3FFBFC05C1B9BCA064D902771D9AC160D8BAC8
             496125E8A99FF1635CF9AFEB3F72E4226EC9B34B9A3F1CD117660C06C3964D5E
-            0A8BE8AEDD733AB7AD5FE21679EFE59489F58C896DA5BCB1AC79414E9F323718
+            0A8BE8AEDD733AB7AD5FE21679EFE59489758C89EDA4BCB1AC79414E9F323718
             0C5F4EF25658097AEB1B8F978C5F813B794EDECC87FEF56C20B49DBCCF12ECD6
             E29605B97F5EDD60307C2919B1C24AB0A9AEF1208BF3D363421E17B0792E5F0B
             76914CBE83283D2159EC8F639A3E1ED1F7DE0C06C3978F515358A9F436ECB59F
-            607C7F2E5923ACAF4992B3711663DBC4585FA12D8A058783051DB4F878077E9F
+            607C7F2E5923ACAF4992B3711663DBC4585FA12D8A058783059DF5787C077E9F
             498BBD6747C5DBC56D1FD1CE980683C1E0C917A2B088EEBAE93B3256B89B6589
             4942F2899CCB6DA1BC0A614709CE780FCCA9B5928B30E7F6A29265350BD5E681
             0683C16030180C0683C16030180C0683C16030180C0683C16030180C0683C160
-            30180C0683C16030180C0683C16030180C0683C16030180CFFD930F6FF01BE1A
-            D35D7E71EA0C0000000049454E44AE426082}
+            30180C0683C16030180C0683C16030180C0683C16030180CFFD930F6FF01BE16
+            D35DC1A566930000000049454E44AE426082}
           FileName = 'C:\Users\1513_IRON\Desktop\preview_EMBT_Primary_Logo_Black.png'
         end>
       Align = Top
@@ -11723,7 +11723,7 @@ object ViewLogin: TViewLogin
       Margins.Right = 15.000000000000000000
       Position.X = 15.000000000000000000
       Position.Y = 35.000000000000000000
-      Size.Width = 610.000000000000000000
+      Size.Width = 562.000000000000000000
       Size.Height = 78.000000000000000000
       Size.PlatformDefault = False
     end
@@ -11734,14 +11734,14 @@ object ViewLogin: TViewLogin
       Margins.Right = 30.000000000000000000
       Position.X = 30.000000000000000000
       Position.Y = 163.000000000000000000
-      Size.Width = 580.000000000000000000
+      Size.Width = 532.000000000000000000
       Size.Height = 182.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       object RectangleLogin: TRectangle
         Align = Contents
         Opacity = 0.300000011920929000
-        Size.Width = 580.000000000000000000
+        Size.Width = 532.000000000000000000
         Size.Height = 182.000000000000000000
         Size.PlatformDefault = False
         XRadius = 4.000000000000000000
@@ -11755,7 +11755,7 @@ object ViewLogin: TViewLogin
         Margins.Bottom = 10.000000000000000000
         Position.X = 120.000000000000000000
         Position.Y = 114.000000000000000000
-        Size.Width = 340.000000000000000000
+        Size.Width = 292.000000000000000000
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -11787,7 +11787,7 @@ object ViewLogin: TViewLogin
         end
         object ButtonCancel: TRectangle
           Align = Right
-          Position.X = 203.000000000000000000
+          Position.X = 155.000000000000000000
           Size.Width = 137.000000000000000000
           Size.Height = 33.000000000000000000
           Size.PlatformDefault = False
@@ -11831,7 +11831,7 @@ object ViewLogin: TViewLogin
         Margins.Top = 10.000000000000000000
         Margins.Right = 120.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Size.Width = 340.000000000000000000
+        Size.Width = 292.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Informe a senha'
@@ -11848,7 +11848,7 @@ object ViewLogin: TViewLogin
         Margins.Top = 20.000000000000000000
         Margins.Right = 120.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Size.Width = 340.000000000000000000
+        Size.Width = 292.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Informe o usu'#225'rio'
@@ -11858,8 +11858,8 @@ object ViewLogin: TViewLogin
     object LabelCompany: TLabel
       Align = Bottom
       StyledSettings = [Family, Style]
-      Position.Y = 455.000000000000000000
-      Size.Width = 640.000000000000000000
+      Position.Y = 348.000000000000000000
+      Size.Width = 592.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'labelstyle'
